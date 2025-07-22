@@ -100,7 +100,7 @@ export default function NavBar() {
             <div className="w-full"> {/* w-full เพื่อให้ปุ่มเต็มความกว้าง */}
               <button
                 onClick={() => setIsLnbitsDropdownOpen(!isLnbitsDropdownOpen)}
-                className="w-full text-left py-2 hover:text-gray-300 focus:outline-none text-m" // ลดขนาดตัวอักษรปุ่ม
+                className="w-full text-left hover:text-gray-300 focus:outline-none text-m" // ลดขนาดตัวอักษรปุ่ม
               >
                 บริการ LNbits {isLnbitsDropdownOpen ? '▲' : '▼'}
               </button>
