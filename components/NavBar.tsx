@@ -84,7 +84,7 @@ export default function NavBar() {
           {/* ส่วนสำหรับปุ่มปิด (X) - อยู่ด้านขวาบนเหมือนเดิม */}
           <div className="container mx-auto p-4 flex justify-end">
             <button onClick={() => setIsMobileMenuOpen(false)} className="text-white focus:outline-none text-1xl">
-              ✕
+              
             </button>
           </div>
           {/* ส่วนรายการเมนู - จัดให้อยู่ซ้ายบนและลดขนาดตัวอักษร */}
