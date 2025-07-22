@@ -83,7 +83,7 @@ export default function NavBar() {
         <div className="fixed inset-0 bg-gray-800 text-white z-10 overflow-y-auto">
           {/* ส่วนสำหรับปุ่มปิด (X) - อยู่ด้านขวาบนเหมือนเดิม */}
           <div className="container mx-auto p-4 flex justify-end">
-            <button onClick={() => setIsMobileMenuOpen(false)} className="text-white focus:outline-none text-1xl">
+            <button onClick={() => setIsMobileMenuOpen(false)} className="text-white focus:outline-none text-3xl">
               
             </button>
           </div>
