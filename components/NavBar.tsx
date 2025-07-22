@@ -8,10 +8,10 @@ export default function NavBar() {
   const [isLnbitsDropdownOpen, setIsLnbitsDropdownOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-800 p-4 text-white"> {/* สีพื้นหลัง NavBar */}
+    <nav className="bg-gray-800 p-4 text-white">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo/ชื่อเว็บไซต์ */}
-        <Link href="/" className="text-xl font-bold z-20"> {/* เพิ่ม z-index ให้ Logo อยู่ด้านบนสุดเสมอ */}
+        <Link href="/" className="text-xl font-bold z-20">
           Microtronic
         </Link>
 
@@ -33,9 +33,9 @@ export default function NavBar() {
               บริการ LNbits ▼
             </button>
             {isLnbitsDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-gray-700 rounded-md shadow-lg z-10"> {/* ใช้สีเดียวกับ Mobile Menu Background */}
+              <div className="absolute top-full left-0 mt-2 w-48 bg-gray-700 rounded-md shadow-lg z-10">
                 <Link
-                  href="https://your-lnbits-url-1.com"
+                  href="https://your-lnbits-url-1.com" // URL บริการ LNbits ตัวแรก
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block px-4 py-2 hover:bg-gray-600 rounded-t-md"
@@ -44,7 +44,7 @@ export default function NavBar() {
                   LNbits Service A
                 </Link>
                 <Link
-                  href="https://your-lnbits-url-2.com"
+                  href="https://your-lnbits-url-2.com" // URL บริการ LNbits ตัวที่สอง
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block px-4 py-2 hover:bg-gray-600"
@@ -71,22 +71,24 @@ export default function NavBar() {
         </div>
 
         {/* ปุ่ม Hamburger สำหรับ Mobile (แสดงเฉพาะบนมือถือ) */}
-        <div className="md:hidden z-20"> {/* เพิ่ม z-index ให้ปุ่ม Hamburger อยู่ด้านบนเมนูที่เปิด */}
+        <div className="md:hidden z-20">
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white focus:outline-none text-2xl">
-            {isMobileMenuOpen ? '✕' : '☰'} {/* เปลี่ยนไอคอนเป็น X เมื่อเปิดเมนู */}
+            {isMobileMenuOpen ? '✕' : '☰'}
           </button>
         </div>
       </div>
 
       {/* เมนู Mobile แบบ Full-screen (เปิดเมื่อ isMobileMenuOpen เป็นจริง) */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-gray-800 text-white z-10 overflow-y-auto"> {/* fixed, inset-0 เพื่อให้คลุมทั้งหน้าจอ */}
-          <div className="container mx-auto p-4 flex justify-end"> {/* สำหรับปุ่มปิด (X) */}
+        <div className="fixed inset-0 bg-gray-800 text-white z-10 overflow-y-auto">
+          {/* ส่วนสำหรับปุ่มปิด (X) - อยู่ด้านขวาบนเหมือนเดิม */}
+          <div className="container mx-auto p-4 flex justify-end">
             <button onClick={() => setIsMobileMenuOpen(false)} className="text-white focus:outline-none text-3xl">
               ✕
             </button>
           </div>
-          <div className="flex flex-col items-center justify-center h-full space-y-8 text-2xl pt-16 pb-8"> {/* ปรับ pt-16 และ pb-8 เพื่อให้มีระยะห่างด้านบนและล่าง */}
+          {/* ส่วนรายการเมนู - จัดให้อยู่ซ้ายบนและลดขนาดตัวอักษร */}
+          <div className="flex flex-col items-start px-8 py-4 space-y-4 text-xl"> {/* เปลี่ยน items-center เป็น items-start, px-8 เพื่อ padding ซ้ายขวา, py-4 เพื่อ padding บนล่าง, space-y-4 เพื่อระยะห่างระหว่างลิงก์, text-xl เพื่อลดขนาดตัวอักษร */}
             <Link href="/" className="hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>
               หน้าหลัก
             </Link>
@@ -94,16 +96,16 @@ export default function NavBar() {
               เกี่ยวกับเรา
             </Link>
 
-            {/* เมนูดรอปดาวน์สำหรับบริการ LNbits (Mobile) - ทำเป็น Accordion แทน Dropdown เพื่อให้เหมาะกับ Mobile */}
-            <div className="w-full text-center">
+            {/* เมนูดรอปดาวน์สำหรับบริการ LNbits (Mobile) - ทำเป็น Accordion */}
+            <div className="w-full"> {/* w-full เพื่อให้ปุ่มเต็มความกว้าง */}
               <button
                 onClick={() => setIsLnbitsDropdownOpen(!isLnbitsDropdownOpen)}
-                className="w-full py-2 hover:text-gray-300 focus:outline-none text-2xl"
+                className="w-full text-left py-2 hover:text-gray-300 focus:outline-none text-xl" // ลดขนาดตัวอักษรปุ่ม
               >
                 บริการ LNbits {isLnbitsDropdownOpen ? '▲' : '▼'}
               </button>
               {isLnbitsDropdownOpen && (
-                <div className="mt-2 space-y-4"> {/* ปรับ space-y สำหรับระยะห่างลิงก์ย่อย */}
+                <div className="ml-4 space-y-2"> {/* เยื้องเข้าไปด้านในเล็กน้อย */}
                   <Link
                     href="https://your-lnbits-url-1.com"
                     target="_blank"
