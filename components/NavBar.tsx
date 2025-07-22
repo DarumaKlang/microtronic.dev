@@ -105,7 +105,7 @@ export default function NavBar() {
                 บริการ LNbits {isLnbitsDropdownOpen ? '▲' : '▼'}
               </button>
               {isLnbitsDropdownOpen && (
-                <div className="ml-4 space-y-2"> {/* เยื้องเข้าไปด้านในเล็กน้อย */}
+                <div className="ml-4 py-4 space-y-4"> {/* เยื้องเข้าไปด้านในเล็กน้อย */}
                   <Link
                     href="https://your-lnbits-url-1.com"
                     target="_blank"
