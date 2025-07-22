@@ -88,7 +88,7 @@ export default function NavBar() {
             </button>
           </div>
           {/* ส่วนรายการเมนู - จัดให้อยู่ซ้ายบนและลดขนาดตัวอักษร */}
-          <div className="flex flex-col items-start px-8 py-8 space-y-6 text-m"> {/* เปลี่ยน items-center เป็น items-start, px-8 เพื่อ padding ซ้ายขวา, py-4 เพื่อ padding บนล่าง, space-y-4 เพื่อระยะห่างระหว่างลิงก์, text-m เพื่อลดขนาดตัวอักษร */}
+          <div className="flex flex-col items-start px-8 py-8 space-y-4 text-m"> {/* เปลี่ยน items-center เป็น items-start, px-8 เพื่อ padding ซ้ายขวา, py-4 เพื่อ padding บนล่าง, space-y-4 เพื่อระยะห่างระหว่างลิงก์, text-m เพื่อลดขนาดตัวอักษร */}
             <Link href="/" className="hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>
               หน้าหลัก
             </Link>
@@ -105,7 +105,7 @@ export default function NavBar() {
                 บริการ LNbits {isLnbitsDropdownOpen ? '▲' : '▼'}
               </button>
               {isLnbitsDropdownOpen && (
-                <div className="ml-4 py-4 space-y-4"> {/* เยื้องเข้าไปด้านในเล็กน้อย */}
+                <div className="ml-4 py-2 space-y-4"> {/* เยื้องเข้าไปด้านในเล็กน้อย */}
                   <Link
                     href="https://your-lnbits-url-1.com"
                     target="_blank"
