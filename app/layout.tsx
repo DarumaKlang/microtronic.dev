@@ -1,10 +1,9 @@
-import './globals.css'; // ตรวจสอบให้แน่ใจว่า import global styles ของคุณ
-
-// Import Components ที่จะอยู่ใน Layout
-import { Inter } from 'next/font/google';
-import NavBar from '../components/NavBar'; // เราจะสร้าง NavBar component นี้ทีหลัง
-import BottomNavbar from '@/components/BottomNavbar';
-import Footer from '../components/Footer'; // หรือ Footer ถ้ามี
+// src/app/layout.tsx
+import './globals.css'; // Global styles
+import { Inter } from 'next/font/google'; // Google Font
+import NavBar from '../components/NavBar'; // Top Navigation Bar
+import BottomNavbar from '@/components/BottomNavbar'; // Bottom Navigation Bar
+import Footer from '../components/Footer'; // Footer component (if applicable)
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,12 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <NavBar /> {/* เมนูจะอยู่ตรงนี้ */}
-        <main>
-          {children}
-          <BottomNavbar />
-        </main> {/* นี่คือส่วนที่เนื้อหาของแต่ละ Page จะแสดง */}
+      {/* ใช้ Class สำหรับ Background Gradient ใหม่ที่เรากำหนดใน tailwind.config.js */}
+      <body className={`${inter.className} bg-my-new-gradient`}>
+        <NavBar /> {/* เมนูด้านบน */}
+        <main className="flex-grow"> {/* เพิ่ม flex-grow เพื่อให้เนื้อหาหลักขยายเต็มที่ */}
+          {children} {/* เนื้อหาของแต่ละ Page */}
+        </main>
+        <BottomNavbar /> {/* เมนูด้านล่าง */}
         <Footer /> {/* Footer */}
       </body>
     </html>
