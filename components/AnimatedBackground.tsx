@@ -16,17 +16,15 @@ const AnimatedBackground: React.FC = () => {
 
       {/* Container หลักของ Background ที่มี Gradient Circles */}
       {/* absolute inset-0: ครอบคลุมพื้นที่เต็ม parent (body) */}
-      {/* z-[-10]: สำคัญมาก! ต้องเป็นค่าลบเพื่อให้ AnimatedBackground อยู่ด้านหลังทุกอย่าง */}
-      {/* bg-gradient-to-br from-blue-700 to-purple-800: กำหนดสีพื้นหลังเบื้องต้น (สามารถปรับเปลี่ยนได้ภายหลัง) */}
-      {/* เพิ่ม style={{ filter: 'url(#goo)' }} ไปที่ container ที่ครอบ circles ทั้งหมด */}
-      <div className="absolute inset-0 z-[-10] bg-gradient-to-br from-blue-700 to-purple-800" style={{ filter: 'url(#goo)' }}>
+      {/* Z-INDEX: ใช้ค่าลบที่ต่ำกว่าเดิม (เช่น -50 หรือ -99) เพื่อให้แน่ใจว่าอยู่ด้านหลังทุกอย่าง */}
+      {/* bg-gradient-to-br from-blue-700 to-purple-800: กำหนดสีพื้นหลังเบื้องต้น */}
+      {/* style={{ filter: 'url(#goo)' }}: ใช้ filter กับ container นี้ */}
+      <div className="absolute inset-0 z-[-50] bg-gradient-to-br from-blue-700 to-purple-800" style={{ filter: 'url(#goo)' }}> {/* <-- แก้ไขบรรทัดนี้: เปลี่ยน z-[-10] เป็น z-[-50] */}
         {/*
           ส่วนของ Gradient Circles จะถูกเพิ่มเข้ามาในขั้นตอนถัดไป
           ตอนนี้ยังคงเป็น div ว่างเปล่า หรือถ้ามี div circles อยู่แล้ว
           แต่ไม่มี animation หรือ class อื่นๆ ก็สามารถคงไว้ได้
         */}
-        {/* ตัวอย่าง div สำหรับวงกลม (ตอนนี้ยังไม่มี style หรือ animation) */}
-        {/* class gradient-circle และ circle-x จะถูกกำหนดใน globals.css */}
         <div className="gradient-circle circle-1"></div>
         <div className="gradient-circle circle-2"></div>
         <div className="gradient-circle circle-3"></div>
