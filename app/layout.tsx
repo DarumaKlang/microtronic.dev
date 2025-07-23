@@ -19,19 +19,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} min-h-screen`}
-        style={{
-          // ชั้นบน: Radial gradient ตรงกลางเป็นสีสว่าง แล้วค่อยๆ มืดลง (อาจจะใช้ opacity ช่วย)
-          // สามารถปรับเป็นโทนสีเข้มได้
-          backgroundImage: `
-            radial-gradient(circle at center, rgba(100, 50, 150, 0.2) 0%, rgba(20, 10, 30, 0.8) 70%, rgba(0, 0, 0, 0.9) 100%),
-            linear-gradient(180deg, #1A202C 0%, #2D3748 50%, #3C366B 100%)
-          `,
-          // เพิ่ม background-blend-mode เพื่อผสมผสานกัน
-          backgroundBlendMode: 'overlay', // หรือ multiply, screen, lighten, darken, etc.
-        }}
-      >
+      <body className={`${inter.className} min-h-screen
+        bg-radial-at-center
+        from-[#0E0B16]     // สีดำ-น้ำเงินเข้มมาก (จากจุดศูนย์กลาง)
+        via-[#1A182E]     // โทนน้ำเงินเข้ม
+        via-[#2A2040]     // โทนม่วงเข้มขึ้น
+        via-[#3E386D]     // โทนม่วงน้ำเงิน
+        via-[#5F52A0]     // โทนน้ำเงินม่วงสว่างขึ้นเล็กน้อย
+        via-[#8C7BBF]     // โทนฟ้า-ม่วง
+        to-[#C3B8D9]      // โทนชมพูอ่อนมากเกือบขาว (ที่ขอบนอก)
+        // ถ้าอยากให้ขอบนอกกลับไปมืดอีกครั้ง สามารถใช้สีดำใน to-[] แล้วปรับ via stops ให้เหมาะสม
+      `}>
         <NavBar />
         <main className="flex-grow">
           {children}
