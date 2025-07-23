@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* Radial Gradient โทนเข้มจากภาพตัวอย่าง */}
-      <body className={`${inter.className} min-h-screen bg-radial from-[#1A202C] via-[#2D3748] via-[#3C366B] to-[#4A1B6B]`}>
+      <body className={`${inter.className} min-h-screen bg-conic from-[#1A202C] via-[#2D3748] via-[#3C366B] to-[#4A1B6B]`}>
         <NavBar />
         <main className="flex-grow">
           {children}
