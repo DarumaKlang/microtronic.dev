@@ -1,14 +1,9 @@
-/* src/app/globals.css */
-
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
+@import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
+} 
 
 @theme inline {
   --color-background: var(--background);
@@ -25,7 +20,7 @@
 }
 
 body {
-  background: var(--background); /* บรรทัดนี้คือที่มาของสีพื้นหลังเริ่มต้น */
+  /* background: var(--background);  <-- คอมเมนต์บรรทัดนี้ หรือลบทิ้ง */
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
