@@ -3,16 +3,9 @@ import React from 'react';
 
 const AnimatedBackground: React.FC = () => {
   return (
-    // Component ว่างเปล่า เพื่อดูว่ามันไปกินพื้นที่หรือแทรก Layout หรือไม่
-    // หรือคุณต้องการให้ใส่ div ที่มีขนาดคงที่ เพื่อตรวจสอบพื้นที่ เช่น
-    // <div style={{ width: '100px', height: '100px', border: '1px solid red' }}>
-    //   Animated Background Placeholder
-    // </div>
-    // ถ้าต้องการแบบนั้น ให้แจ้งได้เลยครับ
-    // ถ้าไม่ระบุ ผมจะให้เป็น div ว่างๆ ที่ไม่มี style เพื่อดูว่ามัน "อยู่เฉยๆ" หรือไม่
-    <div>
-      {/* นี่คือ Animated Background Component แบบเปล่าๆ */}
-      {/* ถ้าต้องการให้มีขอบแดง หรือข้อความใดๆ สำหรับการทดสอบ ให้แจ้งได้เลยครับ */}
+    // เพิ่มสีพื้นหลังและ opacity เข้าไปใน div หลัก
+    <div className="absolute inset-0 z-0 bg-blue-500 opacity-50"> {/* <-- เพิ่ม bg-blue-500 และ opacity-50 */}
+      {/* ส่วนนี้จะยังว่างเปล่า */}
     </div>
   );
 };
