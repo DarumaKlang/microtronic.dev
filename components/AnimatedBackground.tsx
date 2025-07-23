@@ -3,27 +3,17 @@ import React from 'react';
 
 const AnimatedBackground: React.FC = () => {
   return (
-    <>
-      {/* SVG Filter สำหรับ Goo Effect */}
-      <svg className="absolute w-0 h-0">
-        <filter id="goo">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-          <feBlend in="SourceGraphic" in2="goo" />
-        </filter>
-      </svg>
-
-      {/* Container สำหรับ Gradients ที่เคลื่อนไหวทั้งหมด */}
-      {/* z-index: -10 เพื่อให้แน่ใจว่าอยู่ด้านหลังสุดของทุกสิ่ง */}
-      <div className="absolute inset-0 z-[-10]" style={{ filter: 'url(#goo)' }}> {/* <-- แก้ไข z-0 เป็น z-[-10] */}
-        {/* วงกลม Gradient เคลื่อนไหวหลายๆ วง */}
-        <div className="gradient-circle circle-1"></div>
-        <div className="gradient-circle circle-2"></div>
-        <div className="gradient-circle circle-3"></div>
-        <div className="gradient-circle circle-4"></div>
-        <div className="gradient-circle circle-5"></div>
-      </div>
-    </>
+    // Component ว่างเปล่า เพื่อดูว่ามันไปกินพื้นที่หรือแทรก Layout หรือไม่
+    // หรือคุณต้องการให้ใส่ div ที่มีขนาดคงที่ เพื่อตรวจสอบพื้นที่ เช่น
+    // <div style={{ width: '100px', height: '100px', border: '1px solid red' }}>
+    //   Animated Background Placeholder
+    // </div>
+    // ถ้าต้องการแบบนั้น ให้แจ้งได้เลยครับ
+    // ถ้าไม่ระบุ ผมจะให้เป็น div ว่างๆ ที่ไม่มี style เพื่อดูว่ามัน "อยู่เฉยๆ" หรือไม่
+    <div>
+      {/* นี่คือ Animated Background Component แบบเปล่าๆ */}
+      {/* ถ้าต้องการให้มีขอบแดง หรือข้อความใดๆ สำหรับการทดสอบ ให้แจ้งได้เลยครับ */}
+    </div>
   );
 };
 
