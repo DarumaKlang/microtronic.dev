@@ -26,18 +26,16 @@ export default function RootLayout({
 
         {/* Container สำหรับเนื้อหาหลัก (NavBar, Main, Footer) ที่จะเลื่อนได้ */}
         {/* เพิ่ม padding-bottom- เพื่อให้เนื้อหาไม่ถูก BottomNavbar ทับ */}
-        <div className="relative z-10 flex flex-col min-h-screen pb-16"> {/* <-- เพิ่ม pb-16 (หรือค่าที่เหมาะสม) */}
+        <div className="relative z-10 flex flex-col min-h-screen pb-16"> {/* <-- pb-16 ควรจะเหมาะสมกับความสูงของ BottomNavbar */}
           <NavBar />
           <main className="flex-grow overflow-y-auto">
             {children}
           </main>
           <Footer />
-          {/* BottomNavbar ถูกย้ายออกไปอยู่ด้านนอก div นี้ */}
         </div>
 
-        {/* BottomNavbar ถูกตรึงไว้ที่ด้านล่างสุดของจอเสมอ */}
-        {/* fixed: ตรึงตำแหน่ง, bottom-0: อยู่ขอบล่าง, left-0 right-0: กว้างเต็มจอ, z-50: อยู่ด้านบนสุด */}
-        <BottomNavbar className="fixed bottom-0 left-0 right-0 z-50" /> {/* <-- ย้ายมาตรงนี้และเพิ่ม class */}
+        {/* BottomNavbar ถูกตรึงไว้ที่ด้านล่างสุดของจอเสมอแล้วในตัวมันเอง ไม่ต้องส่ง className ซ้ำ */}
+        <BottomNavbar /> {/* <-- ลบ className="fixed bottom-0 left-0 right-0 z-50" ออก */}
       </body>
     </html>
   );
