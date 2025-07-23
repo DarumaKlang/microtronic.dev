@@ -1,24 +1,40 @@
-// src/components/BottomNavbar.tsx (ย้อนกลับไปเวอร์ชันที่เรียบง่าย)
-import Link from 'next/link'; // หรือ import React from 'react'; ถ้าไม่มี Link
+// src/components/AnimatedBackground.tsx
+import React from 'react';
 
-export default function BottomNavbar() {
+const AnimatedBackground: React.FC = () => {
   return (
-    // อาจจะเป็นแค่ div พื้นฐาน ไม่มีการ fixed positioning หรือ z-index ที่นี่
-    // ถ้าเดิมมันมี fixed อยู่แล้ว ให้คงไว้ตามเดิม
-    <nav className="bg-gray-800 text-white p-4 flex justify-around items-center">
-        {/* เนื้อหา Navbar */}
-        <Link href="/" className="flex flex-col items-center text-sm hover:text-blue-400 transition-colors duration-200">
-            <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m0 0l-7 7m7-7v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001 1h2a1 1 0 001-1m-6 0v-4a1 1 0 011-1h2a1 1 0 011 1v4m-6 0h6"></path></svg>
-            หน้าหลัก
-        </Link>
-        <Link href="/dashboard" className="flex flex-col items-center text-sm hover:text-blue-400 transition-colors duration-200">
-            <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            แดชบอร์ด
-        </Link>
-        <Link href="/settings" className="flex flex-col items-center text-sm hover:text-blue-400 transition-colors duration-200">
-            <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37-2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37.a1.724 1.724 0 002.572-1.065z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-            ตั้งค่า
-        </Link>
-    </nav>
+    <>
+      {/* SVG Filter สำหรับ Goo Effect */}
+      {/* Absolute, w-0, h-0 เพื่อไม่ให้ SVG กินพื้นที่บนหน้าจอ */}
+      <svg className="absolute w-0 h-0">
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+      </svg>
+
+      {/* Container หลักของ Background ที่มี Gradient Circles */}
+      {/* absolute inset-0: ครอบคลุมพื้นที่เต็ม parent (body) */}
+      {/* z-[-10]: สำคัญมาก! ต้องเป็นค่าลบเพื่อให้ AnimatedBackground อยู่ด้านหลังทุกอย่าง */}
+      {/* bg-gradient-to-br from-blue-700 to-purple-800: กำหนดสีพื้นหลังเบื้องต้น (สามารถปรับเปลี่ยนได้ภายหลัง) */}
+      {/* เพิ่ม style={{ filter: 'url(#goo)' }} ไปที่ container ที่ครอบ circles ทั้งหมด */}
+      <div className="absolute inset-0 z-[-10] bg-gradient-to-br from-blue-700 to-purple-800" style={{ filter: 'url(#goo)' }}>
+        {/*
+          ส่วนของ Gradient Circles จะถูกเพิ่มเข้ามาในขั้นตอนถัดไป
+          ตอนนี้ยังคงเป็น div ว่างเปล่า หรือถ้ามี div circles อยู่แล้ว
+          แต่ไม่มี animation หรือ class อื่นๆ ก็สามารถคงไว้ได้
+        */}
+        {/* ตัวอย่าง div สำหรับวงกลม (ตอนนี้ยังไม่มี style หรือ animation) */}
+        {/* class gradient-circle และ circle-x จะถูกกำหนดใน globals.css */}
+        <div className="gradient-circle circle-1"></div>
+        <div className="gradient-circle circle-2"></div>
+        <div className="gradient-circle circle-3"></div>
+        <div className="gradient-circle circle-4"></div>
+        <div className="gradient-circle circle-5"></div>
+      </div>
+    </>
   );
-}
+};
+
+export default AnimatedBackground;
