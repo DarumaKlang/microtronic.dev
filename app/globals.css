@@ -1,44 +1,23 @@
 /* src/app/globals.css */
 
-@import "tailwindcss"; /* <-- ใช้บรรทัดนี้เพียงบรรทัดเดียวเท่านั้น */
-
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ... (ส่วนโค้ด @import "tailwindcss"; และ :root, @theme inline, @media prefers-color-scheme: dark, body ที่คุณมีอยู่เดิม) ... */
 
 body {
-  /* background: var(--background);  <-- ยืนยันว่าบรรทัดนี้ต้องคอมเมนต์ไว้ หรือลบออก เพื่อให้ background animation ทำงานได้ */
+  /* background: var(--background);  <-- บรรทัดนี้ต้องคอมเมนต์ไว้ หรือลบออก */
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ส่วนของ Animated Background Styles (ถ้าคุณต้องการให้แสดงผล) */
-/* จะต้องถูกเพิ่มที่นี่ และต้องไม่ถูกคอมเมนต์ออก */
+/* --- ส่วนของ Animated Background Styles ที่สำคัญต่อการแสดงผล Gradient --- */
 
 .gradient-circle {
   position: absolute;
-  width: 800px;
+  width: 800px; /* ขนาดวงกลม: ลองให้ใหญ่พอจะมองเห็น */
   height: 800px;
   border-radius: 50%;
-  opacity: 0.15;
-  filter: blur(80px);
-  animation: moveGradient 25s infinite alternate ease-in-out;
+  opacity: 0.15; /* ความทึบแสง: เพื่อให้โปร่งแสงและผสมผสานกันได้ */
+  filter: blur(80px); /* การเบลอ: เพื่อให้ดูนุ่มนวลและเป็น "goo" */
+  animation: moveGradient 25s infinite alternate ease-in-out; /* เชื่อมโยงกับ @keyframes */
 }
 
 @keyframes moveGradient {
@@ -50,8 +29,43 @@ body {
   100% { transform: translate(0, 0) scale(1); }
 }
 
-.circle-1 { top: 10%; left: 15%; animation-delay: 0s; animation-duration: 25s; }
-.circle-2 { top: 60%; left: 70%; animation-delay: 5s; animation-duration: 22s; }
-.circle-3 { top: 30%; left: 40%; animation-delay: 10s; animation-duration: 28s; }
-.circle-4 { top: 5%; right: 10%; animation-delay: 3s; animation-duration: 20s; }
-.circle-5 { bottom: 10%; left: 5%; animation-delay: 7s; animation-duration: 26s; }
+.circle-1 {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+  animation-duration: 25s;
+  background-image: radial-gradient(circle, #a855f7, transparent); /* Purple-600 */
+}
+
+.circle-2 {
+  top: 60%;
+  left: 70%;
+  animation-delay: 5s;
+  animation-duration: 22s;
+  background-image: radial-gradient(circle, #3b82f6, transparent); /* Blue-600 */
+}
+
+.circle-3 {
+  top: 30%;
+  left: 40%;
+  animation-delay: 10s;
+  animation-duration: 28s;
+  background-image: radial-gradient(circle, #ec4899, transparent); /* Pink-600 */
+}
+
+.circle-4 {
+  top: 5%;
+  right: 10%;
+  animation-delay: 3s;
+  animation-duration: 20s;
+  background-image: radial-gradient(circle, #22c55e, transparent); /* Green-600 */
+}
+
+.circle-5 {
+  bottom: 10%;
+  left: 5%;
+  animation-delay: 7s;
+  animation-duration: 26s;
+}
+
+/* --- สิ้นสุดส่วนของ Animated Background Styles --- */
