@@ -34,12 +34,14 @@ body {
 /* --- START: CSS สำหรับ Animated Background (จาก AnimatedBackground.tsx) --- */
 .gradient-circle {
   position: absolute;
-  width: 400px; /* ปรับขนาดวงกลม: ใหญ่ขึ้นเพื่อให้ Blending เห็นชัด */
-  height: 400px; /* ปรับขนาดวงกลม */
+  width: 1000px; /* ทดสอบให้ใหญ่ขึ้น */
+  height: 1000px; /* ทดสอบให้ใหญ่ขึ้น */
   border-radius: 50%;
-  opacity: 0.15; /* ปรับความทึบแสง: ลดลงเพื่อให้ดูโปร่งแสงและผสมผสานกันได้ดี */
-  filter: blur(80px); /* เพิ่ม blur ให้มากขึ้น เพื่อให้การผสมผสานนุ่มนวลขึ้น */
-  animation: moveGradient 25s infinite alternate ease-in-out; /* Animation */
+  opacity: 1; /* ทดสอบให้มองเห็นชัดเจน */
+  /* filter: blur(80px); คอมเมนต์ออกไปชั่วคราว */
+  background-color: red; /* เพื่อบังคับให้เห็น */
+  animation: moveGradient 25s infinite alternate ease-in-out;
+  z-index: -1; /* ลองเพิ่ม z-index ติดลบ */
 }
 
 /* Animation Keyframes */
