@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import NavBar from '@/components/NavBar';
 import BottomNavbar from '@/components/BottomNavbar';
 import Footer from '@/components/Footer';
-import AnimatedBackground from '@/components/AnimatedBackground'; // ต้องแน่ใจว่า import บรรทัดนี้อยู่
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,16 +20,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen relative overflow-hidden bg-[#1A202C]`}>
+      {/* ลบ overflow-hidden ออกจาก body */}
+      <body className={`${inter.className} min-h-screen relative bg-[#1A202C]`}> {/* <-- ลบ overflow-hidden ออก */}
         {/* Animated Background อยู่ด้านหลังสุด */}
         <AnimatedBackground />
 
-        {/* ส่วนนี้คือการแก้ไข: เพิ่ม div ครอบเนื้อหาหลักทั้งหมด */}
-        {/* relative z-10: ทำให้เนื้อหานี้อยู่เหนือ AnimatedBackground (ซึ่งมี z-index: 0) */}
-        {/* flex flex-col min-h-screen: เพื่อจัดเรียง content ในแนวตั้งและให้สูงเต็มจอ */}
-        <div className="relative z-10 flex flex-col min-h-screen"> {/* <-- เพิ่ม div นี้ */}
+        {/* เนื้อหาหลักของคุณ */}
+        {/* เพิ่ม div ครอบเนื้อหาหลักพร้อม z-10 และ flex properties */}
+        <div className="relative z-10 flex flex-col min-h-screen"> {/* <-- เพิ่ม div นี้เข้ามาอีกครั้งตามที่เคยแนะนำ */}
           <NavBar />
-          <main className="flex-grow">
+          {/* เพิ่ม overflow-y-auto ให้กับ main */}
+          <main className="flex-grow overflow-y-auto"> {/* <-- เพิ่ม overflow-y-auto ที่นี่ */}
             {children}
           </main>
           <Footer />
