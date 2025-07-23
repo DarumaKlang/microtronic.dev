@@ -1,5 +1,9 @@
-@import "tailwindcss";
+/* src/app/globals.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
+/* --- START: ส่วนของ Global Variables และ Base Styles ของ Next.js --- */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -20,20 +24,22 @@
 }
 
 body {
-  /* background: var(--background); */
+  /* background: var(--background); <-- ต้องคอมเมนต์หรือลบทิ้ง เพื่อให้ Tailwind Background ทำงาน */
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* --- END: ส่วนของ Global Variables และ Base Styles ของ Next.js --- */
 
-/* Base styles for gradient circles */
+
+/* --- START: CSS สำหรับ Animated Background (จาก AnimatedBackground.tsx) --- */
 .gradient-circle {
   position: absolute;
-  width: 400px; /* ปรับขนาดวงกลม */
+  width: 400px; /* ปรับขนาดวงกลม: ใหญ่ขึ้นเพื่อให้ Blending เห็นชัด */
   height: 400px; /* ปรับขนาดวงกลม */
   border-radius: 50%;
-  opacity: 0.2; /* ปรับความทึบแสง */
-  filter: blur(40px); /* เพิ่ม blur เพื่อให้ดูนุ่มนวลขึ้น */
-  animation: moveGradient 20s infinite alternate ease-in-out; /* Animation */
+  opacity: 0.15; /* ปรับความทึบแสง: ลดลงเพื่อให้ดูโปร่งแสงและผสมผสานกันได้ดี */
+  filter: blur(80px); /* เพิ่ม blur ให้มากขึ้น เพื่อให้การผสมผสานนุ่มนวลขึ้น */
+  animation: moveGradient 25s infinite alternate ease-in-out; /* Animation */
 }
 
 /* Animation Keyframes */
@@ -41,40 +47,56 @@ body {
   0% {
     transform: translate(0, 0) scale(1);
   }
-  25% {
-    transform: translate(20vw, 30vh) scale(1.1);
+  20% {
+    transform: translate(30vw, 40vh) scale(1.1);
   }
-  50% {
-    transform: translate(50vw, 10vh) scale(0.9);
+  40% {
+    transform: translate(-10vw, 20vh) scale(1.2);
   }
-  75% {
-    transform: translate(10vw, 60vh) scale(1.2);
+  60% {
+    transform: translate(50vw, 50vh) scale(0.9);
+  }
+  80% {
+    transform: translate(70vw, 10vh) scale(1.3);
   }
   100% {
     transform: translate(0, 0) scale(1);
   }
 }
 
-/* Specific positions and delays for each circle */
+/* Specific positions, delays, and durations for each circle */
 .circle-1 {
   top: 10%;
   left: 15%;
   animation-delay: 0s;
-  animation-duration: 25s; /* ปรับความเร็ว */
+  animation-duration: 25s;
 }
 
 .circle-2 {
   top: 60%;
   left: 70%;
   animation-delay: 5s;
-  animation-duration: 20s; /* ปรับความเร็ว */
+  animation-duration: 22s;
 }
 
 .circle-3 {
   top: 30%;
   left: 40%;
   animation-delay: 10s;
-  animation-duration: 30s; /* ปรับความเร็ว */
+  animation-duration: 28s;
 }
 
-/* คุณสามารถเพิ่ม .circle-4, .circle-5 ได้อีก */
+.circle-4 { /* วงกลมเพิ่ม */
+  top: 5%;
+  right: 10%;
+  animation-delay: 3s;
+  animation-duration: 20s;
+}
+
+.circle-5 { /* วงกลมเพิ่ม */
+  bottom: 10%;
+  left: 5%;
+  animation-delay: 7s;
+  animation-duration: 26s;
+}
+/* --- END: CSS สำหรับ Animated Background --- */
