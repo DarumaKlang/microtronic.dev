@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import NavBar from '@/components/NavBar';
 import BottomNavbar from '@/components/BottomNavbar';
 import Footer from '@/components/Footer';
+import AnimatedBackground from '@/components/AnimatedBackground'; // Import Component ใหม่
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,22 +20,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen
-        bg-radial-at-center
-        from-[#0E0B16]
-        via-[#1A182E]
-        via-[#2A2040]
-        via-[#3E386D]
-        via-[#5F52A0]
-        via-[#8C7BBF]
-        to-[#C3B8D9]
-      `}>
-        <NavBar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <BottomNavbar />
-        <Footer />
+      <body className={`${inter.className} min-h-screen relative overflow-hidden bg-[#1A202C]`}>
+        {/* เรียกใช้ Component AnimatedBackground ที่นี่ */}
+        <AnimatedBackground />
+
+        {/* เนื้อหาหลักของเว็บ (อยู่เหนือ Background) */}
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <NavBar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <BottomNavbar />
+          <Footer />
+        </div>
       </body>
     </html>
   );
