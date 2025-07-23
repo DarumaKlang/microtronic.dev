@@ -5,7 +5,6 @@ const AnimatedBackground: React.FC = () => {
   return (
     <>
       {/* SVG Filter สำหรับ Goo Effect */}
-      {/* className="absolute w-0 h-0": ทำให้ SVG element ไม่กินพื้นที่บนหน้าจอ */}
       <svg className="absolute w-0 h-0">
         <filter id="goo">
           <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
@@ -14,9 +13,15 @@ const AnimatedBackground: React.FC = () => {
         </filter>
       </svg>
 
-      {/* Container สำหรับ Gradients ที่เคลื่อนไหวทั้งหมด (ยังคงมีสีน้ำเงินและ opacity เพื่อทดสอบ) */}
-      <div className="absolute inset-0 z-0 bg-blue-500 opacity-50">
-        {/* ส่วนนี้จะยังว่างเปล่า รอการเพิ่มวงกลม Gradient ในขั้นตอนถัดไป */}
+      {/* Container สำหรับ Gradients ที่เคลื่อนไหวทั้งหมด */}
+      {/* ลบ bg-blue-500 และ opacity-50 ออก และเพิ่ม style={{ filter: 'url(#goo)' }} เพื่อเรียกใช้ filter */}
+      <div className="absolute inset-0 z-0" style={{ filter: 'url(#goo)' }}> {/* <-- แก้ไขบรรทัดนี้ */}
+        {/* วงกลม Gradient เคลื่อนไหวหลายๆ วง */}
+        <div className="gradient-circle circle-1"></div>
+        <div className="gradient-circle circle-2"></div>
+        <div className="gradient-circle circle-3"></div>
+        <div className="gradient-circle circle-4"></div>
+        <div className="gradient-circle circle-5"></div>
       </div>
     </>
   );
