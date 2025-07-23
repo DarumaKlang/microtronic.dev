@@ -14,14 +14,15 @@ const AnimatedBackground: React.FC = () => {
       </svg>
 
       {/* Container สำหรับ Gradients ที่เคลื่อนไหวทั้งหมด */}
-      {/* ลบ bg-blue-500 และ opacity-50 ออก และเพิ่ม style={{ filter: 'url(#goo)' }} เพื่อเรียกใช้ filter */}
-      <div className="absolute inset-0 z-0" style={{ filter: 'url(#goo)' }}> {/* <-- แก้ไขบรรทัดนี้ */}
+      {/* ลบ style={{ filter: 'url(#goo)' }} ออกจาก div นี้ */}
+      <div className="absolute inset-0 z-0"> {/* <-- แก้ไขบรรทัดนี้: ลบ style ออก */}
         {/* วงกลม Gradient เคลื่อนไหวหลายๆ วง */}
-        <div className="gradient-circle circle-1"></div>
-        <div className="gradient-circle circle-2"></div>
-        <div className="gradient-circle circle-3"></div>
-        <div className="gradient-circle circle-4"></div>
-        <div className="gradient-circle circle-5"></div>
+        {/* เพิ่ม style={{ filter: 'url(#goo)' }} เข้าไปในแต่ละวงกลมแทน หรืออาจจะเพิ่มใน globals.css */}
+        <div className="gradient-circle circle-1" style={{ filter: 'url(#goo)' }}></div> {/* <-- เพิ่ม style */}
+        <div className="gradient-circle circle-2" style={{ filter: 'url(#goo)' }}></div> {/* <-- เพิ่ม style */}
+        <div className="gradient-circle circle-3" style={{ filter: 'url(#goo)' }}></div> {/* <-- เพิ่ม style */}
+        <div className="gradient-circle circle-4" style={{ filter: 'url(#goo)' }}></div> {/* <-- เพิ่ม style */}
+        <div className="gradient-circle circle-5" style={{ filter: 'url(#goo)' }}></div> {/* <-- เพิ่ม style */}
       </div>
     </>
   );
