@@ -1,9 +1,9 @@
 // src/app/layout.tsx
 import './globals.css'; // Global styles
 import { Inter } from 'next/font/google'; // Google Font
-import NavBar from '../components/NavBar'; // Top Navigation Bar
+import NavBar from '@/components/NavBar'; // Top Navigation Bar
 import BottomNavbar from '@/components/BottomNavbar'; // Bottom Navigation Bar
-import Footer from '../components/Footer'; // Footer component (if applicable)
+import Footer from '@/components/Footer'; // Footer component (if applicable)
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* ใช้ Class สำหรับ Background Gradient ใหม่ที่เรากำหนดใน tailwind.config.js */}
-      <body className={`${inter.className} bg-my-new-gradient`}>
+      <body className={`${inter.className} bg-red-500`}>
         <NavBar /> {/* เมนูด้านบน */}
         <main className="flex-grow"> {/* เพิ่ม flex-grow เพื่อให้เนื้อหาหลักขยายเต็มที่ */}
           {children} {/* เนื้อหาของแต่ละ Page */}
