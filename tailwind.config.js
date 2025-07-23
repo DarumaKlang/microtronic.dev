@@ -12,10 +12,12 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'my-dark-gradient': 'linear-gradient(180deg, #0A192F 0%, #28135B 50%, #000000 100%)', // Gradient เก่า
-        'my-new-gradient': 'linear-gradient(180deg, #2DD4BF 0%, #FFFFFF 50%, #E879F9 100%)', // Gradient ใหม่ที่คุณต้องการ
+        // นี่คือ Gradient ที่คุณต้องการ:
+        'my-new-gradient': 'linear-gradient(180deg, #212F58 0%, #4A1B6B 50%, #7B1F7B 100%)',
+        // ถ้าคุณต้องการใช้ชื่อ 'my-dark-gradient' เดิม ให้เปลี่ยนค่าของมันแทน
+        // 'my-dark-gradient': 'linear-gradient(180deg, #212F58 0%, #4A1B6B 50%, #7B1F7B 100%)',
       },
-      // ถ้ามี colors, extend, screens อื่นๆ ก็สามารถเพิ่มได้ที่นี่
+      // ... (ส่วนอื่นๆ ของ config)
     },
   },
   plugins: [],
