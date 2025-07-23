@@ -20,22 +20,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* ลบ overflow-hidden ออกจาก body */}
-      <body className={`${inter.className} min-h-screen relative bg-[#1A202C]`}> {/* <-- ลบ overflow-hidden ออก */}
+      <body className={`${inter.className} min-h-screen relative bg-[#1A202C]`}>
         {/* Animated Background อยู่ด้านหลังสุด */}
         <AnimatedBackground />
 
-        {/* เนื้อหาหลักของคุณ */}
-        {/* เพิ่ม div ครอบเนื้อหาหลักพร้อม z-10 และ flex properties */}
-        <div className="relative z-10 flex flex-col min-h-screen"> {/* <-- เพิ่ม div นี้เข้ามาอีกครั้งตามที่เคยแนะนำ */}
+        {/* Container สำหรับเนื้อหาหลัก (NavBar, Main, Footer) ที่จะเลื่อนได้ */}
+        {/* เพิ่ม padding-bottom- เพื่อให้เนื้อหาไม่ถูก BottomNavbar ทับ */}
+        <div className="relative z-10 flex flex-col min-h-screen pb-16"> {/* <-- เพิ่ม pb-16 (หรือค่าที่เหมาะสม) */}
           <NavBar />
-          {/* เพิ่ม overflow-y-auto ให้กับ main */}
-          <main className="flex-grow overflow-y-auto"> {/* <-- เพิ่ม overflow-y-auto ที่นี่ */}
+          <main className="flex-grow overflow-y-auto">
             {children}
           </main>
           <Footer />
-          <BottomNavbar />
-        </div> {/* <-- ปิด div นี้ */}
+          {/* BottomNavbar ถูกย้ายออกไปอยู่ด้านนอก div นี้ */}
+        </div>
+
+        {/* BottomNavbar ถูกตรึงไว้ที่ด้านล่างสุดของจอเสมอ */}
+        {/* fixed: ตรึงตำแหน่ง, bottom-0: อยู่ขอบล่าง, left-0 right-0: กว้างเต็มจอ, z-50: อยู่ด้านบนสุด */}
+        <BottomNavbar className="fixed bottom-0 left-0 right-0 z-50" /> {/* <-- ย้ายมาตรงนี้และเพิ่ม class */}
       </body>
     </html>
   );
