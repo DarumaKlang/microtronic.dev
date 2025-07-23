@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GlassmorphismCard from '../components/GlassmorphismCard';
+import GlassmorphismCard from '@/components/GlassmorphismCard';
 
 export default function Home() {
   return (
