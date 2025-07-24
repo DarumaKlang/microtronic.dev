@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 /* @tailwind base; */
-@tailwind components;
-@tailwind utilities;
+/* @tailwind components; */
+/* @tailwind utilities; */
 
 :root {
   /* Background gradient colors */
