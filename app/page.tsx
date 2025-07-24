@@ -18,15 +18,15 @@ export default function Home() {
                 />
                 <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
                     <li className="mb-2 tracking-[-.01em]">
-                        เว็บไซต์ Microtronic.Biz โดย{" "}
+                        เว็บไซต์ Microtronic.Biz By Next.js {" "}
                         {/* ปรับสีพื้นหลังของ code block ให้เข้ากับ dark background */}
                         <code className="bg-white/[.15] dark:bg-white/[.25] font-mono font-semibold px-1 py-0.5 rounded text-white">
-                            Next.Js
+                            Vercel Hosting
                         </code>
                         .
                     </li>
                     <li className="tracking-[-.01em]">
-                        Coming Soon.
+                        Next.Js + Tailwind CSS
                     </li>
                 </ol>
 
@@ -45,7 +45,7 @@ export default function Home() {
                             width={20}
                             height={20}
                         />
-                        Deploy now
+                        Coming Soon
                     </a>
                     <a
                         className="rounded-full border border-solid border-white/[.2] dark:border-white/[.3] transition-colors flex items-center justify-center hover:bg-white/[.1] dark:hover:bg-white/[.05] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
@@ -53,7 +53,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Read our docs
+                        เกี่ยวกับเรา
                     </a>
                 </div>
 
