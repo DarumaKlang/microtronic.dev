@@ -22,8 +22,6 @@ const config: Config = {
         'g4-start': '#00b09b', // Teal
         'g4-end': '#96c93d',   // Lime green
       },
-      // You can also define custom properties for CSS variables here if preferred
-      // For this example, we'll use CSS variables directly in the CSS file
     },
   },
   plugins: [],
