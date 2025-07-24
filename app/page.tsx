@@ -18,15 +18,15 @@ export default function Home() {
                 />
                 <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
                     <li className="mb-2 tracking-[-.01em]">
-                        Get started by editing{" "}
+                        เว็บไซต์ Microtronic.Biz โดย{" "}
                         {/* ปรับสีพื้นหลังของ code block ให้เข้ากับ dark background */}
                         <code className="bg-white/[.15] dark:bg-white/[.25] font-mono font-semibold px-1 py-0.5 rounded text-white">
-                            src/app/page.tsx
+                            Next.Js
                         </code>
                         .
                     </li>
                     <li className="tracking-[-.01em]">
-                        Save and see your changes instantly.
+                        Coming Soon.
                     </li>
                 </ol>
 
