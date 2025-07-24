@@ -37,14 +37,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <Image
-                            // อาจจะต้องปรับ invert สำหรับ dark mode หรือลบออกหากต้องการให้โลโก้ Vercel เป็นสีดำเสมอ
-                            className="dark:invert"
-                            src="/vercel.svg"
-                            alt="Vercel logomark"
-                            width={20}
-                            height={20}
-                        />
+                       
                         Coming Soon
                     </a>
                     <a
