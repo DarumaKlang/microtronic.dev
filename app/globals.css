@@ -1,34 +1,35 @@
 /* src/app/globals.css */
 
-@import "tailwindcss";
+/* @import "tailwindcss"; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background gradient colors */
+  --color-bg-start: theme('colors.bg-start');
+  --color-bg-end: theme('colors.bg-end');
 
-  /* Background gradient colors - ใส่ค่าสีตรงๆ */
-  --color-bg-start: #1a2a6c; /* Dark blue */
-  --color-bg-end: #b21f1f;   /* Dark red */
+  /* Gradient circle colors */
+  --color-g1-start: theme('colors.g1-start');
+  --color-g1-end: theme('colors.g1-end');
+  --color-g2-start: theme('colors.g2-start');
+  --color-g2-end: theme('colors.g2-end');
+  --color-g3-start: theme('colors.g3-start');
+  --color-g3-end: theme('colors.g3-end');
+  --color-g4-start: theme('colors.g4-start');
+  --color-g4-end: theme('colors.g4-end');
 
-  /* Gradient circle colors - ใส่ค่าสีตรงๆ */
-  --color-g1-start: #ff7e5f;
-  --color-g1-end: #feb47b;
-  --color-g2-start: #6a11cb;
-  --color-g2-end: #2575fc;
-  --color-g3-start: #ee9ca7;
-  --color-g3-end: #ffdde1;
-  --color-g4-start: #00b09b;
-  --color-g4-end: #96c93d;
-
-  /* กำหนดค่าเริ่มต้นของตัวแปรสำหรับวงกลม */
-  --opacity-amount: 0.7;
-  --blur-amount: 50px;
-
-  /* ขนาดและระยะเวลาแอนิเมชันสำหรับแต่ละวงกลม */
-  --size-g1: 300px; --duration-g1: 20s;
-  --size-g2: 400px; --duration-g2: 25s;
-  --size-g3: 350px; --duration-g3: 30s;
-  --size-g4: 280px; --duration-g4: 22s;
+  /* Add other variables if you want to control them globally */
+  /* --blur-amount: 50px; */
+  /* --opacity-amount: 0.7; */
 }
 
-/* ... ส่วนอื่นๆ ของ globals.css ที่เหลือเหมือนเดิม ... */
+body {
+  /* Ensure body takes full height and no default margin/padding */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative; /* Needed for absolute positioning of background */
+}
