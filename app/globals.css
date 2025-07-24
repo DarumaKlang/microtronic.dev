@@ -2,11 +2,9 @@
 
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
 
-  /* Background gradient colors (เพิ่มเข้ามาเพื่อให้ Tailwind config อ้างอิงได้) */
+:root {
+  /* Background gradient colors */
   --color-bg-start: theme('colors.bg-start');
   --color-bg-end: theme('colors.bg-end');
 
@@ -19,33 +17,16 @@
   --color-g3-end: theme('colors.g3-end');
   --color-g4-start: theme('colors.g4-start');
   --color-g4-end: theme('colors.g4-end');
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Add other variables if you want to control them globally */
+  /* --blur-amount: 50px; */
+  /* --opacity-amount: 0.7; */
 }
 
 body {
-  /* background: var(--background);  <-- ยืนยันว่าบรรทัดนี้ต้องคอมเมนต์ไว้ หรือลบออก เพื่อให้ background animation ทำงานได้ */
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  min-height: 100vh; /* **ต้องเพิ่มบรรทัดนี้** */
-  position: relative; /* **ต้องเพิ่มบรรทัดนี้** เพื่อให้ children ของ body มี context ในการวางซ้อน */
+  /* Ensure body takes full height and no default margin/padding */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative; /* Needed for absolute positioning of background */
 }
-
-/* ส่วนของ Animated Background Styles ที่คุณมีอยู่แต่จะไม่มีผลถ้าใช้ CSS Module */
-/* .gradient-circle { ... } */
-/* @keyframes moveGradient { ... } */
-/* .circle-1 { ... } */
-/* ... */
-/* สไตล์เหล่านี้จะถูกแทนที่ด้วย styles จาก background.module.css */
