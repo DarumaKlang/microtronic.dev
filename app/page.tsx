@@ -1,5 +1,4 @@
 import Image from "next/image";
-import GlassmorphismCard from '@/components/GlassmorphismCard';
 
 export default function Home() {
   return (
@@ -28,7 +27,6 @@ export default function Home() {
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
 
-        <GlassmorphismCard className="w-full max-w-sm">
 
           <a
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
@@ -53,18 +51,7 @@ export default function Home() {
           >
             Read our docs
           </a>
-          </GlassmorphismCard>
           
-          <GlassmorphismCard className="w-full max-w-sm">
-            <h2 className="text-2xl font-bold mb-4">Glassmorphism Card</h2>
-            <p className="text-gray-200">
-          นี่คือตัวอย่างของ Card Component สไตล์ Glassmorphism ที่มีความโปร่งใสและโทนสีเข้ม
-          เข้ากันได้ดีกับพื้นหลังที่คุณต้องการ
-            </p>
-            <button className="mt-6 px-4 py-2 bg-white bg-opacity-20 rounded-md hover:bg-opacity-30 transition-all">
-          Learn More
-            </button>
-          </GlassmorphismCard>
 
         </div>
       </main>
