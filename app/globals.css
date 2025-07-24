@@ -1,11 +1,12 @@
 /* src/app/globals.css */
+
 @import "tailwindcss";
 
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
 
 :root {
+  --background: #ffffff;
+  --foreground: #171717;
+
   /* Background gradient colors */
   --color-bg-start: theme('colors.bg-start');
   --color-bg-end: theme('colors.bg-end');
@@ -19,16 +20,133 @@
   --color-g3-end: theme('colors.g3-end');
   --color-g4-start: theme('colors.g4-start');
   --color-g4-end: theme('colors.g4-end');
+}
 
-  /* Add other variables if you want to control them globally */
-  /* --blur-amount: 50px; */
-  /* --opacity-amount: 0.7; */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 body {
-  /* Ensure body takes full height and no default margin/padding */
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  position: relative; /* Needed for absolute positioning of background */
+  /* background: var(--background);  <-- ยืนยันว่าบรรทัดนี้ต้องคอมเมนต์ไว้ หรือลบออก เพื่อให้ background animation ทำงานได้ */
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh; /* ต้องเพิ่มเพื่อให้ background ครอบคลุมทั้งหน้า */
+  position: relative; /* ต้องเพิ่มเพื่อให้ background absolute ทำงานได้ */
 }
+
+
+/* --- Animated Background Styles --- */
+
+.gradient-background-container { /* เปลี่ยนชื่อคลาสจาก .gradient-background เพื่อความชัดเจน */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Important to prevent scrollbars from circles moving out */
+  background: linear-gradient(to bottom right, var(--color-bg-start), var(--color-bg-end));
+  filter: url(#gooey-filter); /* Apply the SVG filter */
+}
+
+.gradient-circle-animated { /* เปลี่ยนชื่อคลาสจาก .gradient-circle เพื่อความชัดเจน */
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: hard-light; /* Blending mode for the gooey effect */
+  filter: blur(var(--blur-amount)); /* Apply blur for smoother blending */
+  opacity: var(--opacity-amount);
+}
+
+/* Define keyframe animations */
+@keyframes move-circle {
+  0% {
+    transform: translate(var(--start-x), var(--start-y)) scale(var(--start-scale));
+  }
+  100% {
+    transform: translate(var(--end-x), var(--end-y)) scale(var(--end-scale));
+  }
+}
+
+/* Specific animations for each circle */
+.circle-1-animated {
+  background: radial-gradient(circle at center, var(--color-g1-start), var(--color-g1-end));
+  width: var(--size-g1);
+  height: var(--size-g1);
+  animation: move-circle var(--duration-g1) ease-in-out infinite alternate;
+  --start-x: 10%;
+  --start-y: 10%;
+  --start-scale: 1;
+  --end-x: 90%;
+  --end-y: 90%;
+  --end-scale: 1.2;
+  --duration-g1: 20s;
+  --size-g1: 300px;
+  --opacity-amount: 0.7;
+  --blur-amount: 50px;
+}
+
+.circle-2-animated {
+  background: radial-gradient(circle at center, var(--color-g2-start), var(--color-g2-end));
+  width: var(--size-g2);
+  height: var(--size-g2);
+  animation: move-circle var(--duration-g2) ease-in-out infinite alternate-reverse;
+  --start-x: 80%;
+  --start-y: 20%;
+  --start-scale: 1.1;
+  --end-x: 10%;
+  --end-y: 80%;
+  --end-scale: 0.9;
+  --duration-g2: 25s;
+  --size-g2: 400px;
+  --opacity-amount: 0.6;
+  --blur-amount: 60px;
+}
+
+.circle-3-animated {
+  background: radial-gradient(circle at center, var(--color-g3-start), var(--color-g3-end));
+  width: var(--size-g3);
+  height: var(--size-g3);
+  animation: move-circle var(--duration-g3) linear infinite alternate;
+  --start-x: 30%;
+  --start-y: 90%;
+  --start-scale: 0.8;
+  --end-x: 70%;
+  --end-y: 10%;
+  --end-scale: 1.3;
+  --duration-g3: 30s;
+  --size-g3: 350px;
+  --opacity-amount: 0.8;
+  --blur-amount: 55px;
+}
+
+/* Example for a fourth circle */
+.circle-4-animated {
+  background: radial-gradient(circle at center, var(--color-g4-start), var(--color-g4-end));
+  width: var(--size-g4);
+  height: var(--size-g4);
+  animation: move-circle var(--duration-g4) ease-out infinite alternate-reverse;
+  --start-x: 50%;
+  --start-y: 5%;
+  --start-scale: 0.7;
+  --end-x: 5%;
+  --end-y: 50%;
+  --end-scale: 1.1;
+  --duration-g4: 22s;
+  --size-g4: 280px;
+  --opacity-amount: 0.75;
+  --blur-amount: 45px;
+}
+
+/* เพิ่มส่วนของ SVG filter สำหรับเอฟเฟกต์ "gooey" ที่นี่ */
+/* โดยปกติแล้วจะอยู่ในคอมโพเนนต์ JSX แต่ถ้าคุณต้องการให้มันอยู่ที่นี่ ก็ได้เช่นกัน */
+/* แต่จะดีกว่าถ้าเก็บไว้ในคอมโพเนนต์เพื่อความเป็นระเบียบ */
+/* ถ้าจะให้มันทำงาน คุณจะต้องใส่ <svg> ... </svg> นี้ใน DOM สักที่ */
