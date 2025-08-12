@@ -13,7 +13,7 @@ export default function AboutPage() {
         </Link>
 
         <Link href="/buddha/spiritual practice" className="text-blue-500 hover:underline">
-          ไปที่หน้า Bases of Meritorious Action
+          ไปที่หน้า สวดมนต์ทำวัตรเช้า
         </Link>
       </div>
       {/* เนื้อหาอื่นๆ */}
