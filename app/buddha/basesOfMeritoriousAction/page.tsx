@@ -5,9 +5,6 @@ export default function AboutPage() {
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold mb-4">Buddha Microtronic</h1>
-      <p className="text-lg text-gray-700 mb-8">
-        หน้านี้จะเกี่ยวกับพุทธศาสนา และ คำสอนจากครูบาร์อาจารย์
-      </p>
 
       {/* เนื้อหา บุญกิริยาวัตถุ 10 */}
       <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
