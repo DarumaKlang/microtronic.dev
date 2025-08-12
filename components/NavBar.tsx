@@ -26,7 +26,7 @@ export default function NavBar() {
                         เกี่ยวกับเรา
                     </Link>
 
-                    <Link href="/about" className="hover:text-gray-300">
+                    <Link href="/buddha" className="hover:text-gray-300">
                         พุทธศาสนา
                     </Link>
 
