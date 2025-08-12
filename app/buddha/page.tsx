@@ -11,7 +11,7 @@ export default function BuddhaPage() {
         <ul className="list-disc list-inside space-y-2 text-lg">
           <li>
             <Link href="/buddha/basesOfMeritoriousAction" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
-              ไปที่หน้า Bases of Meritorious Action
+              ไปที่หน้า บุญกิริยาวัตถุ 10
             </Link>
           </li>
           <li>
