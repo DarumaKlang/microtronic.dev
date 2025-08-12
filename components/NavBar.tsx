@@ -98,8 +98,13 @@ export default function NavBar() {
                         <Link href="/" className="hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>
                             หน้าหลัก
                         </Link>
+
                         <Link href="/about" className="hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>
                             เกี่ยวกับเรา
+                        </Link>
+
+                        <Link href="/buddha" className="hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>
+                            พุทธศาสนา
                         </Link>
 
                         {/* เมนูดรอปดาวน์สำหรับบริการ LNbits (Mobile) - ทำเป็น Accordion */}
