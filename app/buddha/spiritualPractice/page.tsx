@@ -7,6 +7,8 @@ export default function SpiritualPracticePage() {
 
       <div className="bg-white shadow-xl rounded-lg p-6 mb-8">
 
+        <h1 className="text-4xl font-extrabold mb-6 text-indigo-700">บทสวดทำวัตรเช้า</h1>
+
         {/* ส่วนที่ 1: คำบูชาพระรัตนตรัย */}
         <section className="mb-6">
           <h2 className="text-2xl font-semibold mb-3 text-indigo-500">คำบูชาพระรัตนตรัย</h2>
