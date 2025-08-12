@@ -21,8 +21,13 @@ export default function NavBar() {
                     <Link href="/" className="hover:text-gray-300">
                         หน้าหลัก
                     </Link>
+
                     <Link href="/about" className="hover:text-gray-300">
                         เกี่ยวกับเรา
+                    </Link>
+
+                    <Link href="/about" className="hover:text-gray-300">
+                        พุทธศาสนา
                     </Link>
 
                     {/* เมนูดรอปดาวน์สำหรับบริการ LNbits (Desktop) */}
