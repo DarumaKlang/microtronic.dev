@@ -1,22 +1,31 @@
-// src/app/buddha/page.tsx
-import Link from 'next/link'; // Import Link
+import Link from 'next/link';
 
-export default function AboutPage() {
+export default function BuddhaPage() {
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-4">Buddha Microtronic</h1>
-      <p>หน้านี้จะเกี่ยวกับพุทธศาสนา และ คำสอนจากครูบาร์อาจารย์</p>
-      {/* เพิ่มลิงก์ที่นี่ */}
-      <div className="mt-4">
-        <Link href="/buddha/basesOfMeritoriousAction" className="text-blue-500 hover:underline">
-          ไปที่หน้า Bases of Meritorious Action
-        </Link>
-
-        <Link href="/buddha/spiritualPractice" className="text-blue-500 hover:underline">
-          ไปที่หน้า สวดมนต์ทำวัตรเช้า
-        </Link>
+    <div className="p-8 max-w-4xl mx-auto">
+      <h1 className="text-4xl font-extrabold mb-4 text-indigo-700">Buddha Microtronic</h1>
+      <p className="text-lg text-gray-700 mb-6">หน้านี้จะเกี่ยวกับพุทธศาสนา และ คำสอนจากครูบาร์อาจารย์</p>
+      
+      <div className="bg-white shadow-lg rounded-lg p-6">
+        <h2 className="text-2xl font-bold mb-4 text-indigo-600">สารบัญ</h2>
+        <ul className="list-disc list-inside space-y-2 text-lg">
+          <li>
+            <Link href="/buddha/basesOfMeritoriousAction" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+              ไปที่หน้า Bases of Meritorious Action
+            </Link>
+          </li>
+          <li>
+            <Link href="/buddha/spiritualPractice" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+              ไปที่หน้า สวดมนต์ทำวัตรเช้า
+            </Link>
+          </li>
+        </ul>
       </div>
-      {/* เนื้อหาอื่นๆ */}
+      
+      {/* เนื้อหาอื่นๆ ของหน้า */}
+      <div className="mt-8">
+        {/* อาจเพิ่มเนื้อหาเกี่ยวกับพุทธศาสนาได้ที่นี่ */}
+      </div>
     </div>
   );
 }
