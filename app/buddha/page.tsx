@@ -11,7 +11,8 @@ export default function AboutPage() {
         <Link href="/buddha/basesOfMeritoriousAction" className="text-blue-500 hover:underline">
           ไปที่หน้า Bases of Meritorious Action
         </Link>
-        <Link href="/buddha/basesOfMeritoriousAction" className="text-blue-500 hover:underline">
+
+        <Link href="/buddha/spiritual practice" className="text-blue-500 hover:underline">
           ไปที่หน้า Bases of Meritorious Action
         </Link>
       </div>
