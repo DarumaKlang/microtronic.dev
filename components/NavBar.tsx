@@ -30,6 +30,10 @@ export default function NavBar() {
                         พุทธศาสนา
                     </Link>
 
+                    <Link href="/astrology" className="hover:text-gray-300">
+                        โหราศาสตร์
+                    </Link>
+
                     {/* เมนูดรอปดาวน์สำหรับบริการ LNbits (Desktop) */}
                     <div className="relative">
                         <button
@@ -105,6 +109,10 @@ export default function NavBar() {
 
                         <Link href="/buddha" className="hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>
                             พุทธศาสนา
+                        </Link>
+
+                        <Link href="/astrology" className="hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>
+                            โหราศาสตร์
                         </Link>
 
                         {/* เมนูดรอปดาวน์สำหรับบริการ LNbits (Mobile) - ทำเป็น Accordion */}
