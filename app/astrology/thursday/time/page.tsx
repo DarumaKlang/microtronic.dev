@@ -4,7 +4,7 @@ import React from 'react';
 const ThursdayAuspiciousTimes = () => {
   // ข้อมูลฤกษ์ยามวันพฤหัสบดี
   const dayTimes = [
-    { time: '06.01 น. - 07.30 น.', auspicious: 'ยามบริวาร ยามครู (๕)' },
+    { time: '06.01 น. - 07.30 น.', auspicious: 'ยามบริวาร ยามครู (๕), ๕-๕ คู่ธาตุดิน ทรัพย์สินมั่นคง' },
     { time: '07.31 น. - 09.00 น.', auspicious: 'ยามอุตสาหะ ยามภูมะ (๒)' },
     { time: '09.01 น. - 10.30 น.', auspicious: 'ยามศรี ยามสุริยะ (๑)' },
     { time: '10.31 น. - 12.00 น.', auspicious: 'ยามเดช ยามศุกระ (๖)' },
