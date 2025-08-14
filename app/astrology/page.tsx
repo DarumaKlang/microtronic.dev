@@ -11,11 +11,11 @@ export default function BuddhaPage() {
         <ul className="list-disc list-inside space-y-2 text-lg">
           <li>
             <Link href="/buddha/basesOfMeritoriousAction" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
-              ไปที่หน้า บุญกิริยาวัตถุ 10
+              ไปที่หน้า ยามวันพฤหัส
             </Link>
           </li>
           <li>
-            <Link href="/buddha/spiritualPractice" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+            <Link href="/astrology/thursday/time" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
               ไปที่หน้า สวดมนต์ทำวัตรเช้า
             </Link>
           </li>
