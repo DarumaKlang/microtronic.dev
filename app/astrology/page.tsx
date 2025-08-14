@@ -10,7 +10,7 @@ export default function BuddhaPage() {
         <h2 className="text-2xl font-bold mb-4 text-indigo-600">สารบัญ</h2>
         <ul className="list-disc list-inside space-y-2 text-lg">
           <li>
-            <Link href="/buddha/basesOfMeritoriousAction" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+            <Link href="/astrology/thursday/time" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
               ไปที่หน้า ยามวันพฤหัส
             </Link>
           </li>
