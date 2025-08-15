@@ -25,6 +25,7 @@ export default function BuddhaPage() {
       {/* เนื้อหาอื่นๆ ของหน้า */}
       <div className="mt-8">
         {/* อาจเพิ่มเนื้อหาเกี่ยวกับพุทธศาสนาได้ที่นี่ */}
+        <h1> </h1>
       </div>
     </div>
   );
