@@ -15,8 +15,8 @@ export default function BuddhaPage() {
             </Link>
           </li>
           <li>
-            <Link href="/astrology/thursday/time" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
-              ไปที่หน้า สวดมนต์ทำวัตรเช้า
+            <Link href="/astrology/friday/time" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+              ไปที่หน้า ยามวันศุกร์
             </Link>
           </li>
         </ul>
