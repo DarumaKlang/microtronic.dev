@@ -27,7 +27,7 @@ const FridayAuspiciousTimes = () => {
   ];
 
   return (
-    <div className="container mx-auto p-4 pt-[100px] pb-[100px]">
+    <div className="container mx-auto p-4 pt-[80px] pb-[100px]">
       <h1 className="text-3xl font-bold mb-6">ฤกษ์ยามวันศุกร์</h1>
 
       <div className="mb-8">
