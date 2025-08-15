@@ -3,8 +3,8 @@ import React from 'react';
 
 export default function AstrologyPage() {
   return (
-    <div className="p-8 max-w-4xl mx-auto pt-[100px] pb-[100px]">
-      <h1 className="text-4xl font-extrabold mb-4 text-indigo-700">Astrology Microtronic</h1>
+    <div className="p-8 max-w-4xl mx-auto pt-[80px] pb-[100px]">
+      <h1 className="text-4xl font-extrabold mb-4 text-indigo-700">Astrology</h1>
       <p className="text-lg text-gray-700 mb-6">หน้านี้จะเกี่ยวกับโหราศาสตร์</p>
 
       <div className="bg-white shadow-lg rounded-lg p-6">
