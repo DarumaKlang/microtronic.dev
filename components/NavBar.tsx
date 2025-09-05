@@ -30,8 +30,8 @@ export default function NavBar() {
                         พุทธศาสนา
                     </Link>
 
-                    <Link href="/astrology" className="hover:text-gray-300">
-                        โหราศาสตร์
+                    <Link href="/asset" className="hover:text-gray-300">
+                        การลงทุน
                     </Link>
 
                     {/* เมนูดรอปดาวน์สำหรับบริการ LNbits (Desktop) */}
