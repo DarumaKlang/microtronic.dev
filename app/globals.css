@@ -24,3 +24,43 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ================================================= */
+/* CMC Marquee Speed Customization */
+/* ================================================= */
+
+/* กำหนด Keyframes ที่เคลื่อนที่ช้าลง */
+@keyframes cmc-marquee-slow-move {
+    /* Keyframes เริ่มต้น (0% คือซ้ายสุด) */
+    from {
+        transform: translateX(0%);
+    }
+    /* Keyframes สิ้นสุด (100% คือเลื่อนไปซ้ายจนสุด) */
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Target element ภายในวิดเจ็ต CoinMarquee 
+  ต้องตรวจสอบโครงสร้าง DOM ที่วิดเจ็ตสร้างขึ้นจริง แต่โดยทั่วไปมันจะสร้าง div ภายใน div ที่มี id="coinmarketcap-widget-marquee"
+  เราจะพยายาม target class ที่ชื่อ 'cmc-marquee-slide' หรือโครงสร้าง div ที่เป็นตัวเลื่อนจริง
+*/
+.slow-marquee #coinmarketcap-widget-marquee > div {
+    /* ใช้ !important เพื่อ override style ที่มาจากสคริปต์ภายนอก */
+    
+    /* ปรับความเร็ว: 40 วินาทีต่อรอบ (คุณสามารถปรับค่านี้ให้ช้าหรือเร็วขึ้น) */
+    animation-duration: 40s !important; 
+    
+    /* ใช้ linear เพื่อการเคลื่อนไหวที่สม่ำเสมอ */
+    animation-timing-function: linear !important; 
+    
+    /* เลื่อนไปเรื่อยๆ */
+    animation-iteration-count: infinite !important;
+    
+    /* ใช้ Keyframes ที่เรากำหนด */
+    animation-name: cmc-marquee-slow-move !important;
+}
+
+/* ข้อจำกัด: หากสคริปต์ของ CoinMarketCap ใช้ JavaScript ในการเปลี่ยน style/position 
+  แทน CSS animation/transform โค้ดด้านบนอาจไม่มีผล
+*/

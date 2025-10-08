@@ -26,50 +26,51 @@ export default function NavBar() {
                         เกี่ยวกับเรา
                     </Link>
 
-                    <Link href="/buddha" className="hover:text-gray-300">
-                        พุทธศาสนา
-                    </Link>
-
-                    <Link href="/asset" className="hover:text-gray-300">
-                        การลงทุน
-                    </Link>
-
                     {/* เมนูดรอปดาวน์สำหรับบริการ LNbits (Desktop) */}
                     <div className="relative">
                         <button
                             onClick={() => setIsLnbitsDropdownOpen(!isLnbitsDropdownOpen)}
                             className="hover:text-gray-300 focus:outline-none"
                         >
-                            บริการ LNbits ▼
+                            การลงทุน ▼
                         </button>
                         {isLnbitsDropdownOpen && (
                             <div className="absolute top-full left-0 mt-2 w-48 bg-gray-700 rounded-md shadow-lg z-10">
                                 <Link
-                                    href="https://your-lnbits-url-1.com" // URL บริการ LNbits ตัวแรก
+                                    href="/asset" // URL บริการ LNbits ตัวแรก
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block px-4 py-2 hover:bg-gray-600 rounded-t-md"
                                     onClick={() => setIsLnbitsDropdownOpen(false)}
                                 >
-                                    LNbits Service A
+                                    การลงทุน
                                 </Link>
                                 <Link
-                                    href="https://your-lnbits-url-2.com" // URL บริการ LNbits ตัวที่สอง
+                                    href="/asset/strategies" // URL บริการ LNbits ตัวที่สอง
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block px-4 py-2 hover:bg-gray-600"
                                     onClick={() => setIsLnbitsDropdownOpen(false)}
                                 >
-                                    LNbits Service B
+                                    กลยุทธ์การลงทุน
                                 </Link>
                                 <Link
-                                    href="https://your-lnbits-url-3.com"
+                                    href="/asset/crypto-analysis" // URL บริการ LNbits ตัวที่สอง
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block px-4 py-2 hover:bg-gray-600"
+                                    onClick={() => setIsLnbitsDropdownOpen(false)}
+                                >
+                                    Crypto Analysis
+                                </Link>
+                                <Link
+                                    href="/asset/tools-GridCalculator"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block px-4 py-2 hover:bg-gray-600 rounded-b-md"
                                     onClick={() => setIsLnbitsDropdownOpen(false)}
                                 >
-                                    LNbits Service C
+                                    เครื่องมือช่วยเหลือ
                                 </Link>
                             </div>
                         )}
