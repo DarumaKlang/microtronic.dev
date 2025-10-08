@@ -38,7 +38,7 @@ export default function AssetPage() {
                             </p>
                         </GlassmorphismCard>
                     </Link>
-                    
+
                     {/* Card ที่ 3 */}
                     <Link href="/asset/hardware-wallet" className="block w-full transition duration-300 transform hover:scale-[1.03] cursor-pointer group">
                         <GlassmorphismCard className="w-full">
@@ -48,7 +48,39 @@ export default function AssetPage() {
                             </p>
                         </GlassmorphismCard>
                     </Link>
-                        {/* คุณสามารถเพิ่ม GlassmorphismCard อื่นๆ ได้ที่นี่ */}
+
+                    {/* Card ที่ 4 */}
+                    <Link href="/asset/capital-gains" className="block w-full transition duration-300 transform hover:scale-[1.03] cursor-pointer group">
+                        <GlassmorphismCard className="w-full">
+                            <h2 className="text-2xl font-bold mb-4">Return on Assets</h2>
+                            <p className="text-gray-200">
+                                Return on Assets (ROA) : การวัดผลตอบแทนจากสินทรัพย์ Short-Term, Long-Term, Capital Gains
+                            </p>
+                        </GlassmorphismCard>
+                    </Link>
+
+                    {/* Card ที่ 5 */}
+                    <Link href="/asset/technical-analysis" className="block w-full transition duration-300 transform hover:scale-[1.03] cursor-pointer group">
+                        <GlassmorphismCard className="w-full">
+                            <h2 className="text-2xl font-bold mb-4">Technical Analysis</h2>
+                            <p className="text-gray-200">
+                                Technical Analysis (up-trend, down-trend, sideway) : การวิเคราะห์ทิศทางราคาของสินทรัพย์
+                            </p>
+                        </GlassmorphismCard>
+                    </Link>
+
+                    {/* Card ที่ 6 */}
+                    <Link href="/asset/crypto-analysis" className="block w-full transition duration-300 transform hover:scale-[1.03] cursor-pointer group">
+                        <GlassmorphismCard className="w-full">
+                            <h2 className="text-2xl font-bold mb-4">Crypto Analysis</h2>
+                            <p className="text-gray-200">
+                                Crypto Analysis : การวิเคราะห์ทิศทางราคาของสินทรัพย์ดิจิทัล เช่น Bitcoin, Ethereum, USDT
+                            </p>
+                        </GlassmorphismCard>
+                    </Link>
+
+
+                    {/* คุณสามารถเพิ่ม GlassmorphismCard อื่นๆ ได้ที่นี่ */}
 
                 </div>
             </main>

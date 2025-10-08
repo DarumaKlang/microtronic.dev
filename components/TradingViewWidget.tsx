@@ -1,141 +1,126 @@
+// src/components/TradingViewWidget.tsx
 "use client";
 
 import React, { useEffect, useRef, memo } from 'react';
 
-/**
- * TradingViewWidget Component
- * A React component that embeds the TradingView Market Overview widget.
- * This widget displays real-time cryptocurrency and market data.
- * The script is dynamically created and appended to the container on component mount.
- */
-const TradingViewWidget: React.FC = memo(() => {
-    const container = useRef<HTMLDivElement | null>(null); // Use useRef to hold a reference to the container div
+// กำหนด type สำหรับ props
+interface TradingViewWidgetProps {
+    // ขยาย type ให้รองรับ 'sector-performance' ตามที่เราต้องการ
+    symbol: string;
+    widgetType: 'widget' | 'chart' | 'sector-performance'; 
+    title: string;
+    height: number;
+    description: string;
+}
 
-    useEffect(
-        () => {
-            // Create a script element to embed the TradingView widget
+// ใช้ memo เพื่อเพิ่มประสิทธิภาพ
+const TradingViewWidget: React.FC<TradingViewWidgetProps> = memo(({ symbol, widgetType, title, height, description }) => {
+    const container = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        // ID สำหรับ Widget แต่ละตัว
+        const widgetId = `tradingview-widget-${symbol.replace(/[^a-zA-Z0-9]/g, '-')}-${widgetType}`;
+        
+        // ตรวจสอบว่ามี element อยู่จริงและยังไม่มี widget ถูกโหลดไปแล้ว
+        if (container.current && !container.current.querySelector(`#${widgetId}`)) {
+            
+            // ล้าง container ก่อนเพิ่ม widget ใหม่ เพื่อป้องกันการเพิ่มซ้ำ
+            container.current.innerHTML = '';
+
             const script = document.createElement("script");
-            script.src = "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js";
             script.type = "text/javascript";
             script.async = true;
-            script.innerHTML = `
-        {
-          "colorTheme": "dark",
-          "dateRange": "3M",
-          "locale": "th_TH",
-          "largeChartUrl": "",
-          "isTransparent": true,
-          "showFloatingTooltip": false,
-          "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
-          "plotLineColorFalling": "rgba(41, 98, 255, 1)",
-          "gridLineColor": "rgba(240, 243, 250, 0)",
-          "scaleFontColor": "#DBDBDB",
-          "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-          "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
-          "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
-          "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
-          "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
-          "tabs": [
-            {
-              "title": "ASSETS",
-              "symbols": [
-                {
-                  "s": "INDEX:BTCUSD",
-                  "d": "Tradingview",
-                  "base-currency-logoid": "crypto/XTVCBTC",
-                  "currency-logoid": "country/US"
-                },
-                {
-                  "s": "INDEX:ETHUSD",
-                  "d": "Tradingview",
-                  "base-currency-logoid": "crypto/XTVCETH",
-                  "currency-logoid": "country/US"
-                },
-                {
-                  "s": "CRYPTO:SOLUSD",
-                  "d": "Tradingview",
-                  "base-currency-logoid": "crypto/XTVCSOL",
-                  "currency-logoid": "country/US"
-                },
-                {
-                  "s": "BINANCE:BTCUSDT",
-                  "d": "Binance Exchange",
-                  "base-currency-logoid": "crypto/XTVCBTC",
-                  "currency-logoid": "crypto/XTVCUSDT"
-                },
-                {
-                  "s": "BINANCE:ETHUSDT",
-                  "d": "Binance Exchange",
-                  "base-currency-logoid": "crypto/XTVCETH",
-                  "currency-logoid": "crypto/XTVCUSDT"
-                },
-                {
-                  "s": "BINANCE:SOLUSDT",
-                  "d": "Binance Exchange",
-                  "base-currency-logoid": "crypto/XTVCSOL",
-                  "currency-logoid": "crypto/XTVCUSDT"
-                },
-                {
-                  "s": "OKX:BTCUSDT",
-                  "d": "OKX Exchange",
-                  "base-currency-logoid": "crypto/XTVCBTC",
-                  "currency-logoid": "crypto/XTVCUSDT"
-                },
-                {
-                  "s": "OKX:ETHUSDT",
-                  "d": "OKX Exchange",
-                  "base-currency-logoid": "crypto/XTVCETH",
-                  "currency-logoid": "crypto/XTVCUSDT"
-                },
-                {
-                  "s": "OKX:SOLUSDT",
-                  "d": "OKX Exchange",
-                  "base-currency-logoid": "crypto/XTVCSOL",
-                  "currency-logoid": "crypto/XTVCUSDT"
-                },
-                {
-                  "s": "BITKUB:BTCTHB",
-                  "d": "Bitkub Exchange",
-                  "base-currency-logoid": "crypto/XTVCBTC",
-                  "currency-logoid": "country/TH"
-                },
-                {
-                  "s": "BITKUB:ETHTHB",
-                  "d": "Bitkub Exchange",
-                  "base-currency-logoid": "crypto/XTVCETH",
-                  "currency-logoid": "country/TH"
-                },
-                {
-                  "s": "BITKUB:SOLTHB",
-                  "d": "Bitkub Exchange",
-                  "base-currency-logoid": "crypto/XTVCSOL",
-                  "currency-logoid": "country/TH"
-                }
-              ]
-            }
-          ],
-          "support_host": "https://www.tradingview.com",
-          "backgroundColor": "#0f0f0f",
-          "width": "400",
-          "height": "550",
-          "showSymbolLogo": true,
-          "showChart": false
-        }`;
 
-            // Append the script to the container div
-            if (container.current) {
-                container.current.appendChild(script);
+            let widgetConfig = {};
+
+            if (widgetType === 'chart') {
+                // สำหรับ Chart Widget (เช่น XAUUSD)
+                script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+                widgetConfig = {
+                    "autosize": true,
+                    "symbol": symbol,
+                    "interval": "D",
+                    "timezone": "Asia/Bangkok",
+                    "theme": "dark", // ให้เข้ากับโทนสีของเว็บไซต์
+                    "style": "1",
+                    "locale": "en",
+                    "enable_publishing": false,
+                    "allow_symbol_change": true,
+                    "support_host": "https://www.tradingview.com"
+                };
+            } else if (widgetType === 'sector-performance') {
+                // สำหรับ Sector Performance Hotlists Widget
+                script.src = "https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js";
+                widgetConfig = {
+                    "colorTheme": "dark",
+                    "dateRange": "12M",
+                    "exchange": "NASDAQ",
+                    "showChart": true,
+                    "locale": "en",
+                    "width": "100%",
+                    "height": height, // ใช้ height เต็ม
+                    "dataSource": "Performance", 
+                    "noSnap": true,
+                    "market": "america",
+                    "tabs": [
+                        {
+                            "title": "Sector Performance",
+                            "data": "sector",
+                            "column": "sector",
+                            "sortby": "market_cap",
+                            "order": "desc",
+                            "source": "america",
+                            "wrap": true
+                        }
+                    ],
+                    "isLanding": false
+                };
+            } else if (widgetType === 'widget') {
+                // สำหรับ Ticker หรือ Widget อื่น ๆ (ถ้ามีการใช้งานในอนาคต)
+                script.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
+                widgetConfig = {
+                    "symbols": [
+                        { "proName": symbol, "title": title }
+                    ],
+                    "showSymbolLogo": true,
+                    "is41_0_0": false,
+                    "locale": "en",
+                    "colorTheme": "dark"
+                }
             }
-        },
-        [] // Empty dependency array ensures this effect runs only once on mount
-    );
+            
+            const configAttribute = JSON.stringify(widgetConfig);
+
+            const div = document.createElement('div');
+            div.className = 'tradingview-widget-container__widget';
+            div.id = widgetId; // กำหนด ID ให้กับ container ของ widget
+            
+            // ใช้ innerHTML เพื่อกำหนดค่า config
+            script.innerHTML = configAttribute;
+
+            container.current.appendChild(div);
+            container.current.appendChild(script);
+        }
+    }, [symbol, widgetType, height]); // dependency array
+
+    // ใช้ Tailwind Arbitrary Value สำหรับกำหนดความสูงแบบ Dynamic
+    const dynamicHeightClass = `h-[${height}px]`;
 
     return (
-        <div className="tradingview-widget-container" ref={container}>
-            <div className="tradingview-widget-container__widget"></div>
-            <div className="tradingview-widget-copyright"><a href="https://th.tradingview.com/" rel="noopener nofollow" target="_blank"><span className="blue-text">Track all markets on TradingView</span></a></div>
+        <div className="flex flex-col h-full">
+            <h4 className="text-xl font-semibold mb-2">{title}</h4>
+            <p className="text-sm opacity-75 mb-4">{description}</p>
+            {/* TradingView Widget Container */}
+            <div className={`flex-grow rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm min-h-[200px] ${dynamicHeightClass}`}
+                 ref={container}
+            >
+                {/* Widget จะถูกเพิ่มเข้ามาที่นี่ */}
+                <div className="tradingview-widget-container__widget"></div>
+            </div>
         </div>
     );
 });
+
+TradingViewWidget.displayName = 'TradingViewWidget';
 
 export default TradingViewWidget;

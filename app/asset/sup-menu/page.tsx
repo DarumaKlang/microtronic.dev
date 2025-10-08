@@ -6,7 +6,7 @@ import GridCalculator from '@/components/GridCalculator';
 import DcaCalculator from '@/components/DcaCalculator';
 
 // นำเข้าเครื่องมือคำนวณที่เหลือ
-import SlTpCalculator from '@/components/SlTpCalculator'; 
+import SlTpCalculator from '@/components/SlTpCalculator';
 import ScalpingCalculator from '@/components/ScalpingCalculator';
 import SwingTradingCalculator from '@/components/SwingTradingCalculator';
 import TrendFollowingCalculator from '@/components/TrendFollowingCalculator';
@@ -39,8 +39,22 @@ export default function AssetToolsPage() {
                         <SlTpCalculator />
                     </GlassmorphismCard>
                 </div>
-                
-                {/* 2. Grid Calculator (ถูกเลื่อนอันดับลงมา) */}
+
+                {/* 2. Scalping Calculator */}
+                <div className='mt-12'>
+                    <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
+                        ⚡ Scalping Position Size Calculator
+                    </h1>
+                    <p className="text-lg mb-4">
+                        คำนวณขนาด Position Size สำหรับการเทรดแบบ Scalping เพื่อควบคุมความเสี่ยงตามเปอร์เซ็นต์ของทุนรวมต่อการเทรด
+                    </p>
+                    <GlassmorphismCard className="w-full">
+                        <h2 className="text-2xl font-bold mb-4">เครื่องมือ Scalping Position Size Calculator (Short-Term)</h2>
+                        <ScalpingCalculator />
+                    </GlassmorphismCard>
+                </div>
+
+                {/* 3. Grid Calculator (ถูกเลื่อนอันดับลงมา) */}
                 <div className='mt-12'>
                     <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
                         💡 Grid Calculator : วางแผนการเทรด Grid
@@ -63,12 +77,12 @@ export default function AssetToolsPage() {
                         </div>
                     </div>
                     <GlassmorphismCard className="w-full">
-                        <h2 className="text-2xl font-bold mb-4">เครื่องมือ GridCalculator</h2>
+                        <h2 className="text-2xl font-bold mb-4">เครื่องมือ GridCalculator (Short-Term, DCA)</h2>
                         <GridCalculator />
                     </GlassmorphismCard>
                 </div>
 
-                {/* 3. Bear Market DCA Strategy Calculator (ถูกเลื่อนอันดับลงมา) */}
+                {/* 4. Bear Market DCA Strategy Calculator (ถูกเลื่อนอันดับลงมา) */}
                 <div className='mt-12'>
                     <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
                         🛠️ Bear Market DCA Strategy Calculator
@@ -77,38 +91,12 @@ export default function AssetToolsPage() {
                         เครื่องมือวางแผนการเข้าซื้อแบบ Dollar-Cost Averaging (DCA) โดยใช้ระดับราคาที่ลดลงเพื่อลดต้นทุนเฉลี่ย
                     </p>
                     <GlassmorphismCard className="w-full">
-                        <h2 className="text-2xl font-bold mb-4">เครื่องมือ Bear Market DCA Calculator</h2>
+                        <h2 className="text-2xl font-bold mb-4">เครื่องมือ Bear Market DCA Calculator (Down-Trend, Long-Term, DCA)</h2>
                         <DcaCalculator />
                     </GlassmorphismCard>
                 </div>
 
-                {/* 4. Scalping Calculator */}
-                <div className='mt-12'>
-                    <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
-                        ⚡ Scalping Position Size Calculator
-                    </h1>
-                    <p className="text-lg mb-4">
-                        คำนวณขนาด Position Size สำหรับการเทรดแบบ Scalping เพื่อควบคุมความเสี่ยงตามเปอร์เซ็นต์ของทุนรวมต่อการเทรด
-                    </p>
-                    <GlassmorphismCard className="w-full">
-                        <ScalpingCalculator />
-                    </GlassmorphismCard>
-                </div>
-                
-                {/* 5. Breakout Trading Calculator */}
-                <div className='mt-12'>
-                    <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
-                        🚀 Breakout Trading Calculator
-                    </h1>
-                    <p className="text-lg mb-4">
-                        เครื่องมือบริหารความเสี่ยงและคำนวณขนาด Position Size สำหรับกลยุทธ์ Breakout โดยใช้ Stop-Loss ใต้แนวต้านเดิม
-                    </p>
-                    <GlassmorphismCard className="w-full">
-                        <BreakoutTradingCalculator />
-                    </GlassmorphismCard>
-                </div>
-
-                {/* 6. Swing Trading Calculator */}
+                {/* 5. Swing Trading Calculator */}
                 <div className='mt-12'>
                     <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
                         🎢 Swing Trading Calculator
@@ -117,7 +105,22 @@ export default function AssetToolsPage() {
                         คำนวณขนาด Position Size และ TP/SL สำหรับกลยุทธ์ Swing Trading โดยใช้ Stop-Loss ใต้แนวรับสำคัญ
                     </p>
                     <GlassmorphismCard className="w-full">
+                        <h2 className="text-2xl font-bold mb-4">เครื่องมือ Swing Trading Calculator (sideway)</h2>
                         <SwingTradingCalculator />
+                    </GlassmorphismCard>
+                </div>
+
+                {/* 6. Breakout Trading Calculator */}
+                <div className='mt-12'>
+                    <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
+                        🚀 Breakout Trading Calculator
+                    </h1>
+                    <p className="text-lg mb-4">
+                        เครื่องมือบริหารความเสี่ยงและคำนวณขนาด Position Size สำหรับกลยุทธ์ Breakout โดยใช้ Stop-Loss ใต้แนวต้านเดิม
+                    </p>
+                    <GlassmorphismCard className="w-full">
+                        <h2 className="text-2xl font-bold mb-4">เครื่องมือ Breakout Trading Calculator (Sideway-Up)</h2>
+                        <BreakoutTradingCalculator />
                     </GlassmorphismCard>
                 </div>
 
@@ -130,6 +133,7 @@ export default function AssetToolsPage() {
                         เครื่องมือคำนวณ Position Size และ Stop-Loss/Take Profit โดยอิงจากค่า Average True Range (ATR) เพื่อการเทรดตามแนวโน้ม
                     </p>
                     <GlassmorphismCard className="w-full">
+                        <h2 className="text-2xl font-bold mb-4">เครื่องมือ Trend Following (ATR-based) Calculator (Up-Trend)</h2>
                         <TrendFollowingCalculator />
                     </GlassmorphismCard>
                 </div>

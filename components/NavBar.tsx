@@ -46,7 +46,7 @@ export default function NavBar() {
                                     การลงทุน
                                 </Link>
                                 <Link
-                                    href="/asset/strategies" // URL บริการ LNbits ตัวที่สอง
+                                    href="/asset/sup-menu/strategies" // URL บริการ LNbits ตัวที่สอง
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block px-4 py-2 hover:bg-gray-600"
@@ -55,16 +55,16 @@ export default function NavBar() {
                                     กลยุทธ์การลงทุน
                                 </Link>
                                 <Link
-                                    href="/asset/crypto-analysis" // URL บริการ LNbits ตัวที่สอง
+                                    href="/asset/sup-menu/financial-tracker" // URL บริการ LNbits ตัวที่สอง
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block px-4 py-2 hover:bg-gray-600"
                                     onClick={() => setIsLnbitsDropdownOpen(false)}
                                 >
-                                    Crypto Analysis
+                                    Financial Tracker
                                 </Link>
                                 <Link
-                                    href="/asset/tools-GridCalculator"
+                                    href="/asset/sup-menu"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block px-4 py-2 hover:bg-gray-600 rounded-b-md"
