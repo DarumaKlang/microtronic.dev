@@ -1,12 +1,19 @@
 // app/asset/page.tsx
 import GlassmorphismCard from '@/components/GlassmorphismCard';
 import GooeyBackground from '@/components/GooeyBackground'; // นำเข้า GooeyBackground
-import TradingViewWidget from '@/components/TradingViewWidget';
-import TradingViewNewWidget from '@/components/TradingViewNewsWidget';
+// import TradingViewAdvancedChart from '@/components/TradingViewAdvancedChart'; // **ลบออกตามคำขอ**
 import GridCalculator from '@/components/GridCalculator';
 import DcaCalculator from '@/components/DcaCalculator';
 
-export default function GridCalculatorPage() {
+// นำเข้าเครื่องมือคำนวณที่เหลือ
+import SlTpCalculator from '@/components/SlTpCalculator'; 
+import ScalpingCalculator from '@/components/ScalpingCalculator';
+import SwingTradingCalculator from '@/components/SwingTradingCalculator';
+import TrendFollowingCalculator from '@/components/TrendFollowingCalculator';
+import BreakoutTradingCalculator from '@/components/BreakoutTradingCalculator';
+
+
+export default function AssetToolsPage() {
     return (
         // ใช้ GooeyBackground สำหรับพื้นหลังของหน้าทั้งหมด
         <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-gradient-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px]">
@@ -18,56 +25,116 @@ export default function GridCalculatorPage() {
                 <h1 className="text-4xl sm:text-5xl font-extrabold text-fuchsia-400 mb-4 tracking-tight">
                     Tools for Trading Strategies
                 </h1>
+                <p className="text-xl opacity-90">ชุดเครื่องมือคำนวณสำหรับนักลงทุนและนักเทรดเพื่อช่วยในการวางแผนการเข้า-ออกตลาด และบริหารความเสี่ยง</p>
 
-                {/* ตัวอย่างการใช้งาน GlassmorphismCard สำหรับแสดงเนื้อหาแต่ละส่วน */}
+                {/* 1. SL/TP Price Calculator (ย้ายมาอยู่บนสุด) */}
                 <div className='mt-12'>
                     <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
-                        💡 Grid Calculator : วางแผนการเทรด Grid อย่างมืออาชีพ
+                        🎯 SL/TP Price Calculator (Risk/Reward)
                     </h1>
                     <p className="text-lg mb-4">
-                        Grid Trading เป็นกลยุทธ์ที่ทรงพลังในการทำกำไรจาก <span className="font-semibold text-yellow-300">ความผันผวนด้านข้าง (Sideways)</span> ของตลาด เครื่องมือนี้ช่วยให้คุณสามารถออกแบบและสร้างแผนผังระดับราคาซื้อ-ขาย (Buy/Sell Levels) ได้อย่างรวดเร็วและแม่นยำ
+                        คำนวณราคา Take Profit (TP) อัตโนมัติโดยกำหนดจาก Risk/Reward Ratio และ Stop-Loss (SL) ที่แน่นอน
                     </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm mb-8">
+                    <GlassmorphismCard className="w-full">
+                        <SlTpCalculator />
+                    </GlassmorphismCard>
+                </div>
+                
+                {/* 2. Grid Calculator (ถูกเลื่อนอันดับลงมา) */}
+                <div className='mt-12'>
+                    <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
+                        💡 Grid Calculator : วางแผนการเทรด Grid
+                    </h1>
+                    <p className="text-lg mb-4">
+                        เครื่องมือคำนวณการตั้ง Buy/Sell Limit Order แบบ Grid เพื่อให้ครอบคลุมช่วงราคาที่ต้องการและคำนวณความเสี่ยง
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 text-center">
                         <div className="p-3 bg-white/20 rounded-lg">
-                            <h3 className="font-bold text-lg text-fuchsia-300">1. เลือกกลยุทธ์</h3>
-                            <p>ตัดสินใจระหว่าง <span className="font-semibold">Arithmetic</span> (ระยะห่างคงที่) หรือ <span className="font-semibold">Geometric</span> (เปอร์เซ็นต์คงที่)</p>
+                            <h3 className="font-bold text-lg text-fuchsia-300">1. กำหนดเป้าหมาย</h3>
+                            <p>กำหนดช่วงราคาสูงสุด-ต่ำสุด และจำนวน Grid ที่ต้องการ</p>
                         </div>
                         <div className="p-3 bg-white/20 rounded-lg">
-                            <h3 className="font-bold text-lg text-fuchsia-300">2. คำนวณรวดเร็ว</h3>
-                            <p>ป้อน 4 ข้อมูลหลัก เครื่องมือจะประมาณการกำไรสุทธิและระดับราคาให้คุณทันที</p>
+                            <h3 className="font-bold text-lg text-fuchsia-300">2. คำนวณอัตโนมัติ</h3>
+                            <p>รับรายการจุดราคาพร้อมจำนวนเงินที่ควรใช้ต่อ Grid</p>
                         </div>
                         <div className="p-3 bg-white/20 rounded-lg">
                             <h3 className="font-bold text-lg text-fuchsia-300">3. นำไปใช้งาน</h3>
                             <p>นำรายการจุดราคา Buy/Sell ไปตั้ง Limit Order ใน Exchange ของคุณได้ทันที</p>
                         </div>
                     </div>
-
-                    {/* Big Card ที่ 1 */}
                     <GlassmorphismCard className="w-full">
                         <h2 className="text-2xl font-bold mb-4">เครื่องมือ GridCalculator</h2>
                         <GridCalculator />
                     </GlassmorphismCard>
-
                 </div>
 
+                {/* 3. Bear Market DCA Strategy Calculator (ถูกเลื่อนอันดับลงมา) */}
                 <div className='mt-12'>
                     <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
                         🛠️ Bear Market DCA Strategy Calculator
                     </h1>
                     <p className="text-lg mb-4">
-                        เครื่องมือวางแผนการเข้าซื้อแบบ Dollar-Cost Averaging (DCA) โดยใช้ระดับราคาที่ลดลงเพื่อลดต้นทุนเฉลี่ย ควบคู่กับการตั้งเป้าทำกำไรระยะสั้นและการจำกัดความเสี่ยง
+                        เครื่องมือวางแผนการเข้าซื้อแบบ Dollar-Cost Averaging (DCA) โดยใช้ระดับราคาที่ลดลงเพื่อลดต้นทุนเฉลี่ย
                     </p>
-                    
-                    {/* Big Card ที่ 2 */}
                     <GlassmorphismCard className="w-full">
                         <h2 className="text-2xl font-bold mb-4">เครื่องมือ Bear Market DCA Calculator</h2>
                         <DcaCalculator />
                     </GlassmorphismCard>
-
                 </div>
-            </main>
 
+                {/* 4. Scalping Calculator */}
+                <div className='mt-12'>
+                    <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
+                        ⚡ Scalping Position Size Calculator
+                    </h1>
+                    <p className="text-lg mb-4">
+                        คำนวณขนาด Position Size สำหรับการเทรดแบบ Scalping เพื่อควบคุมความเสี่ยงตามเปอร์เซ็นต์ของทุนรวมต่อการเทรด
+                    </p>
+                    <GlassmorphismCard className="w-full">
+                        <ScalpingCalculator />
+                    </GlassmorphismCard>
+                </div>
+                
+                {/* 5. Breakout Trading Calculator */}
+                <div className='mt-12'>
+                    <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
+                        🚀 Breakout Trading Calculator
+                    </h1>
+                    <p className="text-lg mb-4">
+                        เครื่องมือบริหารความเสี่ยงและคำนวณขนาด Position Size สำหรับกลยุทธ์ Breakout โดยใช้ Stop-Loss ใต้แนวต้านเดิม
+                    </p>
+                    <GlassmorphismCard className="w-full">
+                        <BreakoutTradingCalculator />
+                    </GlassmorphismCard>
+                </div>
+
+                {/* 6. Swing Trading Calculator */}
+                <div className='mt-12'>
+                    <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
+                        🎢 Swing Trading Calculator
+                    </h1>
+                    <p className="text-lg mb-4">
+                        คำนวณขนาด Position Size และ TP/SL สำหรับกลยุทธ์ Swing Trading โดยใช้ Stop-Loss ใต้แนวรับสำคัญ
+                    </p>
+                    <GlassmorphismCard className="w-full">
+                        <SwingTradingCalculator />
+                    </GlassmorphismCard>
+                </div>
+
+                {/* 7. Trend Following Calculator */}
+                <div className='mt-12'>
+                    <h1 className="text-3xl sm:text-4xl font-extrabold text-fuchsia-300 mb-4 border-b border-fuchsia-600/50 pb-2">
+                        📈 Trend Following (ATR-based) Calculator
+                    </h1>
+                    <p className="text-lg mb-4">
+                        เครื่องมือคำนวณ Position Size และ Stop-Loss/Take Profit โดยอิงจากค่า Average True Range (ATR) เพื่อการเทรดตามแนวโน้ม
+                    </p>
+                    <GlassmorphismCard className="w-full">
+                        <TrendFollowingCalculator />
+                    </GlassmorphismCard>
+                </div>
+
+            </main>
         </div>
     );
 }

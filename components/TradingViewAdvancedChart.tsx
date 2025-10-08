@@ -1,3 +1,4 @@
+// components/TradingViewAdvancedChart.tsx
 "use client";
 
 import React, { useEffect, useRef, memo } from 'react';
@@ -34,7 +35,7 @@ const TradingViewAdvancedChart: React.FC = memo(() => {
             "ROC@tv-basicstudies",
             "StochasticRSI@tv-basicstudies",
             "MASimple@tv-basicstudies"
-          ],
+          ],\
           "show_popup_button": true,
           "popup_width": "1000",
           "popup_height": "650"
@@ -49,8 +50,10 @@ const TradingViewAdvancedChart: React.FC = memo(() => {
     );
 
     return (
-        <div className="tradingview-widget-container" ref={container} style={{ height: "93%", width: "100%" }}>
-            <div className="tradingview-widget-container__widget" style={{ height: "calc(100% - 32px)", width: "100%" }}></div>
+        // แก้ไข: เปลี่ยน inline style เป็น Tailwind classes
+        <div className="tradingview-widget-container h-[93%] w-full" ref={container}>
+            {/* แก้ไข: เปลี่ยน inline style เป็น Tailwind classes (ใช้ arbitrary value สำหรับ calc) */}
+            <div className="tradingview-widget-container__widget h-[calc(100%-32px)] w-full"></div>
             <div className="tradingview-widget-copyright">
                 <a
                     href="https://www.tradingview.com/"
