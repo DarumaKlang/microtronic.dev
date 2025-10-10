@@ -203,11 +203,10 @@ export default function WalletGeneratorPage() {
 
                 {/* Progress Bar */}
                 <div 
-                    className="w-full max-w-xl bg-blue-900 rounded-full h-8 shadow-inner"
-                    style={{ '--progress-width': `${progress}%` } as React.CSSProperties}
+                    className="w-full max-w-xl bg-blue-900 rounded-full h-8 shadow-inner progress-bar-container"
                 >
                     <div 
-                        className="bg-fuchsia-500 h-8 rounded-full text-center text-sm font-bold transition-all duration-300 flex items-center justify-center w-[var(--progress-width)]"
+                        className="bg-fuchsia-500 h-8 rounded-full text-center text-sm font-bold transition-all duration-300 flex items-center justify-center progress-bar-fill"
                     >
                         {/* แสดงผลตามค่า REQUIRED_ENTROPY ใหม่ */}
                         {progress < 100 ? `${progress}% Entropy ( ${currentEntropyBits} / ${REQUIRED_ENTROPY} bits )` : 'Entropy เพียงพอ!'}
