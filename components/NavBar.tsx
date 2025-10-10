@@ -7,7 +7,7 @@ export default function NavBar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     // isMainDropdownOpen ควบคุมเมนูหลัก "บริการ/เครื่องมือ"
     const [isMainDropdownOpen, setIsMainDropdownOpen] = useState(false);
-    // State สำหรับเมนูย่อย "Wallet Tools" (ใช้สำหรับ Desktop/Mobile)
+    // State สำหรับเมนูย่อย "BTC Wallet Tools" (ใช้สำหรับ Desktop/Mobile)
     const [isWalletToolsDropdownOpen, setIsWalletToolsDropdownOpen] = useState(false);
 
     // ฟังก์ชันปิดเมนูทั้งหมด
@@ -24,14 +24,14 @@ export default function NavBar() {
     // ฟังก์ชันสำหรับเปิด/ปิด Dropdown บริการ/เครื่องมือ (Desktop)
     const toggleMainDropdown = () => {
         setIsMainDropdownOpen(prev => !prev);
-        // ปิด Wallet Tools เมื่อเปิด/ปิดเมนูหลัก
+        // ปิด BTC Wallet Tools เมื่อเปิด/ปิดเมนูหลัก
         setIsWalletToolsDropdownOpen(false);
     };
 
-    // ฟังก์ชันสำหรับเปิด/ปิด Dropdown Wallet Tools (Desktop)
+    // ฟังก์ชันสำหรับเปิด/ปิด Dropdown BTC Wallet Tools (Desktop)
     const toggleWalletToolsDropdown = () => {
         setIsWalletToolsDropdownOpen(prev => !prev);
-        // ปิดเมนูหลักเมื่อเปิด/ปิด Wallet Tools
+        // ปิดเมนูหลักเมื่อเปิด/ปิด BTC Wallet Tools
         setIsMainDropdownOpen(false);
     };
 
@@ -72,14 +72,14 @@ export default function NavBar() {
                         )}
                     </div>
 
-                    {/* 2. เมนูดรอปดาวน์สำหรับ Wallet Tools (Desktop) */}
+                    {/* 2. เมนูดรอปดาวน์สำหรับ BTC Wallet Tools (Desktop) */}
                     <div className="relative">
                         <button
                             // 🎯 แก้ไข: ใช้ toggleWalletToolsDropdown แทน
                             onClick={toggleWalletToolsDropdown}
                             className="hover:text-fuchsia-300 focus:outline-none flex items-center gap-1 transition duration-150"
                         >
-                            Wallet Tools {isWalletToolsDropdownOpen ? '▲' : '▼'}
+                            BTC Wallet Tools {isWalletToolsDropdownOpen ? '▲' : '▼'}
                         </button>
 
                         {/* Submenu Content */}
@@ -152,14 +152,14 @@ export default function NavBar() {
                                     <Link href="/asset/sup-menu/financial-tracker" className="block hover:text-fuchsia-300" onClick={closeAllMenus}>Financial Tracker</Link>
                                     <Link href="/asset/sup-menu" className="block hover:text-fuchsia-300" onClick={closeAllMenus}>เครื่องมือช่วยเหลือทั้งหมด</Link>
 
-                                    {/* Submenu Wallet Tools (Mobile) */}
+                                    {/* Submenu BTC Wallet Tools (Mobile) */}
                                     <div className="w-full mt-2">
                                         <button
                                             // 🎯 แก้ไข: ปรับการควบคุม State ใน Mobile Menu ให้ถูกต้อง
                                             onClick={() => setIsWalletToolsDropdownOpen(!isWalletToolsDropdownOpen)}
                                             className="w-full text-left hover:text-fuchsia-300 focus:outline-none text-base font-semibold"
                                         >
-                                            Wallet Tools {isWalletToolsDropdownOpen ? '▲' : '▼'}
+                                            BTC Wallet Tools {isWalletToolsDropdownOpen ? '▲' : '▼'}
                                         </button>
                                         {isWalletToolsDropdownOpen && (
                                             <div className="ml-4 py-2 space-y-2 text-sm">
