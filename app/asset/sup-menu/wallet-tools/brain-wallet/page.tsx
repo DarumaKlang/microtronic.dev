@@ -1,5 +1,11 @@
 // /app/asset/sup-menu/wallet-tools/brain-wallet/page.tsx
-import BrainWalletGenerator from '@/components/wallet-tools/BrainWalletGenerator';
+
+// ❌ ลบ import dynamic และ BrainWalletGenerator เดิมออกทั้งหมด
+// import dynamic from 'next/dynamic'; 
+// const BrainWalletGeneratorDynamic = dynamic(...) <- ลบโค้ดนี้ออก
+// 💡 เพิ่ม import BrainWalletDynamicLoader ที่เพิ่งสร้างขึ้นมา
+import BrainWalletDynamicLoader from '@/components/wallet-tools/BrainWalletDynamicLoader';
+
 import GlassmorphismCard from '@/components/GlassmorphismCard';
 import GooeyBackground from '@/components/GooeyBackground';
 
@@ -27,9 +33,9 @@ export default function BrainWalletPage() {
 
                 {/* Component หลักอยู่ใน Glassmorphism Card */}
                 <GlassmorphismCard className="p-6 md:p-8">
-                    {/* <BrainWalletGenerator /> // เพิ่ม Component จริงที่นี่ */}
                     <div className="text-center text-lg py-12">
-                        <BrainWalletGenerator />
+                        {/* 💡 เรียกใช้ Client Wrapper ที่ทำ Dynamic Load */}
+                        <BrainWalletDynamicLoader /> 
                     </div>
                 </GlassmorphismCard>
 
