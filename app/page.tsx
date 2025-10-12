@@ -17,7 +17,7 @@ export default function Home() {
 
     return (
         // ใช้ class สำหรับ gradient background และ text-white ตามที่คุณต้องการ
-        <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-gradient-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px]">
+        <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 gap-16 sm:p-20 bg-gradient-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px]">
 
             <main className="flex flex-col gap-[32px] row-start-2 items-center w-full">
                 {/* Hero Section ใหม่สำหรับเว็บไซต์บริษัท */}
