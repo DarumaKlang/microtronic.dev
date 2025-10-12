@@ -8,11 +8,8 @@ type NextJsWebpackConfigContext = Parameters<NonNullable<NextConfig['webpack']>>
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-    // 💡 FIX A: เปิดใช้งาน WebAssembly Experiments (ต้องมีเสมอ)
-    experiments: {
-        asyncWebAssembly: true, // เปิดใช้งานการโหลด Wasm แบบ Asynchronous
-        topLevelAwait: true,     // มักจำเป็นสำหรับการ import Wasm modules
-    },
+    // 💡 ลบคีย์ 'experiments' ออก เพราะ Next.js v15.x ไม่รู้จัก
+    // experiments: { ... }, // <- ลบออกแล้ว
     
     // [PRESERVED CONFIG]
     reactStrictMode: false, 
@@ -30,17 +27,12 @@ const nextConfig: NextConfig = {
     },
 
     // ----------------------------------------------------------------
-    // 💡 FIX B: การตั้งค่า Webpack เพื่อจัดการ .wasm และ Fallback
+    // 💡 FIX: การตั้งค่า Webpack สำหรับ Buffer Fallback เท่านั้น
     // ----------------------------------------------------------------
     webpack: (config: any, context: NextJsWebpackConfigContext) => { 
         const { isServer } = context;
         
-        // 🛑 FIX 2: เพิ่ม rule สำหรับไฟล์ .wasm โดยเฉพาะ
-        // เพื่อให้ Webpack ทราบว่าต้องจัดการไฟล์เหล่านี้เป็น WebAssembly Module
-        config.module.rules.push({
-            test: /\.wasm$/,
-            type: 'webassembly/async', // ต้องกำหนดให้เป็น 'webassembly/async' เพื่อให้สอดคล้องกับ experiments ด้านบน
-        });
+        // ❌ ลบ config.module.rules.push({ test: /\.wasm$/, ... }) ออก
 
         // เฉพาะสำหรับ Client-side Bundle เท่านั้น (แก้ปัญหา Buffer Fallback)
         if (!isServer) {
@@ -48,6 +40,7 @@ const nextConfig: NextConfig = {
                 ...(config.resolve || {}), 
                 fallback: {
                     ...(config.resolve?.fallback || {}), 
+                    // เพิ่ม 'buffer' เข้ามาใน fallback สำหรับไลบรารี Crypto
                     buffer: require.resolve('buffer/'),
                 },
             };
