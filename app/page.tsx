@@ -3,9 +3,11 @@ import GlassmorphismCard from '@/components/GlassmorphismCard';
 import { ServiceCard } from '@/components/ServiceCard';
 import { WorkShowcase } from '@/components/WorkShowcase'; // import component ใหม่
 
+import Link from 'next/link';
+
 export default function Home() {
 
-    {/* ตัวอย่างข้อมูลผลงานสำหรับ Component WorkShowcase */}
+    {/* ตัวอย่างข้อมูลผลงานสำหรับ Component WorkShowcase */ }
     const workExamples = [
         { src: '/images/work-1.png', alt: 'เว็บไซต์องค์กร 1' },
         { src: '/images/work-2.png', alt: 'เว็บไซต์องค์กร 2' },
@@ -134,42 +136,46 @@ export default function Home() {
                             </div>
                         </GlassmorphismCard>
 
-                        {/* การ์ดบริการ: ยืดหยุ่น */}
-                        <GlassmorphismCard>
-                            <div className="flex flex-col items-center text-center p-4">
-                                <div className="w-16 h-16 mb-4 rounded-full bg-fuchsia-600 flex items-center justify-center">
-                                    {/* Placeholder for icon */}
-                                    <span className="text-3xl">⚙️</span>
+                        {/* การ์ดบริการ: เครื่องมือจัดการ Wallet (เปลี่ยนจาก ยืดหยุ่น เป็น Link) */}
+                        <Link href="/service/Wallet-Tools" className="block transform transition-transform duration-300 hover:scale-[1.02]">
+                            <GlassmorphismCard>
+                                <div className="flex flex-col items-center text-center p-4">
+                                    <div className="w-16 h-16 mb-4 rounded-full bg-fuchsia-600 flex items-center justify-center">
+                                        {/* Placeholder for icon */}
+                                        <span className="text-3xl">⚙️</span>
+                                    </div>
+                                    <h4 className="text-xl font-bold mb-2">เครื่องมือจัดการ Wallet</h4>
+                                    <p className="text-sm opacity-80">
+                                        เครื่องมือจัดการ Bitcoin Wallet ที่ทันสมัย และเป็น OpenSource ที่รองรับการใช้งานทุกอุปกรณ์
+                                    </p>
                                 </div>
-                                <h4 className="text-xl font-bold mb-2">ยืดหยุ่น</h4>
-                                <p className="text-sm opacity-80">
-                                    เว็บไซต์ที่ปรับขนาดได้ตามความต้องการของธุรกิจ และสามารถรองรับการใช้งานบนทุกอุปกรณ์
-                                </p>
-                            </div>
-                        </GlassmorphismCard>
+                            </GlassmorphismCard>
+                        </Link>
 
                         {/* การ์ดบริการ: เป็นมิตรกับสิ่งแวดล้อม */}
-                        <GlassmorphismCard>
-                            <div className="flex flex-col items-center text-center p-4">
-                                <div className="w-16 h-16 mb-4 rounded-full bg-fuchsia-600 flex items-center justify-center">
-                                    {/* Placeholder for icon */}
-                                    <span className="text-3xl">🌿</span>
+                        <Link href="/service/Environmentally" className="block transform transition-transform duration-300 hover:scale-[1.02]">
+                            <GlassmorphismCard>
+                                <div className="flex flex-col items-center text-center p-4">
+                                    <div className="w-16 h-16 mb-4 rounded-full bg-fuchsia-600 flex items-center justify-center">
+                                        {/* Placeholder for icon */}
+                                        <span className="text-3xl">🌿</span>
+                                    </div>
+                                    <h4 className="text-xl font-bold mb-2">เป็นมิตรกับสิ่งแวดล้อม</h4>
+                                    <p className="text-sm opacity-80">
+                                        การออกแบบที่เน้นประสิทธิภาพ ช่วยลดการใช้พลังงานของเซิร์ฟเวอร์ และลดผลกระทบต่อสิ่งแวดล้อม
+                                    </p>
                                 </div>
-                                <h4 className="text-xl font-bold mb-2">เป็นมิตรกับสิ่งแวดล้อม</h4>
-                                <p className="text-sm opacity-80">
-                                    การออกแบบที่เน้นประสิทธิภาพ ช่วยลดการใช้พลังงานของเซิร์ฟเวอร์ และลดผลกระทบต่อสิ่งแวดล้อม
-                                </p>
-                            </div>
-                        </GlassmorphismCard>
+                            </GlassmorphismCard>
+                        </Link>
                     </div>
                 </section>
 
                 <section className="w-full max-w-7xl mt-16 px-4">
                     {/* เพิ่มส่วนแสดงผลงานใหม่ */}
                     <WorkShowcase
-                    title="ตัวอย่างผลงานรับทำเว็บไซต์"
-                    description="เราสร้างสรรค์เว็บไซต์ที่ตอบโจทย์ธุรกิจของคุณ ไม่ว่าจะเป็นเว็บไซต์องค์กร E-commerce หรือ Portfolio ด้วยดีไซน์ที่ทันสมัยและใช้งานง่ายบนทุกอุปกรณ์"
-                    works={workExamples}
+                        title="ตัวอย่างผลงานรับทำเว็บไซต์"
+                        description="เราสร้างสรรค์เว็บไซต์ที่ตอบโจทย์ธุรกิจของคุณ ไม่ว่าจะเป็นเว็บไซต์องค์กร E-commerce หรือ Portfolio ด้วยดีไซน์ที่ทันสมัยและใช้งานง่ายบนทุกอุปกรณ์"
+                        works={workExamples}
                     />
                 </section>
 
