@@ -21,7 +21,7 @@ export default function EnvironmentallyPage() {
 
                 {/* Hero Section - โดดเด่นและชัดเจน */}
                 <section className="text-center py-16 border-b border-fuchsia-400/30">
-                    <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tighter mb-6 text-fuchsia-400 drop-shadow-xl animate-fade-in-down">
+                    <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tighter mb-6 text-fuchsia-400 drop-shadow-xl animate-fade-in-down">
                         เป็นมิตรกับสิ่งแวดล้อม 🌎
                     </h1>
                     <p className="text-xl sm:text-3xl font-light max-w-4xl mx-auto opacity-95 text-gray-200">
