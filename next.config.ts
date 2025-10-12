@@ -2,10 +2,7 @@
 
 import type { NextConfig } from 'next';
 
-// 🛑 FIX 1: แก้ Type Error 2344 โดยการระบุให้ TypeScript รู้ว่า 'webpack' function มีอยู่
-// เราใช้ Parameters<NonNullable<NextConfig['webpack']>>[1]
-// - NonNullable: เพื่อลบ 'null' ออกจาก Type ของ NextConfig['webpack']
-// - Parameters<...>[1]: เพื่อดึง Type ของ Context Object ออกมา (พารามิเตอร์ที่ 2)
+// 🛑 FIX 1: แก้ Type Error 2344 โดยการระบุให้ TypeScript รู้จัก Type ของ Context Object
 type NextJsWebpackConfigContext = Parameters<NonNullable<NextConfig['webpack']>>[1];
 
 
@@ -14,6 +11,13 @@ const nextConfig: NextConfig = {
     // [PRESERVED CONFIG]
     reactStrictMode: false, 
     
+    // 💡 FIX 3: เพิ่มการตั้งค่า experiments เพื่อรองรับ WebAssembly (Wasm)
+    // การตั้งค่านี้จะแก้ปัญหา "Module parse failed: Unexpected character '�'"
+    experiments: {
+        asyncWebAssembly: true, // เปิดใช้งานการโหลด Wasm แบบ Asynchronous
+        topLevelAwait: true,     // มักจำเป็นสำหรับการ import Wasm modules
+    },
+
     // [PRESERVED CONFIG]
     images: { 
         remotePatterns: [
@@ -27,9 +31,8 @@ const nextConfig: NextConfig = {
     },
 
     // ----------------------------------------------------------------
-    // [FIXED] การตั้งค่า Webpack
+    // [PRESERVED] การตั้งค่า Webpack เดิมสำหรับ Buffer Fallback
     // ----------------------------------------------------------------
-    // 🛑 FIX 2: ใช้ 'any' สำหรับ config เพื่อหลีกเลี่ยง Cannot find module 'webpack' (2307)
     webpack: (config: any, context: NextJsWebpackConfigContext) => { 
         const { isServer } = context;
 
@@ -39,7 +42,7 @@ const nextConfig: NextConfig = {
                 ...(config.resolve || {}), 
                 fallback: {
                     ...(config.resolve?.fallback || {}), 
-                    // เพิ่ม 'buffer' เข้ามาใน fallback สำหรับ bitcoinjs-lib
+                    // เพิ่ม 'buffer' เข้ามาใน fallback สำหรับไลบรารีที่ต้องการ
                     buffer: require.resolve('buffer/'),
                 },
             };
