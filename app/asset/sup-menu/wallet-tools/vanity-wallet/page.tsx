@@ -1,5 +1,10 @@
 // /app/asset/sup-menu/wallet-tools/vanity-wallet/page.tsx
-import VanityWalletGenerator from '@/components/wallet-tools/VanityWalletGenerator';
+
+// ❌ ลบ Static Import ของ VanityWalletGenerator เดิมออก
+// import VanityWalletGenerator from '@/components/wallet-tools/VanityWalletGenerator';
+// 💡 เพิ่ม Import ของ Client Wrapper ตัวใหม่ที่เราสร้างขึ้น
+import VanityWalletDynamicLoader from '@/components/wallet-tools/VanityWalletDynamicLoader';
+
 import GlassmorphismCard from '@/components/GlassmorphismCard';
 import GooeyBackground from '@/components/GooeyBackground';
 
@@ -26,24 +31,22 @@ export default function VanityWalletPage() {
 
                 {/* Component หลักอยู่ใน Glassmorphism Card */}
                 <GlassmorphismCard className="p-6 md:p-8">
-                    {/* <VanityWalletGenerator /> // เพิ่ม Component จริงที่นี่ */}
-                    <div className="text-center text-lg py-12">
-                        <VanityWalletGenerator />
-                    </div>
+                    {/* 💡 เรียกใช้ Dynamic Loader แทน VanityWalletGenerator เดิม */}
+                    <VanityWalletDynamicLoader />
                 </GlassmorphismCard>
 
                 <section className="mt-8 space-y-8 max-w-4xl">
                     <h2 className="text-3xl font-bold text-yellow-400 border-b border-gray-600 pb-2">🔑 คุณสมบัติหลัก</h2>
                     <ul className="list-disc list-inside space-y-2 ml-4">
-                        <li><span className="font-bold">กำหนด Prefix:</span> สามารถระบุคำนำหน้าของ Address ที่ต้องการได้ (เช่น `1Micro`)</li>
-                        <li><span className="font-bold">ประสิทธิภาพสูง:</span> แสดงจำนวนการพยายามค้นหา (Attempts) และความเร็วในการค้นหา</li>
-                        <li><span className="font-bold">Client-Side Random:</span> การสุ่ม Private Key ทุกครั้งใช้ค่าสุ่มที่ปลอดภัย</li>
+                        <li><span className="font-bold">ค้นหาคำนำหน้า:</span> ค้นหา Address ที่ขึ้นต้นด้วยตัวอักษรที่คุณต้องการ</li>
+                        <li><span className="font-bold">Client-Side + Web Worker:</span> การค้นหาและการสร้าง Key เกิดขึ้นในเบราว์เซอร์และใช้ Web Worker เพื่อประสิทธิภาพสูงสุด</li>
+                        <li><span className="font-bold">ความเร็ว:</span> ใช้ `Web Worker` เพื่อให้ UI ไม่ค้างและค้นหาได้ต่อเนื่อง</li>
                     </ul>
 
-                    <h2 className="text-3xl font-bold text-yellow-400 border-b border-gray-600 pb-2">🛡️ เทคโนโลยีและความปลอดภัย</h2>
+                    <h2 className="text-3xl font-bold text-red-400 border-b border-gray-600 pb-2">🛡️ ความปลอดภัยและหลักการทำงาน</h2>
                     <div className="space-y-4">
                         <p>
-                            <span className="font-bold">เทคโนโลยี:</span> <span className="font-bold">Web Worker</span>, `tiny-secp256k1`, `bitcoinjs-lib`
+                            <span className="font-bold">เทคโนโลยี:</span> `Web Worker`, `tiny-secp256k1`, `bitcoinjs-lib`
                         </p>
                         <p>
                             <span className="font-bold">หลักการทำงาน:</span> ใช้ <span className="font-bold">Web Worker</span> ในการทำซ้ำการสุ่ม Private Key ใน Background Thread ทำให้ <span className="font-bold">UI ไม่ค้าง</span> และสามารถค้นหาได้อย่างต่อเนื่อง

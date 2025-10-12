@@ -1,5 +1,10 @@
 // /app/asset/sup-menu/wallet-tools/paper-wallet/page.tsx
-import PaperWalletGenerator from '@/components/wallet-tools/PaperWalletGenerator'; // สมมติว่ามี Component นี้
+
+// ❌ ลบ Static Import ของ PaperWalletGenerator เดิมออก
+// import PaperWalletGenerator from '@/components/wallet-tools/PaperWalletGenerator'; 
+// 💡 เพิ่ม Import ของ Client Wrapper ตัวใหม่ที่เราสร้างขึ้น
+import PaperWalletDynamicLoader from '@/components/wallet-tools/PaperWalletDynamicLoader'; 
+
 import GlassmorphismCard from '@/components/GlassmorphismCard';
 import GooeyBackground from '@/components/GooeyBackground';
 
@@ -26,23 +31,23 @@ export default function PaperWalletPage() {
 
                 {/* Component หลักอยู่ใน Glassmorphism Card */}
                 <GlassmorphismCard className="p-6 md:p-8">
-                    {/* <PaperWalletGenerator /> // เพิ่ม Component จริงที่นี่ */}
-                    <div className="text-center text-lg py-12">
-                        <PaperWalletGenerator />
-                    </div>
+                    {/* 💡 เรียกใช้ Dynamic Loader แทน PaperWalletGenerator เดิม */}
+                    <PaperWalletDynamicLoader />
                 </GlassmorphismCard>
 
                 <section className="mt-8 space-y-8 max-w-4xl">
                     <h2 className="text-3xl font-bold text-yellow-400 border-b border-gray-600 pb-2">🔑 คุณสมบัติหลัก</h2>
                     <ul className="list-disc list-inside space-y-2 ml-4">
-                        <li><span className="font-bold">Private Key (WIF):</span> สร้างกุญแจส่วนตัวในรูปแบบที่ง่ายต่อการนำเข้า</li>
-                        <li><span className="font-bold">รองรับการพิมพ์:</span> จัดรูปแบบการแสดงผลให้เหมาะสมกับการพิมพ์บนกระดาษ</li>
-                        <li><span className="font-bold">Client-Side Only:</span> การสร้าง Key ทั้งหมดทำงานในเบราว์เซอร์</li>
+                        <li><span className="font-bold">ความสุ่มสูง:</span> ใช้ `window.crypto.getRandomValues()` ในการสร้าง Private Key ที่ปลอดภัย</li>
+                        <li><span className="font-bold">Offline:</span> ออกแบบมาเพื่อใช้งานโดยไม่ต้องเชื่อมต่ออินเทอร์เน็ต (แนะนำ)</li>
+                        <li><span className="font-bold">Client-Side:</span> การสร้าง Key ทั้งหมดเกิดขึ้นในเบราว์เซอร์</li>
                     </ul>
 
-                    <h2 className="text-3xl font-bold text-yellow-400 border-b border-gray-600 pb-2">🛡️ เทคโนโลยีและความปลอดภัย</h2>
+                    <h2 className="text-3xl font-bold text-red-400 border-b border-gray-600 pb-2">🛡️ ความปลอดภัยและหลักการทำงาน</h2>
                     <div className="space-y-4">
-                        <p><span className="font-bold">เทคโนโลยี:</span> `window.crypto.getRandomValues()`, `tiny-secp256k1`, `bitcoinjs-lib`</p>
+                        <p>
+                            <span className="font-bold">เทคโนโลยี:</span> `window.crypto.getRandomValues()`, `tiny-secp256k1`, `bitcoinjs-lib`
+                        </p>
                         <p>
                             <span className="font-bold">หลักการทำงาน:</span> ใช้ <span className="font-bold">CSPRNG</span> ของระบบปฏิบัติการผ่าน `window.crypto` เพื่อสร้างค่าสุ่ม 256 บิตที่ปลอดภัยที่สุด จากนั้นใช้ `bitcoinjs-lib` ในการแปลงเป็น Key Pair
                         </p>

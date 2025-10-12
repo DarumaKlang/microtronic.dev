@@ -1,5 +1,8 @@
 // app/asset/sup-menu/paper-wallet/page.tsx
-import PaperWalletGenerator from '@/components/wallet-tools/PaperWalletGenerator';
+// ❌ ลบ Static Import ของ PaperWalletGenerator เดิมออก
+// import PaperWalletGenerator from '@/components/wallet-tools/PaperWalletGenerator'; 
+// 💡 เพิ่ม Import ของ Client Wrapper ตัวใหม่ที่เราสร้างขึ้น
+import PaperWalletDynamicLoader from '@/components/wallet-tools/PaperWalletDynamicLoader'; 
 import GooeyBackground from '@/components/GooeyBackground'; 
 import { Metadata } from 'next';
 
@@ -16,7 +19,7 @@ export default function PaperWalletPage() {
                 <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-center">
                     Bitcoin Paper Wallet Generator
                 </h1>
-                <PaperWalletGenerator />
+                <PaperWalletDynamicLoader />
             </main>
         </div>
     );

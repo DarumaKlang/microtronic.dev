@@ -1,5 +1,10 @@
 // /app/asset/sup-menu/wallet-tools/wallet-details/page.tsx
-import WalletDetailsChecker from '@/components/wallet-tools/WalletDetailsChecker';
+
+// ❌ ลบ Static Import ของ WalletDetailsChecker เดิมออก
+// import WalletDetailsChecker from '@/components/wallet-tools/WalletDetailsChecker';
+// 💡 เพิ่ม Import ของ Client Wrapper ตัวใหม่ที่เราสร้างขึ้น
+import WalletDetailsDynamicLoader from '@/components/wallet-tools/WalletDetailsDynamicLoader';
+
 import GlassmorphismCard from '@/components/GlassmorphismCard';
 import GooeyBackground from '@/components/GooeyBackground';
 
@@ -26,21 +31,19 @@ export default function WalletDetailsPage() {
 
                 {/* Component หลักอยู่ใน Glassmorphism Card */}
                 <GlassmorphismCard className="p-6 md:p-8">
-                    {/* <WalletDetailsChecker /> // เพิ่ม Component จริงที่นี่ */}
-                    <div className="text-center text-lg py-12">
-                        <WalletDetailsChecker />
-                    </div>
+                    {/* 💡 เรียกใช้ Dynamic Loader แทน WalletDetailsChecker เดิม */}
+                    <WalletDetailsDynamicLoader />
                 </GlassmorphismCard>
 
                 <section className="mt-8 space-y-8 max-w-4xl">
                     <h2 className="text-3xl font-bold text-yellow-400 border-b border-gray-600 pb-2">🔑 คุณสมบัติหลัก</h2>
                     <ul className="list-disc list-inside space-y-2 ml-4">
-                        <li><span className="font-bold">ตรวจสอบ WIF:</span> ยืนยันว่า Private Key (WIF) มี Checksum ที่ถูกต้อง</li>
-                        <li><span className="font-bold">รองรับ Address ครบ:</span> ตรวจสอบ Legacy (P2PKH), P2SH, และ Native SegWit (Bech32)</li>
-                        <li><span className="font-bold">แสดง Address เชื่อมโยง:</span> คำนวณและแสดง Address ทั้งหมดที่ Derivation มาจาก Private Key ที่ป้อน</li>
+                        <li><span className="font-bold">ตรวจสอบความถูกต้อง:</span> ยืนยันว่า Private Key หรือ Address นั้นๆ ถูกต้องตามมาตรฐาน Bitcoin</li>
+                        <li><span className="font-bold">Client-Side:</span> การตรวจสอบทั้งหมดเกิดขึ้นในเบราว์เซอร์</li>
+                        <li><span className="font-bold">การแปลงรูปแบบ:</span> หากป้อน Private Key จะแสดง Address ทั้ง Legacy, SegWit และ Taproot ที่เชื่อมโยง</li>
                     </ul>
 
-                    <h2 className="text-3xl font-bold text-yellow-400 border-b border-gray-600 pb-2">🛡️ เทคโนโลยีและความปลอดภัย</h2>
+                    <h2 className="text-3xl font-bold text-red-400 border-b border-gray-600 pb-2">🛡️ ความปลอดภัยและหลักการทำงาน</h2>
                     <div className="space-y-4">
                         <p>
                             <span className="font-bold">เทคโนโลยี:</span> `bitcoinjs-lib` (address validation, WIF import)
