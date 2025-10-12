@@ -1,5 +1,10 @@
 // /app/asset/sup-menu/wallet-tools/bulk-wallet/page.tsx
-import BulkWalletGenerator from '@/components/wallet-tools/BulkWalletGenerator';
+
+// ❌ ลบ import BulkWalletGenerator เดิมออก
+// import BulkWalletGenerator from '@/components/wallet-tools/BulkWalletGenerator'; 
+// 💡 เพิ่ม Import ของ Client Wrapper ตัวใหม่ที่เราสร้างขึ้น
+import BulkWalletDynamicLoader from '@/components/wallet-tools/BulkWalletDynamicLoader'; 
+
 import GlassmorphismCard from '@/components/GlassmorphismCard';
 import GooeyBackground from '@/components/GooeyBackground';
 
@@ -10,7 +15,7 @@ export const metadata = {
 
 export default function BulkWalletPage() {
     return (
-        // Layout หลัก
+        // Layout หลัก: Tailwind CSS, GooeyBackground, และโครงสร้าง container
         <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-gradient-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px]">
             <GooeyBackground />
             
@@ -26,21 +31,19 @@ export default function BulkWalletPage() {
 
                 {/* Component หลักอยู่ใน Glassmorphism Card */}
                 <GlassmorphismCard className="p-6 md:p-8">
-                    {/* <BulkWalletGenerator /> // เพิ่ม Component จริงที่นี่ */}
-                    <div className="text-center text-lg py-12">
-                        <BulkWalletGenerator />
-                    </div>
+                    {/* 💡 เรียกใช้ Dynamic Loader ที่จัดการ ssr: false */}
+                    <BulkWalletDynamicLoader />
                 </GlassmorphismCard>
 
                 <section className="mt-8 space-y-8 max-w-4xl">
                     <h2 className="text-3xl font-bold text-yellow-400 border-b border-gray-600 pb-2">🔑 คุณสมบัติหลัก</h2>
                     <ul className="list-disc list-inside space-y-2 ml-4">
-                        <li><span className="font-bold">สร้างชุดใหญ่:</span> สามารถสร้าง Wallet ได้ตั้งแต่ 1 ถึง 100 ชุดต่อการคลิก</li>
-                        <li><span className="font-bold">รูปแบบ Legacy:</span> สร้างที่อยู่ Bitcoin ในรูปแบบ Legacy (P2PKH)</li>
-                        <li><span className="font-bold">Client-Side:</span> การคำนวณทั้งหมดเกิดขึ้นในเบราว์เซอร์ของผู้ใช้</li>
+                        <li><span className="font-bold">สร้างจำนวนมาก:</span> สามารถสร้าง Address และ Private Key หลายชุดได้ในครั้งเดียว</li>
+                        <li><span className="font-bold">Client-Side:</span> การสร้าง Key ทั้งหมดเกิดขึ้นบนเบราว์เซอร์ของคุณโดยไม่มีการส่งข้อมูลไปยังเซิร์ฟเวอร์</li>
+                        <li><span className="font-bold">ความสุ่ม:</span> ใช้ Cryptographically Secure Pseudo-Random Number Generator (CSPRNG) เพื่อสร้าง Key ที่ปลอดภัย</li>
                     </ul>
 
-                    <h2 className="text-3xl font-bold text-yellow-400 border-b border-gray-600 pb-2">🛡️ เทคโนโลยีและความปลอดภัย</h2>
+                    <h2 className="text-3xl font-bold text-red-400 border-b border-gray-600 pb-2">🛡️ ความปลอดภัยและหลักการทำงาน</h2>
                     <div className="space-y-4">
                         <p>
                             <span className="font-bold">เทคโนโลยี:</span> `window.crypto.getRandomValues()`, `tiny-secp256k1`, `bitcoinjs-lib`
