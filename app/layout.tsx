@@ -25,6 +25,8 @@ export default function RootLayout({
             <body>
                 <NavBar />
                 {children}
+                <SpeedInsights />
+                <Analytics />
                 <BottomNavbar />
             </body>
         </html>
