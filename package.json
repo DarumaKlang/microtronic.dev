@@ -12,6 +12,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "bitcoinjs-lib": "^7.0.0",
+    "bootstrap-icons": "^1.13.1",
     "buffer": "^6.0.3",
     "ecpair": "^3.0.0",
     "next": "^15.5.4",
