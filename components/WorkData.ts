@@ -35,7 +35,13 @@ export const workExamples: WorkExample[] = [
         fullContent: '## รายละเอียดโครงการ VComm Lighting\n\nเน้นการสร้างภาพลักษณ์ที่น่าเชื่อถือและเป็นมืออาชีพสำหรับบริษัทแสงสว่างชั้นนำ... (เนื้อหาเต็มต่อ)',
     },
     // ... เพิ่ม slug, summary, และ fullContent ให้กับรายการที่เหลือ ...
-    { src: '/images/work-4.png', alt: 'เว็บไซต์องค์กร 4', href: 'https://work-example-4.com', slug: 'work-4', summary: 'สรุป 4', fullContent: 'เนื้อหาเต็ม 4' },
+    { 
+        src: '/images/work-4.png', 
+        alt: 'เว็บไซต์องค์กร 4', 
+        href: 'https://nextjs-crop-image-tools.vercel.app/', 
+        slug: 'crop-image-tools', 
+        summary: 'สรุป 4', 
+        fullContent: 'เนื้อหาเต็ม 4' },
     { src: '/images/work-5.png', alt: 'เว็บไซต์องค์กร 5', href: 'https://work-example-5.com', slug: 'work-5', summary: 'สรุป 5', fullContent: 'เนื้อหาเต็ม 5' },
     { src: '/images/work-6.png', alt: 'เว็บไซต์องค์กร 6', href: 'https://work-example-6.com', slug: 'work-6', summary: 'สรุป 6', fullContent: 'เนื้อหาเต็ม 6' },
 ];
