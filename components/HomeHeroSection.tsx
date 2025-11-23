@@ -1,4 +1,5 @@
 // src/components/HomeHeroSection.tsx
+import Link from 'next/link';
 import React from 'react';
 
 export default function HomeHeroSection() {
@@ -15,18 +16,20 @@ export default function HomeHeroSection() {
 
                 {/* ปุ่ม Call-to-Action */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                    <a
+                    {/* 1. ลิงก์ไปยังหน้า Portfolio ที่สร้างใหม่ */}
+                    <Link
                         href="/portfolio"
                         className="px-8 py-3 bg-fuchsia-600 text-white font-semibold rounded-full shadow-lg hover:bg-fuchsia-700 transition-colors duration-300"
                     >
                         ดูผลงานของเรา
-                    </a>
-                    <a
+                    </Link>
+                    {/* 2. ลิงก์ไปยังหน้า Contact */}
+                    <Link
                         href="/contact"
                         className="px-8 py-3 text-white font-semibold rounded-full border border-white hover:bg-white hover:text-fuchsia-800 transition-colors duration-300"
                     >
                         ติดต่อเรา
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>
