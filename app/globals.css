@@ -1,15 +1,13 @@
 @import "tailwindcss";
-@import "bootstrap-icons/font/bootstrap-icons.css"; /* 👈 เพิ่มบรรทัดนี้ */
 
+/* 1. Default (Light Mode) CSS Variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* (หากคุณใช้ font-geist-sans และ font-geist-mono ควรตั้งค่า font-family ที่นี่) */
 }
 
+/* 2. Dark Mode Configuration */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -17,6 +15,7 @@
   }
 }
 
+/* 3. Base Body Styles */
 body {
   background: var(--background);
   color: var(--foreground);
@@ -24,41 +23,42 @@ body {
 }
 
 /* ================================================= */
-/* CMC Marquee Speed Customization */
+/* Custom CSS for GooeyBackground Component */
 /* ================================================= */
 
-/* กำหนด Keyframes ที่เคลื่อนที่ช้าลง */
-@keyframes cmc-marquee-slow-move {
-    /* Keyframes เริ่มต้น (0% คือซ้ายสุด) */
-    from {
-        transform: translateX(0%);
-    }
-    /* Keyframes สิ้นสุด (100% คือเลื่อนไปซ้ายจนสุด) */
-    to {
-        transform: translateX(-100%);
-    }
+/* 1. Define Keyframes for Blob Movement */
+@keyframes blob-movement {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-50px, 80px) scale(1.1);
+  }
+  50% {
+    transform: translate(100px, -60px) scale(0.95);
+  }
+  75% {
+    transform: translate(-80px, -30px) scale(1.05);
+  }
 }
 
-/* Target element ภายในวิดเจ็ต CoinMarquee 
-  ต้องตรวจสอบโครงสร้าง DOM ที่วิดเจ็ตสร้างขึ้นจริง แต่โดยทั่วไปมันจะสร้าง div ภายใน div ที่มี id="coinmarketcap-widget-marquee"
-  เราจะพยายาม target class ที่ชื่อ 'cmc-marquee-slide' หรือโครงสร้าง div ที่เป็นตัวเลื่อนจริง
-*/
-.slow-marquee #coinmarketcap-widget-marquee > div {
-    /* ใช้ !important เพื่อ override style ที่มาจากสคริปต์ภายนอก */
-    
-    /* ปรับความเร็ว: 40 วินาทีต่อรอบ (คุณสามารถปรับค่านี้ให้ช้าหรือเร็วขึ้น) */
-    animation-duration: 40s !important; 
-    
-    /* ใช้ linear เพื่อการเคลื่อนไหวที่สม่ำเสมอ */
-    animation-timing-function: linear !important; 
-    
-    /* เลื่อนไปเรื่อยๆ */
-    animation-iteration-count: infinite !important;
-    
-    /* ใช้ Keyframes ที่เรากำหนด */
-    animation-name: cmc-marquee-slow-move !important;
+/* 2. Define Custom Utility Class for Animation */
+.animate-blob {
+  /* แอนิเมชันเคลื่อนไหว 16 วินาที, วนซ้ำไม่สิ้นสุด, สลับทิศทาง (alternate) */
+  animation: blob-movement 16s infinite alternate; 
 }
 
-/* ข้อจำกัด: หากสคริปต์ของ CoinMarketCap ใช้ JavaScript ในการเปลี่ยน style/position 
-  แทน CSS animation/transform โค้ดด้านบนอาจไม่มีผล
-*/
+/* 3. Define Custom Utility Classes for Animation Delay (for a staggered effect) */
+/* ใช้ negative delay เพื่อให้ Blob แต่ละก้อนเริ่มที่ตำแหน่งที่ต่างกันของ cycle */
+.animation-delay-0 {
+    animation-delay: 0s;
+}
+.animation-delay-2000 {
+    animation-delay: -4s; /* เริ่มที่ 4 วินาทีใน cycle */
+}
+.animation-delay-4000 {
+    animation-delay: -8s; /* เริ่มที่ 8 วินาทีใน cycle */
+}
+.animation-delay-6000 {
+    animation-delay: -12s; /* เริ่มที่ 12 วินาทีใน cycle */
+}

@@ -1,18 +1,22 @@
-// components/GlassmorphismCard.tsx
-import React from 'react';
+import React, { HTMLAttributes, PropsWithChildren } from 'react';
 
-export interface GlassmorphismCardProps {
-    children: React.ReactNode;
-}
+// FIX: Extend HTMLAttributes<HTMLDivElement> เพื่อรับ className และ props HTML อื่นๆ
+export interface GlassmorphismCardProps extends HTMLAttributes<HTMLDivElement> {}
 
-/**
- * GlassmorphismCard Component
- * ใช้เป็น Wrapper สำหรับส่วนเนื้อหาที่ต้องการ Style Glassmorphism 
- * (bg-white/10, backdrop-blur, border)
- */
-export default function GlassmorphismCard({ children }: GlassmorphismCardProps) {
+export default function GlassmorphismCard({ 
+    className, 
+    children, 
+    ...rest 
+}: PropsWithChildren<GlassmorphismCardProps>) {
+
+    // สไตล์ Glassmorphism หลัก
+    const defaultStyles = "bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg";
+
     return (
-        <div className="bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/20 shadow-xl transition-all duration-300 hover:shadow-fuchsia-400/50 h-full">
+        <div 
+            className={`${defaultStyles} ${className}`} 
+            {...rest} 
+        >
             {children}
         </div>
     );

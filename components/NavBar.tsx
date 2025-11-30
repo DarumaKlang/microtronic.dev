@@ -1,84 +1,48 @@
-// components/NavBar.tsx (เวอร์ชันล่าสุด)
-"use client";
+// components/NavBar.tsx
+'use client'; // เนื่องจากมีการใช้ Link และ interactive elements
 
+import React from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
+// นำเข้า Constants สำหรับ Navigation Items และ Gradient Text Class
+import { NAV_ITEMS, GRADIENT_TEXT_CLASS } from '@/constants/data'; 
 
-export default function NavBar() {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    
-    const closeMenus = () => {
-        setIsMobileMenuOpen(false);
-    };
-
-    return (
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900 p-4 text-white shadow-lg border-b border-fuchsia-800/50">
-            <div className="container mx-auto flex justify-between items-center">
-                {/* Logo/ชื่อเว็บไซต์ */}
-                <Link href="/" className="text-xl font-extrabold z-20 text-fuchsia-400 hover:text-fuchsia-300 transition-colors">
-                    Microtronic
+/**
+ * Navbar Component เวอร์ชันใหม่สำหรับ Landing Page
+ */
+const NavBar: React.FC = () => (
+    <header className="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            {/* Logo/Brand */}
+            <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-linear-to-br from-pink-500 to-cyan-500 rounded flex items-center justify-center font-bold text-lg">M</div>
+                <Link href="/" className="font-extrabold text-2xl tracking-tight hover:text-white transition duration-300">
+                    Microtronic <span className={GRADIENT_TEXT_CLASS}>Dev</span>
                 </Link>
-
-                {/* เมนูสำหรับ Desktop */}
-                <div className="hidden md:flex space-x-6 items-center">
-                    
-                    <Link href="/" className="hover:text-fuchsia-400 transition-colors">
-                        หน้าหลัก
-                    </Link>
-
-                    {/* ลิงก์ Marketing Page ที่เน้น Solutions */}
-                    <Link href="/marketing" className="hover:text-fuchsia-400 transition-colors">
-                        บริการ/Solutions
-                    </Link>
-
-                    <Link href="/about" className="hover:text-fuchsia-400 transition-colors">
-                        เกี่ยวกับเรา
-                    </Link>
-                    
-                    {/* ปุ่ม CTA ติดต่อ (Desktop) - ให้เด่นที่สุด */}
-                    <Link 
-                        href="/contact" 
-                        className="px-4 py-2 font-bold rounded-full bg-cyan-500 text-gray-900 hover:bg-cyan-400 transition-colors duration-300 transform hover:scale-105 shadow-xl"
-                    >
-                        นัดปรึกษาฟรี!
-                    </Link>
-                </div>
-
-                {/* ปุ่ม Hamburger สำหรับ Mobile */}
-                <div className="md:hidden z-20">
-                    <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white focus:outline-none text-2xl">
-                        {isMobileMenuOpen ? '✕' : '☰'}
-                    </button>
-                </div>
             </div>
+            
+            {/* Navigation Menu (Desktop) */}
+            <nav className="hidden md:flex items-center space-x-6">
+                {NAV_ITEMS.map((item) => (
+                    <a 
+                        key={item.href}
+                        // ใช้ <a> สำหรับ Anchor Links (#) บนหน้าเดียวกัน
+                        href={item.href}
+                        className="text-gray-300 hover:text-white font-medium transition duration-300 hover:underline hover:underline-offset-4"
+                    >
+                        {item.label}
+                    </a>
+                ))}
+            </nav>
+            
+            {/* Call to Action Button */}
+            <a 
+                href="#contact"
+                className="px-6 py-3 text-lg font-bold rounded-full bg-pink-600 text-white hover:bg-pink-500 transition duration-300 transform active:scale-95 shadow-lg"
+            >
+                Start Project
+            </a>
+        </div>
+    </header>
+);
 
-            {/* เมนู Mobile แบบ Full-screen */}
-            {isMobileMenuOpen && (
-                <div className="fixed inset-0 bg-gray-900 text-white z-10 overflow-y-auto pt-[60px]"> 
-                    <div className="flex flex-col items-start px-8 py-8 space-y-4 text-xl"> 
-                        <Link href="/" className="hover:text-fuchsia-400" onClick={closeMenus}>
-                            หน้าหลัก
-                        </Link>
-                        
-                        <Link href="/marketing" className="hover:text-fuchsia-400" onClick={closeMenus}>
-                            บริการ/Solutions
-                        </Link>
-
-                        <Link href="/about" className="hover:text-fuchsia-400" onClick={closeMenus}>
-                            เกี่ยวกับเรา
-                        </Link>
-
-                        {/* ปุ่ม CTA ติดต่อ (Mobile) */}
-                        <Link 
-                            href="/contact" 
-                            className="mt-6 px-4 py-2 w-full text-center font-bold rounded-full bg-cyan-500 text-gray-900 hover:bg-cyan-400 transition-colors duration-300"
-                            onClick={closeMenus}
-                        >
-                            นัดปรึกษาฟรี!
-                        </Link>
-                    </div>
-                </div>
-            )}
-        </nav>
-    );
-}
+export default NavBar;

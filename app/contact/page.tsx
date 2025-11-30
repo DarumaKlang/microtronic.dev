@@ -78,7 +78,7 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-gradient-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px]">
+        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px]">
             <GooeyBackground />
 
             <main className="container mx-auto max-w-5xl flex flex-col gap-16 relative z-10">
@@ -86,7 +86,7 @@ export default function ContactPage() {
                 {/* HERO/HEADER SECTION */}
                 <header className="text-center pt-10 pb-5">
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
-                        นัดปรึกษา <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500">ฟรี!</span>
+                        นัดปรึกษา <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-pink-500">ฟรี!</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
                         มาเริ่มต้นโปรเจ็กต์แห่งอนาคตของคุณ ทีมงานผู้เชี่ยวชาญด้าน Next.js พร้อมให้คำปรึกษาฟรี 30 นาที
@@ -209,8 +209,16 @@ export default function ContactPage() {
     );
 }
 
-// Component ย่อย: Info Box
-const InfoBox: React.FC<{ icon: React.FC<any>; title: string; description: string }> = ({ icon: Icon, title, description }) => (
+// Component ย่อย: Info Box (แก้ไข Type)
+// กำหนด Type ของ Icon ให้อยู่ในรูปแบบของ React Component ที่สามารถรับ Props ได้
+interface InfoBoxProps {
+    // FIX: แทนที่ 'any' ด้วย React.ElementType หรือ Type ที่เฉพาะเจาะจงมากขึ้น
+    icon: React.ElementType; 
+    title: string; 
+    description: string;
+}
+
+const InfoBox: React.FC<InfoBoxProps> = ({ icon: Icon, title, description }) => (
     <div className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg">
         <Icon className="w-8 h-8 text-fuchsia-400 mx-auto mb-3" />
         <h3 className="text-xl font-semibold mb-1">{title}</h3>

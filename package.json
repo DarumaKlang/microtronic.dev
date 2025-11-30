@@ -3,37 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
-    "bitcoinjs-lib": "^6.1.7",
-    "bootstrap-icons": "^1.13.1",
-    "buffer": "^6.0.3",
-    "ecpair": "^2.1.0",
     "lucide-react": "^0.555.0",
-    "next": "^15.5.4",
-    "qrcode.react": "^4.2.0",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-icons": "^5.5.0",
-    "tiny-secp256k1": "^2.2.4"
+    "next": "16.0.3",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/qrcode.react": "^1.0.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "autoprefixer": "^10.4.21",
+    "baseline-browser-mapping": "^2.8.32",
     "eslint": "^9",
-    "eslint-config-next": "15.3.2",
-    "postcss": "^8.5.3",
+    "eslint-config-next": "16.0.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
