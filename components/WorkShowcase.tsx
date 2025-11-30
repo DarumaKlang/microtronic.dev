@@ -1,64 +1,53 @@
-// src/components/WorkShowcase.tsx
+// components/WorkShowcase.tsx
 import Image from 'next/image';
-import Link from 'next/link'; // 1. Import Link
 import React from 'react';
+import Link from 'next/link';
 
-// กำหนด type ของ props สำหรับแต่ละรูปภาพ (อัปเดต Interface)
-interface WorkImage {
+export interface WorkExample {
     src: string;
     alt: string;
-    href: string; // 2. เพิ่ม href: string เพื่อรองรับลิงก์
 }
 
-// กำหนด type ของ props สำหรับ component WorkShowcase
-interface WorkShowcaseProps {
+export interface WorkShowcaseProps {
     title: string;
     description: string;
-    works: WorkImage[];
+    works: WorkExample[]; // ใช้ 'works' ตาม page.tsx
 }
 
 export const WorkShowcase: React.FC<WorkShowcaseProps> = ({ title, description, works }) => {
     return (
-        <section className="w-full max-w-7xl mx-auto mt-16 px-4 py-8 text-center">
-            {/* ส่วนหัวข้อและคำอธิบาย */}
-            <h3 className="text-3xl font-bold mb-4 text-white">
-                {title}
-            </h3>
-            <p className="text-gray-300 max-w-2xl mx-auto mb-12">
-                {description}
-            </p>
-
-            {/* Grid สำหรับแสดงรูปภาพผลงาน */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="p-8 md:p-12 rounded-2xl border border-white/10 shadow-2xl bg-white/5 backdrop-blur-sm">
+            <header className="text-center mb-10">
+                <h3 className="text-3xl md:text-4xl font-extrabold mb-3 text-cyan-400">{title}</h3>
+                <p className="text-gray-300 text-lg max-w-3xl mx-auto">{description}</p>
+            </header>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {works.map((work, index) => (
-                    // 3. ใช้ Link Component ครอบส่วนแสดงผลงานทั้งหมด
-                    <Link 
-                        key={index} 
-                        href={work.href} // ใช้ค่า href จากข้อมูล
-                        target="_blank" // แนะนำให้เปิดในแท็บใหม่สำหรับลิงก์ภายนอก
-                        rel="noopener noreferrer"
-                        // ปรับ class ให้เป็นการ์ดที่ดูน่าสนใจเมื่อถูกโฉบ (Hover)
-                        className="block rounded-lg overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-[1.03] hover:shadow-fuchsia-500/50" 
-                    >
-                        <div className="relative w-full aspect-video bg-gray-700"> 
-                            <Image
-                                src={work.src}
-                                alt={work.alt}
-                                fill
-                                // ปรับ objectFit จาก 'contain' เป็น 'cover' เพื่อให้รูปภาพเต็มพื้นที่การ์ด
-                                style={{ objectFit: 'cover' }} 
-                                // ลบ class 'p-4' ออก เพื่อให้รูปภาพเต็มพื้นที่
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                className="transition-opacity duration-500"
-                            />
-                            {/* เพิ่ม Overlay สำหรับ Alt text เมื่อ Hover เพื่อ User Experience ที่ดีขึ้น */}
-                            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center transition-opacity duration-300 opacity-0 hover:opacity-100 p-4">
-                                <p className="text-sm font-semibold truncate w-full text-white">{work.alt}</p>
-                            </div>
+                    <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl transform transition-transform duration-500 hover:scale-[1.05] border border-white/10">
+                        <Image
+                            src={work.src}
+                            alt={work.alt}
+                            fill
+                            style={{ objectFit: 'cover' }}
+                            className="grayscale hover:grayscale-0 transition-all duration-700"
+                            sizes="(max-width: 768px) 50vw, 16.6vw"
+                        />
+                        <div className="absolute inset-0 bg-gray-900/70 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center p-2">
+                            <span className="text-white text-sm text-center font-semibold">{work.alt}</span>
                         </div>
-                    </Link>
+                    </div>
                 ))}
             </div>
-        </section>
+
+            <div className="text-center mt-10">
+                <Link 
+                    href="/portfolio" 
+                    className="px-6 py-2 text-md font-semibold rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 transition-colors duration-300"
+                >
+                    ดูผลงานทั้งหมด
+                </Link>
+            </div>
+        </div>
     );
 };

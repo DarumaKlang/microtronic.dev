@@ -1,17 +1,17 @@
-// src/components/ServiceCard.tsx
+// components/ServiceCard.tsx
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-interface ServiceCardProps {
+// New props interface matching the user's uploaded page.tsx usage
+export interface ServiceCardProps {
     imageSrc: string;
     imageAlt: string;
     title: string;
     description: string;
     linkText: string;
     linkHref: string;
-    // เพิ่ม prop ใหม่เพื่อควบคุมการสลับฝั่ง
-    reverse?: boolean; // ทำให้เป็น optional
+    reverse?: boolean; // reverse เป็น optional
 }
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({
@@ -21,46 +21,38 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
     description,
     linkText,
     linkHref,
-    reverse = false, // กำหนดค่า default เป็น false (ไม่สลับฝั่ง)
+    reverse = false,
 }) => {
+    const flexOrder = reverse ? 'flex-col md:flex-row-reverse' : 'flex-col md:flex-row';
+
     return (
-        // ใช้ class 'md:flex-row-reverse' เมื่อ reverse เป็น true
-        <div
-            className={`flex flex-col items-center justify-center p-8 rounded-lg shadow-md max-w-7xl mx-auto 
-                  ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}
-        >
-            {/* Image Section */}
-            <div className="relative w-full md:w-1/2 p-4 flex justify-center items-center">
-                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+        <div className="w-full max-w-7xl px-4">
+            <div className={`flex ${flexOrder} items-center gap-8 md:gap-12 bg-white/5 backdrop-blur-sm p-6 md:p-10 rounded-xl border border-white/20 shadow-2xl transition-all duration-500 hover:shadow-cyan-400/50`}>
+                
+                {/* ส่วนรูปภาพ */}
+                <div className="w-full md:w-1/2 flex-shrink-0 relative aspect-[4/3]">
                     <Image
                         src={imageSrc}
                         alt={imageAlt}
                         fill
-                        style={{ objectFit: 'contain' }}
-                        className="rounded-lg"
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        style={{ objectFit: 'cover' }}
+                        className="rounded-lg shadow-lg transition-transform duration-500 hover:scale-[1.02]"
+                        sizes="(max-width: 768px) 100vw, 50vw" 
                     />
                 </div>
 
-                {/* Background circle effect */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-100 opacity-50 rounded-full blur-3xl w-full h-full -z-10" />
-            </div>
-
-            {/* Content Section */}
-            <div className="w-full md:w-1/2 p-4 text-center md:text-left">
-                <h2 className="text-3xl font-bold text-white mb-4">
-                    {title}
-                </h2>
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                    {description}
-                </p>
-
-                <Link
-                    href={linkHref}
-                    className="inline-block px-6 py-3 border border-white text-white font-medium rounded-full transition-colors hover:bg-white hover:text-fuchsia-800"
-                >
-                    {linkText}
-                </Link>
+                {/* ส่วนเนื้อหา */}
+                <div className="w-full md:w-1/2">
+                    <h3 className="text-3xl font-bold mb-4 text-cyan-400">{title}</h3>
+                    <p className="text-gray-300 text-lg mb-6">{description}</p>
+                    
+                    <Link 
+                        href={linkHref} 
+                        className="px-6 py-2 text-md font-semibold rounded-full bg-fuchsia-600 hover:bg-fuchsia-500 transition-colors duration-300 transform hover:scale-[1.05]"
+                    >
+                        {linkText}
+                    </Link>
+                </div>
             </div>
         </div>
     );
