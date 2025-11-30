@@ -31,7 +31,7 @@ export const NAV_ITEMS = [
     { label: "คุณสมบัติ", href: "#features" },
     { label: "บริการ", href: "#services" },
     { label: "คำรับรอง", href: "#testimonials" },
-    { label: "ติดต่อ", href: "#contact" },
+    { label: "ติดต่อ", href: "contact" },
 ];
 
 export const GRADIENT_TEXT_CLASS = "bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400";

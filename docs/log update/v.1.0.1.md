@@ -143,4 +143,4 @@ Type '{ slug: string; }' is missing the following properties from type 'Promise<
 
 ---
 
-โดยรวมแล้ว สถานะของโปรเจกต์คุณตอนนี้อยู่ในระดับที่ **สะอาด (Clean)** และ **พร้อมใช้งาน (Production Ready)** ในด้านโครงสร้าง TypeScript และการกำหนดค่า Tailwind CSS 
+โดยรวมแล้ว สถานะของโปรเจกต์คุณตอนนี้อยู่ในระดับที่ **สะอาด (Clean)** และ **พร้อมใช้งาน (Production Ready)** ในด้านโครงสร้าง TypeScript และการกำหนดค่า Tailwind CSS

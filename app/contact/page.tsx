@@ -8,13 +8,35 @@ import { Send, Clock, Phone, Github, Code } from 'lucide-react';
 // ====================================================================
 // !!! การตั้งค่าสำหรับ Formspree Email Submission !!!
 // ====================================================================
-
-// 1. Formspree Endpoint URL (สำหรับส่งข้อมูลเข้าอีเมล k.net.game01@gmail.com)
-//    (ใช้ Fetch API แทน @formspree/react hook)
+// 1. Formspree Endpoint URL 
 const FORMSPREE_ACTION = "https://formspree.io/f/mvgegzyk"; 
-
-// เราไม่จำเป็นต้องใช้ Entry ID แล้ว แต่ใช้ชื่อ Field (name/email/service/message)
 // ====================================================================
+
+// Metadata สำหรับหน้านี้ (ใช้สำหรับ Server Component แต่ถูกครอบด้วย 'use client' จึงใช้ไม่ได้ตรงๆ)
+// หากต้องการใช้ Metadata ใน client component ต้องนำไปใส่ใน layout.tsx ที่ครอบทับ
+/*
+export const metadata = {
+  title: 'ติดต่อเรา | Microtronic Dev.',
+  description: 'เริ่มต้นโปรเจกต์ของคุณกับ Microtronic Dev. ได้แล้ววันนี้',
+};
+*/
+
+// Component ย่อย: Info Box (แก้ไข Type Safety)
+interface InfoBoxProps {
+    // FIX: ใช้ React.ElementType แทน any เพื่อ Type Safety
+    icon: React.ElementType; 
+    title: string; 
+    description: string;
+}
+
+const InfoBox: React.FC<InfoBoxProps> = ({ icon: Icon, title, description }) => (
+    <div className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg">
+        <Icon className="w-8 h-8 text-fuchsia-400 mx-auto mb-3" />
+        <h3 className="text-xl font-semibold mb-1">{title}</h3>
+        <p className="text-gray-300 text-sm">{description}</p>
+    </div>
+);
+
 
 export default function ContactPage() {
     
@@ -29,17 +51,13 @@ export default function ContactPage() {
         const form = e.currentTarget;
         const formData = new FormData(form);
         
-        // เพิ่มข้อมูลระบุแหล่งที่มา (Optional, แต่ดีสำหรับ Formspree)
         formData.append('_subject', 'การจองคิวนัดปรึกษาจาก Microtronic Website');
-        formData.append('_replyto', formData.get('email') as string); // ใช้อีเมลผู้ใช้เป็น Reply-To
+        formData.append('_replyto', formData.get('email') as string);
 
         try {
-            // ส่งข้อมูลไปยัง Formspree Endpoint
             const response = await fetch(FORMSPREE_ACTION, {
                 method: 'POST',
-                // Formspree รองรับการส่ง FormData โดยตรง
-                body: formData, 
-                // กำหนด Header เพื่อให้ Formspree ส่ง response ที่เป็น JSON กลับมา
+                body: formData,
                 headers: {
                     'Accept': 'application/json',
                 },
@@ -47,159 +65,127 @@ export default function ContactPage() {
 
             if (response.ok) {
                 setStatus('success');
-                setMessage('✅ นัดปรึกษาสำเร็จ! ข้อมูลถูกส่งเข้าอีเมล k.net.game01@gmail.com แล้ว ทีมงานจะติดต่อกลับโดยเร็วที่สุด');
+                setMessage('ส่งข้อความสำเร็จ! เราจะติดต่อกลับภายใน 1-2 ชั่วโมงทำการ');
                 form.reset();
             } else {
-                // จัดการ Error ที่ Formspree อาจส่งกลับมา
-                const data = await response.json();
-                console.error('Formspree Error:', data);
                 setStatus('error');
-                setMessage(`❌ เกิดข้อผิดพลาดในการส่งข้อมูล: ${data.error || 'กรุณาลองใหม่อีกครั้ง'}`);
+                setMessage('เกิดข้อผิดพลาดในการส่งข้อความ กรุณาลองใหม่อีกครั้ง');
             }
-
-        } catch (error) {
-            console.error('Submission Exception:', error);
+        } catch {
+            // หากต้องการ Debug สามารถใช้: console.error(error);
             setStatus('error');
-            setMessage('❌ เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาลองใหม่อีกครั้ง');
+            setMessage('เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาตรวจสอบการเชื่อมต่อของคุณ');
         }
     };
-
-    const getButtonText = () => {
-        switch (status) {
-            case 'loading':
-                return 'กำลังส่งข้อมูล...';
-            case 'success':
-                return 'ส่งข้อมูลเรียบร้อยแล้ว!';
-            case 'error':
-                return 'ลองส่งใหม่อีกครั้ง';
-            default:
-                return 'ส่งข้อมูลเพื่อนัดปรึกษา';
-        }
-    };
-
+    
     return (
-        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px]">
+        <div className="min-h-screen bg-slate-900 text-white pt-24 pb-16 relative">
+            
             <GooeyBackground />
-
-            <main className="container mx-auto max-w-5xl flex flex-col gap-16 relative z-10">
-
-                {/* HERO/HEADER SECTION */}
-                <header className="text-center pt-10 pb-5">
-                    <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
-                        นัดปรึกษา <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-pink-500">ฟรี!</span>
+            
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 relative z-10">
+                
+                {/* Contact Form Section */}
+                <section className="max-w-3xl mx-auto">
+                    {/* FIX: เปลี่ยน bg-gradient-to-r เป็น bg-linear-to-r */}
+                    <h1 className="text-5xl font-extrabold text-center mb-6 bg-clip-text text-transparent bg-linear-to-r from-pink-400 to-cyan-400"> 
+                        ติดต่อเริ่มต้นโปรเจกต์
                     </h1>
-                    <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-                        มาเริ่มต้นโปรเจ็กต์แห่งอนาคตของคุณ ทีมงานผู้เชี่ยวชาญด้าน Next.js พร้อมให้คำปรึกษาฟรี 30 นาที
+                    <p className="text-xl text-center text-gray-400 mb-12">
+                        กรุณากรอกข้อมูลเพื่อรับแผนกลยุทธ์การพัฒนาเว็บไซต์ฟรีจากผู้เชี่ยวชาญของเรา
                     </p>
-                </header>
+                    
+                    <form onSubmit={handleSubmit} className="bg-slate-800/70 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-2xl space-y-6">
+                        
+                        {/* ชื่อ */}
+                        <div>
+                            <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">ชื่อ-นามสกุล</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required 
+                                className="w-full p-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:ring-pink-500 focus:border-pink-500 transition" 
+                            />
+                        </div>
+                        
+                        {/* อีเมล */}
+                        <div>
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">อีเมลติดต่อ</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                                className="w-full p-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:ring-pink-500 focus:border-pink-500 transition" 
+                            />
+                        </div>
 
-                {/* CONTACT FORM SECTION */}
-                <section className="bg-white/10 backdrop-blur-lg p-8 md:p-12 rounded-2xl border border-white/30 shadow-2xl">
-                    
-                    <h2 className="text-3xl font-bold mb-8 text-center">แจ้งความต้องการเบื้องต้น</h2>
-                    
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                        
-                        {/* ชื่อ-นามสกุล (Name) */}
+                        {/* บริการที่สนใจ */}
                         <div>
-                            <label htmlFor="name" className="block text-md font-medium text-gray-200 mb-2">
-                                ชื่อ-นามสกุล หรือ ชื่อบริษัท <span className="text-red-400">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name" // ชื่อ Field ต้องตรงกับ FormData
+                            <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-1">บริการที่สนใจ</label>
+                            <select 
+                                id="service" 
+                                name="service" 
                                 required
-                                className="w-full p-3 rounded-lg border border-gray-600 bg-gray-800 text-white focus:ring-cyan-500 focus:border-cyan-500 transition-colors"
-                                placeholder="เช่น คุณสมชาย หรือ บริษัท Microtronic จำกัด"
-                            />
-                        </div>
-                        
-                        {/* อีเมล (Email) */}
-                        <div>
-                            <label htmlFor="email" className="block text-md font-medium text-gray-200 mb-2">
-                                อีเมลติดต่อกลับ <span className="text-red-400">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email" // ชื่อ Field ต้องตรงกับ FormData
-                                required
-                                className="w-full p-3 rounded-lg border border-gray-600 bg-gray-800 text-white focus:ring-cyan-500 focus:border-cyan-500 transition-colors"
-                                placeholder="name@example.com"
-                            />
-                        </div>
-                        
-                        {/* บริการที่สนใจ (Service) */}
-                        <div>
-                            <label htmlFor="service" className="block text-md font-medium text-gray-200 mb-2">
-                                บริการที่สนใจ
-                            </label>
-                            <select
-                                id="service"
-                                name="service" // ชื่อ Field ต้องตรงกับ FormData
-                                className="w-full p-3 rounded-lg border border-gray-600 bg-gray-800 text-white focus:ring-cyan-500 focus:border-cyan-500 transition-colors"
+                                className="w-full p-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:ring-pink-500 focus:border-pink-500 transition appearance-none"
                             >
-                                <option value="ปรึกษาทั่วไป" className="text-gray-400">-- เลือกบริการหลัก --</option>
-                                <option value="เว็บไซต์ Next.js/Vercel">เว็บไซต์ Next.js/Vercel</option>
-                                <option value="ระบบชำระเงิน Lightning Network/LNbits">ระบบชำระเงิน Lightning Network/LNbits</option>
-                                <option value="การตลาดดิจิทัล (SEO/Ads)">การตลาดดิจิทัล (SEO/Ads)</option>
-                                <option value="ปรึกษาทั่วไป">ปรึกษาทั่วไป</option>
+                                <option value="" disabled>-- เลือกบริการ --</option>
+                                <option value="Web Development (Next.js)">พัฒนาเว็บไซต์/Web App (Next.js)</option>
+                                <option value="System Migration (to Next.js/TS)">ย้ายระบบเดิมสู่ Next.js/TS</option>
+                                <option value="Consulting & Audit">ให้คำปรึกษาด้าน Performance/Security</option>
+                                <option value="Other">อื่นๆ</option>
                             </select>
                         </div>
                         
-                        {/* รายละเอียดโครงการ (Message) */}
+                        {/* ข้อความ/รายละเอียดโปรเจกต์ */}
                         <div>
-                            <label htmlFor="message" className="block text-md font-medium text-gray-200 mb-2">
-                                รายละเอียดโครงการโดยย่อ <span className="text-red-400">*</span>
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message" // ชื่อ Field ต้องตรงกับ FormData
-                                rows={4}
-                                required
-                                className="w-full p-3 rounded-lg border border-gray-600 bg-gray-800 text-white focus:ring-cyan-500 focus:border-cyan-500 transition-colors"
-                                placeholder="อธิบายสั้นๆ ว่าคุณต้องการให้ Microtronic ช่วยในด้านใด..."
+                            <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">รายละเอียดโครงการโดยย่อ</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows={4} 
+                                required 
+                                className="w-full p-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:ring-pink-500 focus:border-pink-500 transition"
                             />
                         </div>
                         
-                        {/* ข้อความสถานะการส่ง */}
-                        {message && (
-                            <p className={`text-center font-bold p-3 rounded-lg ${status === 'success' ? 'bg-green-600/30 text-green-400' : 'bg-red-600/30 text-red-400'}`}>
-                                {message}
-                            </p>
+                        {/* สถานะการส่ง */}
+                        {status === 'success' && (
+                            <p className="text-green-400 font-semibold">{message}</p>
+                        )}
+                        {status === 'error' && (
+                            <p className="text-red-400 font-semibold">{message}</p>
                         )}
 
-                        {/* ปุ่มส่งฟอร์ม (CTA) */}
-                        <button
-                            type="submit"
-                            disabled={status === 'loading' || status === 'success'}
-                            className="w-full flex items-center justify-center p-3 text-lg font-bold rounded-lg 
-                                       bg-cyan-500 text-gray-900 hover:bg-cyan-400 transition duration-300 
-                                       transform hover:scale-[1.01] shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                        {/* ปุ่มส่ง: "ส่งข้อมูลเพื่อรับแผนกลยุทธ์" */}
+                        <button 
+                            type="submit" 
+                            disabled={status === 'loading'}
+                            className={`w-full py-3 px-4 text-lg font-bold rounded-full transition duration-300 transform active:scale-95 shadow-lg flex items-center justify-center gap-2 ${
+                                status === 'loading'
+                                ? 'bg-gray-500 cursor-not-allowed'
+                                : 'bg-pink-600 text-white hover:bg-pink-500 shadow-pink-600/50'
+                            }`}
                         >
-                            <Send className="w-5 h-5 mr-2" />
-                            {getButtonText()}
+                            <Send className="w-5 h-5" />
+                            {status === 'loading' ? 'กำลังส่ง...' : 'ส่งข้อมูลเพื่อรับแผนกลยุทธ์'}
                         </button>
                     </form>
                 </section>
 
                 {/* INFO SECTION (ส่วนแสดงความเป็น Developer) */}
                 <section className="grid md:grid-cols-4 gap-8 text-center">
-                    
-                    {/* เราเปลี่ยนคำอธิบายให้เข้ากับ Formspree/Developer */}
                     <InfoBox 
                         icon={Code} 
                         title="Formspree API" 
                         description="ส่งข้อมูลตรงสู่ Inbox โดยใช้ Formspree Endpoint (Serverless)" 
                     />
-
                     <InfoBox 
                         icon={Github} 
                         title="Open Source Mindset" 
                         description="โค้ดบางส่วนถูกพัฒนาแบบเปิดเผย และสามารถตรวจสอบได้บน GitHub" 
                     />
-
                     <InfoBox icon={Clock} title="ตอบกลับรวดเร็ว" description="ทีมงานจะติดต่อกลับภายใน 1-2 ชั่วโมงทำการ" />
                     <InfoBox icon={Phone} title="อีเมลโดยตรง" description="k.net.game01@gmail.com" />
                 </section>
@@ -208,20 +194,3 @@ export default function ContactPage() {
         </div>
     );
 }
-
-// Component ย่อย: Info Box (แก้ไข Type)
-// กำหนด Type ของ Icon ให้อยู่ในรูปแบบของ React Component ที่สามารถรับ Props ได้
-interface InfoBoxProps {
-    // FIX: แทนที่ 'any' ด้วย React.ElementType หรือ Type ที่เฉพาะเจาะจงมากขึ้น
-    icon: React.ElementType; 
-    title: string; 
-    description: string;
-}
-
-const InfoBox: React.FC<InfoBoxProps> = ({ icon: Icon, title, description }) => (
-    <div className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg">
-        <Icon className="w-8 h-8 text-fuchsia-400 mx-auto mb-3" />
-        <h3 className="text-xl font-semibold mb-1">{title}</h3>
-        <p className="text-gray-300 text-sm">{description}</p>
-    </div>
-);
