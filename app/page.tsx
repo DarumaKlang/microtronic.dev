@@ -11,7 +11,6 @@ import FeaturesSection from '@/components/FeaturesSection';
 import ServicesSection from '@/components/ServicesSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTASection from '@/components/CTASection';
-import FooterSection from '@/components/FooterSection'; 
 
 // เนื่องจาก Component ที่เรา Import มาแล้วจัดการ Data และ Style Classs ภายในตัวเอง
 // เราจึงไม่จำเป็นต้อง Import constants ต่างๆ เช่น SERVICES_DATA, GRADIENT_TEXT_CLASS 
@@ -43,7 +42,7 @@ export default function Home() {
             </main>
             
             {/* 3. ส่วนท้ายของหน้า (Footer) */}
-            <FooterSection />
+            {/* <FooterSection /> */}
             
         </div>
     );

@@ -9,9 +9,9 @@ import NavBar from '@/components/NavBar'
 import './globals.css'
 //
 
-// IMPORT Footer Component (สมมติว่าคุณมี FooterSection หรือ Footer ที่จะใช้แทน BottomNavbar)
+// IMPORT FooterSection (สมมติว่าคุณมี FooterSection หรือ Footer ที่จะใช้แทน BottomNavbar)
 // เนื่องจากเรามีไฟล์ Footer.tsx ที่แนบมา ผมจะเรียกใช้ Footer ที่สร้างไว้ก่อนหน้านี้
-import Footer from '@/components/Footer'; 
+import FooterSection from '@/components/FooterSection'; 
 
 export const metadata: Metadata = {
     // อัปเดต Title และ Description ให้ตรงกับแบรนด์
@@ -31,7 +31,7 @@ export default function RootLayout({
             <body>
                 <NavBar />
                 <main>{children}</main> {/* เพิ่ม <main> เพื่อให้เป็นโครงสร้างที่ดี */}
-                <Footer /> {/* ใช้ Footer แทน BottomNavbar */}
+                <FooterSection /> {/* ใช้ Footer แทน BottomNavbar */}
             </body>
         </html>
     )
