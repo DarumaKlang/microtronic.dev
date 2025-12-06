@@ -1,54 +1,50 @@
 // app/page.tsx
+import Link from 'next/link';
 
-// เนื่องจาก ServicesSection ใช้ useState เราจึงจำเป็นต้องคง 'use client' ไว้
-'use client'; 
+// Component จำลองสำหรับ SaaS Showcase ที่จะสร้างในภายหลัง
+// import SaaSSection from '@/src/components/SaaSSection';
 
-import React from 'react';
-// Import Components ที่เราแยกออกมาใช้
-import GooeyBackground from '@/components/GooeyBackground'; 
-import HeroSection from '@/components/HeroSection';
-import FeaturesSection from '@/components/FeaturesSection';
-import ServicesSection from '@/components/ServicesSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import CTASection from '@/components/CTASection';
-// นำเข้า Component ใหม่
-import PortfolioLinkSection from '@/components/PortfolioLinkSection'; // NEW IMPORT
-
-// เนื่องจาก Component ที่เรา Import มาแล้วจัดการ Data และ Style Classs ภายในตัวเอง
-// เราจึงไม่จำเป็นต้อง Import constants ต่างๆ เช่น SERVICES_DATA, GRADIENT_TEXT_CLASS 
-// หรือ Icons ต่างๆ ที่เคยมีอยู่ในไฟล์นี้อีกต่อไป
-
-export default function Home() {
+export default function HomePage() {
     return (
-        // div หลักของหน้า: กำหนด Background Gradient (จาก tailwind.config.ts) และ Padding
-        // Note: pt-[120px] ถูกกำหนดเพื่อให้มีช่องว่างสำหรับ Fixed Navbar
-        <div className="min-h-screen bg-slate-900 text-white pt-24 pb-16 relative"> 
-            
-            {/* 1. Component พื้นหลังแบบ Gooey Effect (ต้องสร้างในขั้นตอนต่อไป) */}
-            {/* Component นี้จะถูกวางไว้เป็น Absolute/Fixed position ให้อยู่ด้านหลังเนื้อหาหลัก (z-10) */}
-            <GooeyBackground />
-            
-            {/* 2. เนื้อหาหลักของหน้า (Main Content) */}
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 mt-8 relative z-10">
-                
-                <HeroSection />
-                
-                <FeaturesSection />
-                
-                <ServicesSection />
-                
-                {/* เพิ่มส่วนลิงก์ Portfolio ตรงนี้ หรือตำแหน่งอื่นที่คุณต้องการ */}
-                <PortfolioLinkSection /> {/* NEW SECTION */}
-                
-                <TestimonialsSection />
-                
-                <CTASection />
-                
-            </main>
-            
-            {/* 3. ส่วนท้ายของหน้า (Footer) */}
-            {/* <FooterSection /> */}
-            
-        </div>
+        <main className="flex flex-col items-center justify-center min-h-screen p-4 md:p-12">
+
+            {/* Hero Section - Goal 1.1, 2.2, 2.3 */}
+            <section className="text-center max-w-4xl mb-20 space-y-8">
+                <p className="text-sm font-semibold uppercase tracking-widest text-indigo-500">
+                    Next.js 14 | RSC-First Architecture
+                </p>
+
+                <h1 className="text-5xl sm:text-7xl font-extrabold text-gray-900 leading-tight">
+                    🚀 เพิ่ม Conversion <span className="text-green-600">15%</span>
+                    <br className="hidden md:inline" />
+                    ด้วย <span className="text-indigo-600">Next.js Data Flow</span> ที่เร็วกว่า
+                </h1>
+
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    เราสร้างและปรับปรุง **SaaS สำหรับ SMEs** โดยเฉพาะ โดยเน้นที่ **Performance (TTI/CLS)** และการออกแบบที่ผลักดันให้เกิดยอดขาย/Lead
+                </p>
+
+                {/* CTA Group: Quick Win (Consult) + Deep Trust (Audit) */}
+                <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+                    <Link
+                        href="/contact"
+                        className="px-8 py-3 text-lg font-bold text-white bg-indigo-600 rounded-lg shadow-lg hover:bg-indigo-700 transition-colors"
+                    >
+                        🔥 รับคำปรึกษาเร่งด่วน (Quick Win)
+                    </Link>
+                    <Link
+                        href="/audit"
+                        className="px-8 py-3 text-lg font-semibold text-indigo-600 bg-white border-2 border-indigo-600 rounded-lg shadow-md hover:bg-indigo-50 transition-colors"
+                    >
+                        📊 ขอ Free Performance Audit (Deep Trust)
+                    </Link>
+                </div>
+            </section>
+
+            {/* Showcase Components (Will be added in later steps) */}
+            {/* <SaaSSection /> */}
+            {/* <WorkShowcase /> */}
+
+        </main>
     );
 }
