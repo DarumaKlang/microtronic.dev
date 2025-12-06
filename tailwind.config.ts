@@ -1,5 +1,7 @@
 // tailwind.config.ts
 import type { Config } from 'tailwindcss';
+// 1. นำเข้า Typography Plugin
+import typography from '@tailwindcss/typography'; 
 
 const config: Config = {
     content: [
@@ -57,7 +59,8 @@ const config: Config = {
             },
         },
     },
-    plugins: [],
+    // 2. เพิ่ม plugin 'typography'
+    plugins: [typography], // <--- ส่วนที่ต้องเพิ่ม
 };
 
 export default config;
