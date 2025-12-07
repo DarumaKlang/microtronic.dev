@@ -57,11 +57,11 @@ const FooterSection: React.FC = () => (
                     </li>
                     <li className="flex items-center gap-2">
                         <Phone className="w-4 h-4 text-cyan-400" />
-                        <span>+66 9x-xxxx-xxx (สำหรับธุรกิจ)</span>
+                        <span>+66 65-541-9166 (สำหรับธุรกิจ)</span>
                     </li>
                     <li className="flex items-center gap-2">
                         <Mail className="w-4 h-4 text-cyan-400" />
-                        <a href="mailto:contact@microtronic.dev" className="hover:text-pink-400 transition duration-200">contact@microtronic.dev</a>
+                        <a href="mailto:grids@microtronic.biz" className="hover:text-pink-400 transition duration-200">grids@microtronic.biz</a>
                     </li>
                 </ul>
             </div>
