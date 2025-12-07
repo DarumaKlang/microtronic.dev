@@ -30,6 +30,7 @@ export const SERVICES_DATA: ServiceDataMap = {
 export const NAV_ITEMS = [
     { label: "คุณสมบัติ", href: "#features" },
     { label: "บริการ", href: "#services" },
+    { label: "ราคา/Pricing", href: "/pricing" },
     { label: "คำรับรอง", href: "#testimonials" },
     { label: "ติดต่อ", href: "contact" },
 ];

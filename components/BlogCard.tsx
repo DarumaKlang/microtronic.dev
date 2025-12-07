@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { WorkExample } from './WorkData'; // นำเข้า Interface
+import { WorkExample } from '../data/WorkData'; // นำเข้า Interface
 
 interface BlogCardProps {
     work: WorkExample;
