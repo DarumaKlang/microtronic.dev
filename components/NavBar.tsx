@@ -38,11 +38,13 @@ const NavBar: React.FC = () => (
             </nav>
 
             {/* Call to Action Button: FIX ให้ชี้ไปที่ /contact โดยตรง */}
-            className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-lg font-bold rounded-full bg-pink-600 text-white hover:bg-pink-500 transition duration-300 transform active:scale-95 shadow-lg"
+            <Link
+                href="/contact"
+                className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-lg font-bold rounded-full bg-pink-600 text-white hover:bg-pink-500 transition duration-300 transform active:scale-95 shadow-lg"
             >
-            Start Project
-        </Link>
-    </div>
+                Start Project
+            </Link>
+        </div>
     </header >
 );
 
