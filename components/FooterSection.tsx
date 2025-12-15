@@ -2,6 +2,7 @@
 import React from 'react';
 // นำเข้า Icons ทั้งหมดที่ใช้ใน Footer
 import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Code } from 'lucide-react';
+import Link from 'next/link';
 // นำเข้า NAV_ITEMS จาก Constants
 import { NAV_ITEMS } from '@/constants/data';
 
@@ -37,13 +38,23 @@ const FooterSection: React.FC = () => (
             <div>
                 <h4 className="text-lg font-semibold mb-4 text-white">ลิงก์ด่วน</h4>
                 <ul className="space-y-2">
-                    {NAV_ITEMS.map((item) => (
-                        <li key={item.href}>
-                            <a href={item.href} className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">
-                                {item.label}
-                            </a>
-                        </li>
-                    ))}
+                    {/* The original NAV_ITEMS.map is replaced by static Link components as per instruction */}
+                    <li>
+                        <Link href="/about" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">เกี่ยวกับเรา</Link>
+                    </li>
+                    <li>
+                        <Link href="/services" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">บริการของเรา</Link>
+                    </li>
+                    <li>
+                        <Link href="/portfolio" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">ผลงาน</Link>
+                    </li>
+                    <li>
+                        <Link href="/contact" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">ติดต่อเรา</Link>
+                    </li>
+                    {/* New Standards & Tech link added */}
+                    <li>
+                        <Link href="/suppliers" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">มาตรฐานและเทคโนโลยี</Link>
+                    </li>
                 </ul>
             </div>
 

@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { chatWithGemini, ChatMessage } from '@/app/actions/chat';
 
 // Defined Message Interface
 interface Message {
@@ -18,7 +19,7 @@ const AIChatbot: React.FC = () => {
     const [messages, setMessages] = useState<Message[]>([
         {
             id: '1',
-            text: 'สวัสดีครับ! ยูโร (Euro) เป็น AI Assistant ของ Microtronic ยินดีให้บริการข้อมูลครับ มีอะไรให้ช่วยไหมครับ?',
+            text: 'สวัสดีครับ! น้องไมโคร (Micro) เป็น AI Assistant ของ Microtronic ยินดีให้บริการข้อมูลครับ มีอะไรให้ช่วยไหมครับ?',
             sender: 'bot',
             timestamp: new Date(),
         },
@@ -52,16 +53,37 @@ const AIChatbot: React.FC = () => {
         setIsTyping(true);
 
         // Simulate AI Response (Replace with actual API call later)
-        setTimeout(() => {
+        // Call Server Action
+        try {
+            // Convert current messages to history format for Gemini
+            // Filter only successful messages and map to API format
+            const history: ChatMessage[] = messages
+                .filter(m => m.sender !== 'bot' || m.id !== '1') // Skip greeting if needed, or include it. Let's include basic history.
+                .map(m => ({
+                    role: m.sender === 'user' ? 'user' : 'model',
+                    parts: m.text
+                }));
+
+            const response = await chatWithGemini(history, input);
+
             const botMessage: Message = {
                 id: (Date.now() + 1).toString(),
-                text: 'ขอบคุณครับ ระบบกำลังเรียนรู้และจะเชื่อมต่อกับ Google Gemini ในเร็วๆ นี้ เพื่อให้คำตอบที่แม่นยำที่สุดครับ!',
+                text: response.message,
                 sender: 'bot',
                 timestamp: new Date(),
             };
             setMessages((prev) => [...prev, botMessage]);
+        } catch (error) {
+            const errorMessage: Message = {
+                id: (Date.now() + 1).toString(),
+                text: "ขออภัยครับ เกิดข้อผิดพลาดในการเชื่อมต่อ",
+                sender: 'bot',
+                timestamp: new Date(),
+            };
+            setMessages((prev) => [...prev, errorMessage]);
+        } finally {
             setIsTyping(false);
-        }, 1500);
+        }
     };
 
     const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -96,7 +118,7 @@ const AIChatbot: React.FC = () => {
                                     <Bot size={20} className="text-white" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white text-sm">น้องยูโร (AI Support)</h3>
+                                    <h3 className="font-bold text-white text-sm">น้องไมโคร (AI Support)</h3>
                                     <span className="flex items-center gap-1 text-xs text-green-400">
                                         <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                                         Online
@@ -114,8 +136,8 @@ const AIChatbot: React.FC = () => {
                                 >
                                     <div
                                         className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.sender === 'user'
-                                                ? 'bg-pink-600 text-white rounded-br-none'
-                                                : 'bg-slate-800 text-gray-200 rounded-bl-none'
+                                            ? 'bg-pink-600 text-white rounded-br-none'
+                                            : 'bg-slate-800 text-gray-200 rounded-bl-none'
                                             }`}
                                     >
                                         {msg.text}
@@ -153,7 +175,7 @@ const AIChatbot: React.FC = () => {
                                 </button>
                             </div>
                             <div className="text-center mt-2">
-                                <span className="text-[10px] text-gray-500">Powered by Google Gemini</span>
+                                <span className="text-[10px] text-gray-500">Powered by Google Gemini Flash</span>
                             </div>
                         </div>
                     </motion.div>
