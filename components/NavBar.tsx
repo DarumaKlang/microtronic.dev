@@ -1,11 +1,11 @@
 // components/NavBar.tsx
-'use client'; 
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
 // นำเข้า Constants สำหรับ Navigation Items และ Gradient Text Class
 // **สมมติว่า NAV_ITEMS มีโครงสร้าง { href: string; label: string }**
-import { NAV_ITEMS, GRADIENT_TEXT_CLASS } from '@/constants/data'; 
+import { NAV_ITEMS, GRADIENT_TEXT_CLASS } from '@/constants/data';
 
 /**
  * Navbar Component เวอร์ชันใหม่สำหรับ Landing Page (ปรับปรุงให้รองรับ Multi-Page)
@@ -21,31 +21,29 @@ const NavBar: React.FC = () => (
                     Microtronic <span className={GRADIENT_TEXT_CLASS}>Dev</span>
                 </Link>
             </div>
-            
+
             {/* Navigation Menu (Desktop) */}
             <nav className="hidden md:flex items-center space-x-6">
                 {NAV_ITEMS.map((item) => (
                     // ใช้ Link แทน <a>
-                    <Link 
+                    <Link
                         key={item.href}
                         // *ใช้ href เดิม (Anchor Links)* เพื่อให้ Navigation ทำงานภายในหน้าหลัก
-                        href={item.href} 
+                        href={item.href}
                         className="text-gray-300 hover:text-white font-medium transition duration-300 hover:underline hover:underline-offset-4"
                     >
                         {item.label}
                     </Link>
                 ))}
             </nav>
-            
+
             {/* Call to Action Button: FIX ให้ชี้ไปที่ /contact โดยตรง */}
-            <Link 
-                href="/contact" // <--- แก้ไขแล้ว: ชี้ไปที่ /contact
-                className="px-6 py-3 text-lg font-bold rounded-full bg-pink-600 text-white hover:bg-pink-500 transition duration-300 transform active:scale-95 shadow-lg"
+            className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-lg font-bold rounded-full bg-pink-600 text-white hover:bg-pink-500 transition duration-300 transform active:scale-95 shadow-lg"
             >
-                Start Project
-            </Link>
-        </div>
-    </header>
+            Start Project
+        </Link>
+    </div>
+    </header >
 );
 
 export default NavBar;
