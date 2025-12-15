@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         siteName: 'Microtronic Dev.',
         images: [
             {
-                url: '/og-image.jpg', // ต้องสร้างไฟล์ og-image.jpg ใน public/
+                url: '/og-image.png', // Generated AI Image
                 width: 1200,
                 height: 630,
                 alt: 'Microtronic Dev. Preview',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Microtronic Dev. | Web & AI Solutions',
         description: 'รับทำเว็บไซต์ Next.js และ AI Integration มาตรฐานสากล',
-        images: ['/og-image.jpg'], // ใช้รูปเดียวกับ OG
+        images: ['/og-image.png'], // ใช้รูปเดียวกับ OG
     },
 
     // 4. Robots
