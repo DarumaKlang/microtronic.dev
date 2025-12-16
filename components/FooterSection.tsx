@@ -55,6 +55,9 @@ const FooterSection: React.FC = () => (
                     <li>
                         <Link href="/suppliers" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">มาตรฐานและเทคโนโลยี</Link>
                     </li>
+                    <li>
+                        <Link href="/terms" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">ข้อกำหนดและข้อตกลง</Link>
+                    </li>
                 </ul>
             </div>
 

@@ -27,6 +27,27 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // Redirects สำหรับ Legacy Service Pages
+  async redirects() {
+    return [
+      {
+        source: '/service/Modern',
+        destination: '/service#templates',
+        permanent: false, // 302 redirect
+      },
+      {
+        source: '/service/Professional',
+        destination: '/service#enterprise',
+        permanent: false,
+      },
+      {
+        source: '/service/Environmentally',
+        destination: '/service#enterprise',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
