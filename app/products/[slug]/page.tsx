@@ -10,6 +10,7 @@ interface Product {
     category: string;
     price: string;
     github_repo_url: string;
+    demo_url?: string;
 }
 
 // 1. Generate Static Params (Pre-render all product pages at build time)
@@ -47,15 +48,27 @@ export default async function ProductDetailPage({ params }: { params: { slug: st
             <h1 className="text-4xl font-bold mb-2">{product.name}</h1>
             <p className="text-xl text-gray-600 mb-6">Price: {product.price}</p>
 
-            {/* 📞 Call to Action (CTA) - (1.3) */}
-            <a
-                href={lineOaDeepLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-green-500 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-green-600 transition duration-300 mb-8"
-            >
-                คุยกับเซลล์ทันทีผ่าน Line OA
-            </a>
+            {/* 📞 Call to Action (CTA) & Landing Page Link */}
+            <div className="flex flex-wrap gap-4 mb-8">
+                {product.demo_url && (
+                    <a
+                        href={product.demo_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-blue-700 transition duration-300"
+                    >
+                        เยี่ยมชม Landing Page ของสินค้า
+                    </a>
+                )}
+                <a
+                    href={lineOaDeepLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-green-500 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-green-600 transition duration-300"
+                >
+                    คุยกับเซลล์ทันทีผ่าน Line OA
+                </a>
+            </div>
 
             {/* 📖 Product Details from README.md (1.2) */}
             <h2 className="text-3xl font-semibold border-b pb-2 mb-4">Product Technical Details</h2>

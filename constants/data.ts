@@ -29,21 +29,21 @@ export const SERVICES_DATA: ServiceDataMap = {
     },
     templates: {
         title: "Microtronic Templates",
-        subtitle: "พร้อมใช้งานทันที (Instant Launch)",
-        description: "บริการจำหน่าย Website Templates คุณภาพสูงที่สร้างด้วย Next.js และ Tailwind CSS ที่ผ่านการปรับจูน Performance และ SEO มาแล้ว พร้อมใช้งานสำหรับธุรกิจหลากหลายประเภท ไม่ว่าจะเป็น E-commerce, Portfolio, หรือ Corporate Website",
-        keyBenefits: ["Premium Design: ดีไซน์สวยงาม ทันสมัย และ Responsive", "SEO Ready: โครงสร้างรองรับ SEO 100% เริ่มต้นธุรกิจได้ทันที"],
+        subtitle: "Future-Ready Architecture (Instant Launch)",
+        description: "Website Templates ระดับ High-End ที่สร้างด้วย Next.js 15 และ Tailwind CSS ผ่านการรีดประสิทธิภาพ (Performance Optimization) และจัดการโครงสร้าง SEO ระดับ Advanced พร้อมสำหรับการ Scale ธุรกิจในยุค Digital Transformation",
+        keyBenefits: ["Enterprise-Grade Code: สถาปัตยกรรมที่สะอาดและขยายได้จริง", "SEO 2.0: โครงสร้างรองรับ algorithms ล่าสุดของ Search Engines"],
         link: "https://microtronic-template.vercel.app/",
-        linkText: "เลือกซื้อ Template",
+        linkText: "สำรวจ Template Store",
     },
 };
 
 export const NAV_ITEMS = [
-    { label: "คุณสมบัติ", href: "#features" },
-    { label: "บริการ", href: "/service" }, // Updated to point to new service page
+    { label: "บริการ", href: "/service" },
+    { label: "สินค้า", href: "/products" },
+    { label: "ผลงาน", href: "/portfolio" },
     { label: "Templates Shop", href: "https://microtronic-template.vercel.app/" },
     { label: "ราคา/Pricing", href: "/pricing" },
-    { label: "คำรับรอง", href: "#testimonials" },
-    { label: "ติดต่อ", href: "contact" },
+    { label: "ติดต่อ", href: "/contact" },
 ];
 
 export const GRADIENT_TEXT_CLASS = "bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400";
@@ -160,7 +160,7 @@ export const PACKAGE_COMBOS: PackageCombo[] = [
             "✅ คู่มือการใช้งานพื้นฐาน"
         ],
         ctaText: "สั่งซื้อเซ็ต Starter",
-        ctaLink: "/contact?package=starter"
+        ctaLink: "https://microtronic-template.vercel.app/"
     },
     {
         id: "business",
@@ -207,7 +207,7 @@ export const PACKAGE_COMBOS: PackageCombo[] = [
             "✅ Training การใช้งาน CMS (30 นาท)"
         ],
         ctaText: "สั่งซื้อเซ็ต Business",
-        ctaLink: "/contact?package=business"
+        ctaLink: "https://microtronic-template.vercel.app/"
     },
     {
         id: "premium",

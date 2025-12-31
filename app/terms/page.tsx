@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function TermsAndConditionsPage() {
     return (
-        <div className="min-h-screen p-8 pb-20 mt-8 sm:p-20 pt-[120px] relative overflow-hidden">
+        <div className="min-h-screen p-8 pb-20 mt-8 sm:p-20 pt-[120px] relative overflow-hidden bg-slate-950">
             {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-bg-start via-indigo-900 to-purple-800 opacity-95 z-0" />
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950/30 to-slate-950 opacity-95 z-0" />
             <GooeyBackground />
 
             <main className="container mx-auto max-w-6xl relative z-10">

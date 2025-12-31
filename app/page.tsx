@@ -12,6 +12,7 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import CTASection from '@/components/CTASection';
 // นำเข้า Component ใหม่
 import PortfolioLinkSection from '@/components/PortfolioLinkSection'; // NEW IMPORT
+import SustainabilitySection from '@/components/SustainabilitySection';
 
 // เนื่องจาก Component ที่เรา Import มาแล้วจัดการ Data และ Style Classs ภายในตัวเอง
 // เราจึงไม่จำเป็นต้อง Import constants ต่างๆ เช่น SERVICES_DATA, GRADIENT_TEXT_CLASS 
@@ -38,6 +39,9 @@ export default function Home() {
 
                 {/* เพิ่มส่วนลิงก์ Portfolio ตรงนี้ หรือตำแหน่งอื่นที่คุณต้องการ */}
                 <PortfolioLinkSection /> {/* NEW SECTION */}
+
+                {/* 2026 Vision & Sustainability */}
+                <SustainabilitySection />
 
                 <TestimonialsSection />
 

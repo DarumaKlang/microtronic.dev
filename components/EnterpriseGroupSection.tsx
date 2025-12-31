@@ -255,7 +255,13 @@ interface EnterpriseFeatureCardProps {
 
 function EnterpriseFeatureCard({ feature }: EnterpriseFeatureCardProps) {
     return (
-        <div className="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-emerald-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/20">
+        <div
+            itemScope
+            itemType="https://schema.org/Service"
+            className="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-emerald-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/20"
+        >
+            <meta itemProp="provider" content="Microtronic Dev" />
+
             {/* Icon */}
             <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                 {feature.icon}
@@ -263,18 +269,20 @@ function EnterpriseFeatureCard({ feature }: EnterpriseFeatureCardProps) {
 
             {/* Title with ROI Badge */}
             <div className="flex items-start justify-between mb-3">
-                <h4 className="text-2xl font-bold text-emerald-300 group-hover:text-emerald-200 transition-colors">
+                <h4 itemProp="name" className="text-2xl font-bold text-emerald-300 group-hover:text-emerald-200 transition-colors">
                     {feature.title}
                 </h4>
             </div>
 
-            {/* ROI Indicator */}
+            {/* ROI Indicator / Service Type / Special Feature */}
             <div className="inline-block bg-gradient-to-r from-emerald-500/20 to-blue-500/20 border border-emerald-500/30 rounded-full px-3 py-1 mb-4">
-                <span className="text-sm font-bold text-emerald-300">{feature.roi}</span>
+                <span className="text-sm font-bold text-emerald-300">
+                    ROI Focus: <span itemProp="identifier">{feature.roi}</span>
+                </span>
             </div>
 
             {/* Description */}
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p itemProp="description" className="text-gray-300 text-sm leading-relaxed">
                 {feature.description}
             </p>
         </div>

@@ -48,6 +48,19 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'nextjs-micro-account.vercel.app',
+      },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+      }
+    ],
+  },
 };
 
 export default nextConfig;

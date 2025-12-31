@@ -89,26 +89,42 @@ interface TemplateCardProps {
 
 function TemplateCard({ template }: TemplateCardProps) {
     return (
-        <div className="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-pink-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/20">
+        <div
+            itemScope
+            itemType="https://schema.org/Product"
+            className="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-pink-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/20"
+        >
+            {/* Metadata for AI */}
+            <meta itemProp="brand" content="Microtronic Dev" />
+            <meta itemProp="sku" content={template.id} />
+
             {/* Preview Image Placeholder */}
             <div className="relative h-48 bg-gradient-to-br from-pink-500/20 to-cyan-500/20 rounded-xl mb-4 overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-6xl opacity-20">🎨</div>
                 </div>
-                {/* Badge */}
-                <div className="absolute top-3 right-3 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    {template.currency === 'THB' ? '฿' : '$'}{template.price.toLocaleString()}
+                {/* Badge / Price */}
+                <div
+                    itemProp="offers"
+                    itemScope
+                    itemType="https://schema.org/Offer"
+                    className="absolute top-3 right-3 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold"
+                >
+                    <meta itemProp="priceCurrency" content={template.currency} />
+                    <span itemProp="price" content={template.price.toString()}>
+                        {template.currency === 'THB' ? '฿' : '$'}{template.price.toLocaleString()}
+                    </span>
                 </div>
             </div>
 
             {/* Content */}
-            <h4 className="text-2xl font-bold text-pink-300 mb-2 group-hover:text-pink-200 transition-colors">
+            <h4 itemProp="name" className="text-2xl font-bold text-pink-300 mb-2 group-hover:text-pink-200 transition-colors">
                 {template.name}
             </h4>
             <p className="text-sm text-cyan-400 font-semibold mb-3">
                 {template.tagline}
             </p>
-            <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+            <p itemProp="description" className="text-gray-300 text-sm mb-4 leading-relaxed">
                 {template.description}
             </p>
 
@@ -126,6 +142,7 @@ function TemplateCard({ template }: TemplateCardProps) {
             <div className="flex gap-3">
                 {template.demoLink && (
                     <a
+                        itemProp="url"
                         href={template.demoLink}
                         target="_blank"
                         rel="noopener noreferrer"

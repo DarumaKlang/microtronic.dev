@@ -1,130 +1,60 @@
 [
     {
+        "slug": "micro-formula-v1",
+        "name": "Micro Formula V1.0 - Cloud Accounting Solution",
+        "category": "saas",
+        "price": "Contact for Pricing",
+        "github_repo_url": "https://raw.githubusercontent.com/microtronic-thailand/app-micro-formula/main/README.md",
+        "preview_image_url": "/images/micro-formula-preview.png",
+        "demo_url": "https://nextjs-micro-account.vercel.app/",
+        "direct_url": "https://nextjs-micro-account.vercel.app/"
+    },
+    {
+        "slug": "hiwchung-app",
+        "name": "หิวจัง (Hiwchung) - ระบบสั่งอาหารอัจฉริยะผ่าน QR Code",
+        "category": "restaurant",
+        "price": "Contact for Pricing",
+        "github_repo_url": "https://github.com/microtronic-thailand/hiwchung-app",
+        "description": "แอปพลิเคชันสั่งอาหารที่ช่วยให้การบริหารร้านอาหารเป็นเรื่องง่าย ลูกค้าสแกนสั่งเอง แม่ครัวรับออเดอร์ บริการเสิร์ฟ และคิดเงิน ครบจบในที่เดียว",
+        "preview_image_url": "/images/hiwchung-preview.png",
+        "direct_url": "https://github.com/microtronic-thailand/hiwchung-app"
+    },
+    {
+        "slug": "iot-smart-home",
+        "name": "Micro Smart Home - ระบบบ้านอัจฉริยะยุคใหม่",
+        "category": "iot",
+        "price": "Starting from 15,000 THB",
+        "github_repo_url": "https://github.com/microtronic-thailand/smart-home-iot",
+        "description": "ควบคุมทุกส่วนของบ้านผ่านปลายนิ้ว ตั้งแต่ไฟ แอร์ ไปจนถึงระบบความปลอดภัย เชื่อมต่อไร้พรมแดน",
+        "preview_image_url": "/images/iot-home-preview.png",
+        "direct_url": "https://github.com/microtronic-thailand/smart-home-iot"
+    },
+    {
+        "slug": "iot-smart-farm",
+        "name": "Micro Smart Farm - นวัตกรรมการเกษตรแม่นยำสูง",
+        "category": "iot",
+        "price": "Starting from 45,000 THB",
+        "github_repo_url": "https://github.com/microtronic-thailand/smart-farm-iot",
+        "description": "เพิ่มผลผลิตด้วยเทคโนโลยี IoT วัดความชื้น ดิน อากาศ และควบคุมระบบน้ำอัตโนมัติ แม่นยำทุกขั้นตอน",
+        "preview_image_url": "/images/iot-farm-preview.png",
+        "direct_url": "https://github.com/microtronic-thailand/smart-farm-iot"
+    },
+    {
         "slug": "website-package-basic",
-        "name": "Airfly - Travel Mobile App UI Kit",
-        "category": "Travel",
-        "price": "$29",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/airfly-travel-app.jpg"
+        "name": "Corporate Website Package",
+        "category": "websites",
+        "price": "Starting from 5,000 THB",
+        "github_repo_url": "https://github.com/microtronic-thailand/corporate-template",
+        "preview_image_url": "/images/corporate-website.png",
+        "direct_url": "https://microtronic-template.vercel.app/"
     },
     {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
-    },
-    {
-        "slug": "finance-mobile-kit",
-        "name": "PayUp - Finance Mobile App UI Kit",
-        "category": "Business",
-        "price": "$54",
-        "github_repo_url": "...",
-        "preview_image_url": "/images/finance-mobile-kit.jpg"
+        "slug": "finance-mobile-app",
+        "name": "PayUp - Finance & Wallet App",
+        "category": "mobile-apps",
+        "price": "Contact for Pricing",
+        "github_repo_url": "https://github.com/microtronic-thailand/finance-app-ui",
+        "preview_image_url": "/images/finance-mobile-kit.jpg",
+        "direct_url": "https://microtronic-template.vercel.app/"
     }
 ]

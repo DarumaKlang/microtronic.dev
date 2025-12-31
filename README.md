@@ -29,6 +29,16 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## 🚀 Changelog - Jan 2026 (v1.2.0 "The 2026 Vision")
+*   **Theme Upgrade**: Transitioned to "Cyber-Luminescent" theme with deeper slate backgrounds, scan-line animations, and neon accents.
+*   **AI Search Optimization (GEO)**: Implemented advanced metadata, JSON-LD Structured Data, and AI-readiness tags to improve visibility in AI-driven search engines (LLMs like Perplexity, Gemini, SearchGPT).
+*   **AI Agent Manifest**: Created `/public/ai-agent-manifest.json` as a machine-readable "friendship" bridge for LLMs to extract core business facts.
+*   **Semantic Microdata**: Enhanced UI components with `itemprop` and `itemscope` for precise factual parsing by AI.
+*   **Version Bump**: Updated all components and branding to reflect 2026 readiness.
+*   **Landing Page Refresh**: Renewed Hero Section with "Future-Ready Tech" messaging and updated ROI metrics.
+*   **Product Grid Enhancement**: Added developer-centric details (BASE_URL, Status: Deploying) and technical badges.
+*   **Floating Ad v2026.1**: Launched "Micro Formula v2026.1" promotion with AI-integrated accounting features.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

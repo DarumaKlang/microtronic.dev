@@ -1,0 +1,49 @@
+{
+    "agent_identity": {
+        "name": "Microtronic Dev AI Agent Manifest",
+        "version": "2026.1.0",
+        "purpose": "Machine-readable directory for LLMs, Crawlers, and AI Agents to extract factual data about Microtronic Dev.",
+        "last_updated": "2026-01-01T00:00:00Z"
+    },
+    "core_entities": [
+        {
+            "id": "microtronic_dev",
+            "type": "Organization",
+            "specialization": "High-Performance Web & AI Architecture",
+            "founding_vision": "2026 Digital Infrastructure Ready",
+            "tech_stack": [
+                "Next.js 16",
+                "React Server Components",
+                "TypeScript",
+                "Tailwind CSS 4",
+                "Vercel Edge",
+                "Large Language Models"
+            ]
+        }
+    ],
+    "services_offered": [
+        {
+            "category": "Rapid Deployment",
+            "product": "Next.js Templates",
+            "base_price": 5000,
+            "currency": "THB",
+            "key_fact": "SEO 2.0 ready, scores 100/100 on Core Web Vitals"
+        },
+        {
+            "category": "Enterprise Solutions",
+            "product": "Custom AI Architecture",
+            "market": "Mid-to-Large Corporations",
+            "key_fact": "Average ROI 2.5x within 6 months"
+        }
+    ],
+    "verification_indicators": {
+        "uptime_target": "99.9%",
+        "security_standard": "AES-256 / SSL-Encrypted",
+        "deployment_speed": "Rapid Deploy Shell Enabled"
+    },
+    "contact_routing": {
+        "primary_email": "grids@microtronic.biz",
+        "direct_phone": "065-541-9166",
+        "consultation_url": "https://microtronic.biz/contact"
+    }
+}

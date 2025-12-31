@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { chatWithGemini, ChatMessage } from '@/app/actions/chat';
+import { generateBusinessAudit } from '@/app/actions/audit';
 
 // Defined Message Interface
 interface Message {
@@ -11,15 +12,17 @@ interface Message {
     text: string;
     sender: 'bot' | 'user';
     timestamp: Date;
+    isAudit?: boolean;
 }
 
 const AIChatbot: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isAuditMode, setIsAuditMode] = useState(false);
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState<Message[]>([
         {
             id: '1',
-            text: 'สวัสดีครับ! น้องไมโคร (Micro) เป็น AI Assistant ของ Microtronic ยินดีให้บริการข้อมูลครับ มีอะไรให้ช่วยไหมครับ?',
+            text: 'สวัสดีครับ! น้องไมโคร (Micro) พร้อมช่วยคุณสร้างรายได้ด้วยพลัง AI 2026 ต้องการให้ผมช่วยวิเคราะห์แผนธุรกิจ หรือสอบถามบริการดีครับ?',
             sender: 'bot',
             timestamp: new Date(),
         },
@@ -52,27 +55,36 @@ const AIChatbot: React.FC = () => {
         setInput('');
         setIsTyping(true);
 
-        // Simulate AI Response (Replace with actual API call later)
-        // Call Server Action
         try {
-            // Convert current messages to history format for Gemini
-            // Filter only successful messages and map to API format
-            const history: ChatMessage[] = messages
-                .filter(m => m.sender !== 'bot' || m.id !== '1') // Skip greeting if needed, or include it. Let's include basic history.
-                .map(m => ({
-                    role: m.sender === 'user' ? 'user' : 'model',
-                    parts: m.text
-                }));
+            if (isAuditMode) {
+                const response = await generateBusinessAudit(input);
+                const botMessage: Message = {
+                    id: (Date.now() + 1).toString(),
+                    text: response.message || "ขออภัย ไม่สามารถสร้างรายงานได้",
+                    sender: 'bot',
+                    timestamp: new Date(),
+                    isAudit: true
+                };
+                setMessages((prev) => [...prev, botMessage]);
+                setIsAuditMode(false); // Reset after audit
+            } else {
+                const history: ChatMessage[] = messages
+                    .filter(m => m.sender !== 'bot' || m.id !== '1')
+                    .map(m => ({
+                        role: m.sender === 'user' ? 'user' : 'model',
+                        parts: m.text
+                    }));
 
-            const response = await chatWithGemini(history, input);
+                const response = await chatWithGemini(history, input);
 
-            const botMessage: Message = {
-                id: (Date.now() + 1).toString(),
-                text: response.message,
-                sender: 'bot',
-                timestamp: new Date(),
-            };
-            setMessages((prev) => [...prev, botMessage]);
+                const botMessage: Message = {
+                    id: (Date.now() + 1).toString(),
+                    text: response.message,
+                    sender: 'bot',
+                    timestamp: new Date(),
+                };
+                setMessages((prev) => [...prev, botMessage]);
+            }
         } catch (error) {
             const errorMessage: Message = {
                 id: (Date.now() + 1).toString(),
@@ -118,14 +130,35 @@ const AIChatbot: React.FC = () => {
                                     <Bot size={20} className="text-white" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white text-sm">น้องไมโคร (AI Support)</h3>
+                                    <h3 className="font-bold text-white text-sm">น้องไมโคร (Revenue Architect)</h3>
                                     <span className="flex items-center gap-1 text-xs text-green-400">
                                         <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                                        Online
+                                        AI Audit Active
                                     </span>
                                 </div>
                             </div>
                         </div>
+
+                        {/* Audit Mode Selector */}
+                        {!isAuditMode && messages.length < 3 && (
+                            <div className="p-4 bg-blue-500/10 border-b border-blue-500/20">
+                                <button
+                                    onClick={() => {
+                                        setIsAuditMode(true);
+                                        setMessages(prev => [...prev, {
+                                            id: Date.now().toString(),
+                                            text: "🚀 เข้าสู่โหมดวิเคราะห์ธุรกิจ! กรุณาส่ง URL หรืออธิบายไอเดียธุรกิจของคุณเพื่อให้ผมวิเคราะห์ Revenue Leakage และจัดเตรียม Tech Report ให้ครับ",
+                                            sender: 'bot',
+                                            timestamp: new Date()
+                                        }]);
+                                    }}
+                                    className="w-full py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-2"
+                                >
+                                    <Zap size={14} />
+                                    รับการวิเคราะห์ธุรกิจ (AI Business Audit)
+                                </button>
+                            </div>
+                        )}
 
                         {/* Messages Area */}
                         <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
@@ -135,12 +168,26 @@ const AIChatbot: React.FC = () => {
                                     className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
                                     <div
-                                        className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.sender === 'user'
+                                        className={`max-w-[85%] p-3 rounded-2xl text-sm ${msg.sender === 'user'
                                             ? 'bg-pink-600 text-white rounded-br-none'
-                                            : 'bg-slate-800 text-gray-200 rounded-bl-none'
+                                            : msg.isAudit
+                                                ? 'bg-slate-800 border border-blue-500/30 text-gray-200 rounded-bl-none shadow-lg shadow-blue-500/10'
+                                                : 'bg-slate-800 text-gray-200 rounded-bl-none'
                                             }`}
                                     >
-                                        {msg.text}
+                                        <div className="whitespace-pre-wrap leading-relaxed">
+                                            {msg.text}
+                                        </div>
+                                        {msg.isAudit && (
+                                            <div className="mt-4 pt-4 border-t border-white/10 text-center">
+                                                <Link
+                                                    href="/contact?type=audit-followup"
+                                                    className="inline-block px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-full text-xs font-bold transition-colors"
+                                                >
+                                                    รับคำปรึกษา Deep Strategy ฟรี
+                                                </Link>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ))}
@@ -164,18 +211,18 @@ const AIChatbot: React.FC = () => {
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyPress={handleKeyPress}
-                                    placeholder="พิมพ์ข้อความ..."
-                                    className="w-full bg-slate-900 border border-slate-700 rounded-full py-3 px-4 pr-12 text-sm text-white focus:outline-hidden focus:border-pink-500 transition-colors"
+                                    placeholder={isAuditMode ? "ส่ง URL หรือไอเดียธุรกิจของคุณ..." : "พิมพ์ข้อความ..."}
+                                    className={`w-full bg-slate-900 border ${isAuditMode ? 'border-blue-500' : 'border-slate-700'} rounded-full py-3 px-4 pr-12 text-sm text-white focus:outline-hidden focus:border-pink-500 transition-colors`}
                                 />
                                 <button
                                     onClick={handleSend}
-                                    className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-pink-600 text-white rounded-full hover:bg-pink-500 transition-colors"
+                                    className={`absolute right-2 top-1/2 transform -translate-y-1/2 p-2 ${isAuditMode ? 'bg-blue-600 hover:bg-blue-500' : 'bg-pink-600 hover:bg-pink-500'} text-white rounded-full transition-colors`}
                                 >
                                     <Send size={16} />
                                 </button>
                             </div>
                             <div className="text-center mt-2">
-                                <span className="text-[10px] text-gray-500">Powered by Google Gemini Flash</span>
+                                <span className="text-[10px] text-gray-500">Gemini Business Architect Mode</span>
                             </div>
                         </div>
                     </motion.div>

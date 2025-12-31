@@ -10,8 +10,9 @@
 /* 2. Dark Mode Configuration */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #020617;
+    --foreground: #f8fafc;
+    --grid-color: rgba(30, 41, 59, 0.3);
   }
 }
 
@@ -19,7 +20,53 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Cyber Grid Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes scan {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100vh); }
+}
+
+@keyframes scan-horizontal {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-scan {
+  animation: scan 4s linear infinite;
+}
+
+.animate-scan-horizontal {
+  animation: scan-horizontal 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+  50% { opacity: 1; box-shadow: 0 0 25px rgba(59, 130, 246, 0.6); }
+}
+
+.glow-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-card:hover {
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.2), 0 0 60px rgba(6, 182, 212, 0.1);
+  border-color: rgba(236, 72, 153, 0.4);
 }
 
 /* ================================================= */
@@ -42,23 +89,11 @@ body {
   }
 }
 
-/* 2. Define Custom Utility Class for Animation */
 .animate-blob {
-  /* แอนิเมชันเคลื่อนไหว 16 วินาที, วนซ้ำไม่สิ้นสุด, สลับทิศทาง (alternate) */
   animation: blob-movement 16s infinite alternate; 
 }
 
-/* 3. Define Custom Utility Classes for Animation Delay (for a staggered effect) */
-/* ใช้ negative delay เพื่อให้ Blob แต่ละก้อนเริ่มที่ตำแหน่งที่ต่างกันของ cycle */
-.animation-delay-0 {
-    animation-delay: 0s;
-}
-.animation-delay-2000 {
-    animation-delay: -4s; /* เริ่มที่ 4 วินาทีใน cycle */
-}
-.animation-delay-4000 {
-    animation-delay: -8s; /* เริ่มที่ 8 วินาทีใน cycle */
-}
-.animation-delay-6000 {
-    animation-delay: -12s; /* เริ่มที่ 12 วินาทีใน cycle */
-}
+.animation-delay-0 { animation-delay: 0s; }
+.animation-delay-2000 { animation-delay: -4s; }
+.animation-delay-4000 { animation-delay: -8s; }
+.animation-delay-6000 { animation-delay: -12s; }

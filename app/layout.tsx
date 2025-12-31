@@ -11,47 +11,52 @@ import './globals.css'
 // เนื่องจากเรามีไฟล์ Footer.tsx ที่แนบมา ผมจะเรียกใช้ Footer ที่สร้างไว้ก่อนหน้านี้
 import FooterSection from '@/components/FooterSection';
 import AIChatbot from '@/components/AIChatbot';
+import FloatingMicroAd from '@/components/FloatingMicroAd';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    // 1. Basic Metadata
+    // 1. Basic Metadata (Optimized for 2026 AI Search & GEO)
     title: {
-        template: '%s | Microtronic Dev.',
-        default: 'Microtronic Dev. | Web & AI Solutions', // Default Title
+        template: '%s | Microtronic Dev [2026 READY]',
+        default: 'Microtronic Dev | The Next-Gen Web & AI Architect 2026',
     },
-    description: 'ผู้เชี่ยวชาญด้านการพัฒนาเว็บไซต์ด้วย Next.js, AI Integration และ Web3 Solutions ที่เน้นความเร็ว ความปลอดภัย และ UX/UI ระดับพรีเมียม',
-    keywords: ['Next.js', 'React', 'Web Development', 'AI Integration', 'Web3', 'Thailand', 'Software House'],
+    description: 'Microtronic Dev: ผู้นำการสร้าง Digital Infrastructure ปี 2026 ด้วย Next.js 16, AI-First Core และ High-Speed Cloud Architecture. เราสร้างระบบที่ AI (LLMs) และมนุษย์ต่างเลือกใช้งาน.',
+    keywords: [
+        'Next.js 15/16', 'AI Integration Thailand', 'Large Language Model Implementation',
+        'High-Performance Web Architecture', 'RSC Specialist', 'Vercel Deployment Expert',
+        'AI Search Optimization (GEO)', 'Software House for AI Solutions', 'Microtronic Dev 2026'
+    ],
     authors: [{ name: 'Microtronic Team', url: 'https://microtronic.biz' }],
-    metadataBase: new URL('https://microtronic.biz'), // Set base URL for relative links
+    metadataBase: new URL('https://microtronic.biz'),
 
-    // 2. Open Graph (Facebook, LinkedIn)
+    // 2. Open Graph (Enhanced for Rich Previews)
     openGraph: {
         type: 'website',
         locale: 'th_TH',
         url: 'https://microtronic.biz',
-        title: 'Microtronic Dev. | Web & AI Solutions for Future Business',
-        description: 'ยกระดับธุรกิจของคุณด้วยเว็บไซต์ประสิทธิภาพสูงและโซลูชัน AI อัจฉริยะ',
-        siteName: 'Microtronic Dev.',
+        title: 'Microtronic Dev 2026 | Future-Proof AI & Web Solutions',
+        description: 'Engineered for Scale. Optimized for AI. Built for the Future.',
+        siteName: 'Microtronic Dev [2026 Vision]',
         images: [
             {
-                url: '/og-image.png', // Generated AI Image
+                url: '/og-image-2026.png',
                 width: 1200,
                 height: 630,
-                alt: 'Microtronic Dev. Preview',
+                alt: 'Microtronic Dev 2026 Architecture',
             },
         ],
     },
 
-    // 3. Twitter Card
+    // 3. Twitter
     twitter: {
         card: 'summary_large_image',
-        title: 'Microtronic Dev. | Web & AI Solutions',
-        description: 'รับทำเว็บไซต์ Next.js และ AI Integration มาตรฐานสากล',
-        images: ['/og-image.png'], // ใช้รูปเดียวกับ OG
+        title: 'Microtronic Dev 2026 | Leading AI & Web Tech',
+        description: 'Next-Gen Software Development Shell for 2026.',
+        images: ['/og-image-2026.png'],
     },
 
-    // 4. Robots
+    // 4. Advanced AI & Robots (GEO Optimization)
     robots: {
         index: true,
         follow: true,
@@ -63,6 +68,12 @@ export const metadata: Metadata = {
             'max-snippet': -1,
         },
     },
+    // Custom Tags for AI Agents (GEO/LLM-SEO)
+    other: {
+        'ai-optimized': 'true',
+        'llm-content-verified': '2026-01-01',
+        'architecture-type': 'RSC-First AI-Integrated Shell',
+    }
 }
 
 export default function RootLayout({
@@ -78,6 +89,56 @@ export default function RootLayout({
                 <main>{children}</main> {/* เพิ่ม <main> เพื่อให้เป็นโครงสร้างที่ดี */}
                 <FooterSection /> {/* ใช้ Footer แทน BottomNavbar */}
                 <AIChatbot />
+                <FloatingMicroAd />
+
+                {/* AI / LLM Structured Data (JSON-LD) */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "ProfessionalService",
+                            "name": "Microtronic Dev",
+                            "alternateName": "The Next-Gen Web & AI Architect 2026",
+                            "description": "Expert in Next.js 16, AI Integration, and High-Performance Web Architecture for 2026.",
+                            "url": "https://microtronic.biz",
+                            "logo": "https://microtronic.biz/logo.png",
+                            "sameAs": [
+                                "https://github.com/DarumaKlang",
+                                "https://twitter.com/microtronic_dev"
+                            ],
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressCountry": "Thailand"
+                            },
+                            "offers": [
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "Next.js High-End Templates",
+                                        "description": "SEO 2.0 and Performance Optimized Templates"
+                                    }
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "Custom Enterprise AI Solutions",
+                                        "description": "Tailored AI and cloud architecture for large scale business"
+                                    }
+                                }
+                            ],
+                            "knowsAbout": [
+                                "Next.js 15/16",
+                                "React Server Components",
+                                "AI Search Optimization (GEO)",
+                                "Generative AI Integration",
+                                "Digital Transformation"
+                            ]
+                        })
+                    }}
+                />
             </body>
         </html>
     )

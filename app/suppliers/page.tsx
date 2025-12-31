@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function SuppliersPage() {
     return (
-        <div className="min-h-screen bg-slate-900 text-white pt-24 pb-16 relative">
+        <div className="min-h-screen bg-slate-950 text-white pt-32 pb-16 relative overflow-hidden">
             <GooeyBackground />
 
             <main className="relative z-10">
