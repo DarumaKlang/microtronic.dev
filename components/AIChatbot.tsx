@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, User, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { chatWithGemini, ChatMessage } from '@/app/actions/chat';
 import { generateBusinessAudit } from '@/app/actions/audit';
 
@@ -22,7 +23,7 @@ const AIChatbot: React.FC = () => {
     const [messages, setMessages] = useState<Message[]>([
         {
             id: '1',
-            text: 'สวัสดีครับ! น้องไมโคร (Micro) พร้อมช่วยคุณสร้างรายได้ด้วยพลัง AI 2026 ต้องการให้ผมช่วยวิเคราะห์แผนธุรกิจ หรือสอบถามบริการดีครับ?',
+            text: 'สวัสดีครับ! ผมคือ AI Assistant ผู้เชี่ยวชาญด้านกลยุทธ์เทคโนโลยี 2026 ของ Microtronic ยินดีให้คำปรึกษาเรื่อง High-Performance Web และ AI Strategy ยุคใหม่ครับ',
             sender: 'bot',
             timestamp: new Date(),
         },
@@ -137,25 +138,31 @@ const AIChatbot: React.FC = () => {
                                     </span>
                                 </div>
                             </div>
+                            <button
+                                onClick={() => setIsOpen(false)}
+                                className="p-2 hover:bg-white/10 rounded-full transition-colors text-gray-400 hover:text-white"
+                            >
+                                <X size={20} />
+                            </button>
                         </div>
 
                         {/* Audit Mode Selector */}
-                        {!isAuditMode && messages.length < 3 && (
+                        {!isAuditMode && messages.length < 5 && (
                             <div className="p-4 bg-blue-500/10 border-b border-blue-500/20">
                                 <button
                                     onClick={() => {
                                         setIsAuditMode(true);
                                         setMessages(prev => [...prev, {
                                             id: Date.now().toString(),
-                                            text: "🚀 เข้าสู่โหมดวิเคราะห์ธุรกิจ! กรุณาส่ง URL หรืออธิบายไอเดียธุรกิจของคุณเพื่อให้ผมวิเคราะห์ Revenue Leakage และจัดเตรียม Tech Report ให้ครับ",
+                                            text: "🎯 เข้าสู่ช่องทางด่วน: วางแผนกลยุทธ์ 2026! กรุณาส่ง URL หรืออธิบายโปรเจกต์ของคุณ เพื่อให้ผมวิเคราะห์ความสอดคล้องกับ Vision 2026 ของ Microtronic ครับ",
                                             sender: 'bot',
                                             timestamp: new Date()
                                         }]);
                                     }}
-                                    className="w-full py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-2"
+                                    className="w-full py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
                                 >
-                                    <Zap size={14} />
-                                    รับการวิเคราะห์ธุรกิจ (AI Business Audit)
+                                    <Zap size={14} className="animate-pulse" />
+                                    รับคำปรึกษากลยุทธ์ 2026 (Strategy Consult)
                                 </button>
                             </div>
                         )}

@@ -7,20 +7,20 @@ import productsData from '@/data/products.json';
 import { Product } from '@/types/product';
 
 export default function ProductsPage() {
-    const [selectedCategory, setSelectedCategory] = useState('all');
+    const [selectedCategory, setSelectedCategory] = React.useState('all');
 
-    const handleCategoryChange = useCallback((categoryId: string) => {
+    const handleCategoryChange = React.useCallback((categoryId: string) => {
         setSelectedCategory(categoryId);
     }, []);
 
-    const filteredProducts: Product[] = useMemo(() => {
+    const filteredProducts: Product[] = React.useMemo(() => {
         const allProducts = productsData as Product[];
         if (selectedCategory === 'all') return allProducts;
         return allProducts.filter(p => p.category === selectedCategory);
     }, [selectedCategory]);
 
     return (
-        <div className="min-h-screen bg-slate-900 text-white pt-24 pb-16 relative overflow-hidden">
+        <div className="min-h-screen bg-slate-950 text-white pt-32 pb-16 relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.1),transparent_50%)]" />
 
             <main className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
@@ -41,7 +41,7 @@ export default function ProductsPage() {
                 <ProductFilterGlass onCategoryChange={handleCategoryChange} />
 
                 {/* Product Grid */}
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div className="mt-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
                     <ProductGrid products={filteredProducts} />
                 </div>
             </main>

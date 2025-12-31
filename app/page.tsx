@@ -11,8 +11,10 @@ import ServicesSection from '@/components/ServicesSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTASection from '@/components/CTASection';
 // นำเข้า Component ใหม่
-import PortfolioLinkSection from '@/components/PortfolioLinkSection'; // NEW IMPORT
+import PortfolioLinkSection from '@/components/PortfolioLinkSection';
 import SustainabilitySection from '@/components/SustainabilitySection';
+import StrategicTicker from '@/components/StrategicTicker';
+import ROICalculator from '@/components/ROICalculator';
 
 // เนื่องจาก Component ที่เรา Import มาแล้วจัดการ Data และ Style Classs ภายในตัวเอง
 // เราจึงไม่จำเป็นต้อง Import constants ต่างๆ เช่น SERVICES_DATA, GRADIENT_TEXT_CLASS 
@@ -28,6 +30,9 @@ export default function Home() {
             {/* Component นี้จะถูกวางไว้เป็น Absolute/Fixed position ให้อยู่ด้านหลังเนื้อหาหลัก (z-10) */}
             <GooeyBackground />
 
+            {/* Ticker at the top */}
+            <StrategicTicker />
+
             {/* 2. เนื้อหาหลักของหน้า (Main Content) */}
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 mt-8 relative z-10">
 
@@ -36,6 +41,9 @@ export default function Home() {
                 <FeaturesSection />
 
                 <ServicesSection />
+
+                {/* ROI Lead Magnet */}
+                <ROICalculator />
 
                 {/* เพิ่มส่วนลิงก์ Portfolio ตรงนี้ หรือตำแหน่งอื่นที่คุณต้องการ */}
                 <PortfolioLinkSection /> {/* NEW SECTION */}

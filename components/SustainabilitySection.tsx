@@ -50,21 +50,37 @@ export default function SustainabilitySection() {
                 <div className="grid md:grid-cols-3 gap-8">
                     {pillars.map((pillar, index) => {
                         const Icon = pillar.icon;
+                        const isGreenPillar = pillar.title.includes('Green');
                         return (
                             <div
                                 key={index}
-                                className={`p-8 rounded-3xl backdrop-blur-xl border ${pillar.border} ${pillar.bg} group hover:scale-105 transition-all duration-500`}
+                                className={`p-8 rounded-3xl backdrop-blur-xl border ${pillar.border} ${pillar.bg} group hover:scale-105 transition-all duration-500 flex flex-col justify-between`}
                             >
-                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${pillar.bg} border ${pillar.border} transform group-hover:rotate-12 transition-transform`}>
-                                    <Icon className={`w-7 h-7 ${pillar.color}`} />
+                                <div>
+                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${pillar.bg} border ${pillar.border} transform group-hover:rotate-12 transition-transform`}>
+                                        <Icon className={`w-7 h-7 ${pillar.color}`} />
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tighter">
+                                        {pillar.title}
+                                    </h3>
+                                    <p className="text-gray-400 leading-relaxed mb-6">
+                                        {pillar.description}
+                                    </p>
                                 </div>
-                                <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tighter">
-                                    {pillar.title}
-                                </h3>
-                                <p className="text-gray-400 leading-relaxed mb-6">
-                                    {pillar.description}
-                                </p>
-                                <div className="h-1 w-12 bg-white/20 rounded-full group-hover:w-full transition-all duration-500" />
+
+                                {isGreenPillar ? (
+                                    <div className="mt-4 p-4 rounded-2xl bg-black/20 border border-white/5">
+                                        <div className="flex justify-between text-[10px] font-mono font-bold text-emerald-400 mb-2 uppercase">
+                                            <span>Green Code Efficiency</span>
+                                            <span>98%</span>
+                                        </div>
+                                        <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                            <div className="h-full w-[98%] bg-gradient-to-r from-emerald-500 to-cyan-500 animate-pulse" />
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="h-1 w-12 bg-white/20 rounded-full group-hover:w-full transition-all duration-500" />
+                                )}
                             </div>
                         )
                     })}

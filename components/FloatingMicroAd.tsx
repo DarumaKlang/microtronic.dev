@@ -20,7 +20,7 @@ const FloatingMicroAd = () => {
         return (
             <button
                 onClick={() => setIsMinimized(false)}
-                className="fixed bottom-6 right-6 z-[60] p-4 bg-blue-600 rounded-full shadow-2xl hover:scale-110 transition-transform animate-bounce"
+                className="fixed bottom-6 left-6 z-[60] p-4 bg-blue-600 rounded-full shadow-2xl hover:scale-110 transition-transform animate-bounce"
             >
                 <BarChart3 className="w-6 h-6 text-white" />
             </button>
@@ -28,7 +28,7 @@ const FloatingMicroAd = () => {
     }
 
     return (
-        <div className="fixed bottom-6 right-6 z-[60] max-w-[320px] w-[90vw] animate-in slide-in-from-bottom duration-500">
+        <div className="fixed bottom-6 left-6 z-[60] max-w-[320px] w-[90vw] animate-in slide-in-from-bottom duration-500">
             <div className="relative group bg-slate-900/90 backdrop-blur-2xl border border-blue-500/30 rounded-2xl p-6 shadow-2xl shadow-blue-500/20 overflow-hidden">
                 {/* Close Button */}
                 <button

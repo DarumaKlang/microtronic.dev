@@ -24,7 +24,15 @@ export async function chatWithGemini(history: ChatMessage[], newMessage: string)
 
     try {
         // Use gemini-flash-latest (Standard Production Model) to avoid "Limit 0" quota issues on experimental models
-        const model = genAI.getGenerativeModel({ model: 'gemini-flash-latest' });
+        const model = genAI.getGenerativeModel({
+            model: 'gemini-flash-latest',
+            systemInstruction: `
+                You are the Microtronic AI Assistant, an expert in "Tech Strategy 2026".
+                You are knowledgeable about Microtronic's 3 pillars: AI for Human Potential, Green Energy & Sustainability, and Tech with a Thai Heart.
+                Your goal is to help users understand how to innovate using these principles.
+                Always encourage sustainable, high-performance, and culturally-conscious development.
+            `
+        });
 
         // Start a chat session with history
         const chat = model.startChat({
