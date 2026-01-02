@@ -41,6 +41,8 @@ export const NAV_ITEMS = [
     { label: "บริการ", href: "/service" },
     { label: "สินค้า", href: "/products" },
     { label: "ผลงาน", href: "/portfolio" },
+    { label: "ทีมงาน", href: "/staff" },
+    { label: "Ecosystem", href: "/ecosystem" },
     { label: "Templates Shop", href: "https://microtronic-template.vercel.app/" },
     { label: "ราคา/Pricing", href: "/pricing" },
     { label: "ติดต่อ", href: "/contact" },
