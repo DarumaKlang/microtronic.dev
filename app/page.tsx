@@ -8,6 +8,7 @@ import GooeyBackground from '@/components/GooeyBackground';
 import HeroSectionROI from '@/components/HeroSectionROI';
 import FeaturesSection from '@/components/FeaturesSection';
 import ServicesSection from '@/components/ServicesSection';
+import DevToolsSection from '@/components/DevToolsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTASection from '@/components/CTASection';
 // นำเข้า Component ใหม่
@@ -41,6 +42,9 @@ export default function Home() {
                 <FeaturesSection />
 
                 <ServicesSection />
+
+                {/* New: Developer Tools Section */}
+                <DevToolsSection />
 
                 {/* ROI Lead Magnet */}
                 <ROICalculator />
