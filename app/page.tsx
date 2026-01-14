@@ -6,6 +6,7 @@ import React from 'react';
 // Import Components ที่เราแยกออกมาใช้
 import GooeyBackground from '@/components/GooeyBackground';
 import HeroSectionROI from '@/components/HeroSectionROI';
+import HeroSectionAI from '@/components/HeroSectionAI';
 import FeaturesSection from '@/components/FeaturesSection';
 import ServicesSection from '@/components/ServicesSection';
 import DevToolsSection from '@/components/DevToolsSection';
@@ -38,6 +39,8 @@ export default function Home() {
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 mt-8 relative z-10">
 
                 <HeroSectionROI />
+
+                <HeroSectionAI />
 
                 <FeaturesSection />
 

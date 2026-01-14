@@ -32,6 +32,13 @@ const portfolioCategories = [
         href: '/portfolio/innovation-control',
         colors: 'bg-pink-600/20 hover:bg-pink-600/40',
     },
+    {
+        icon: '🎙️',
+        title: 'AI Speak (Internal Tool)',
+        description: 'ระบบพากย์เสียง AI คุณภาพสูง (Free) ที่สร้างขึ้นเพื่อทดสอบขีดจำกัดของวิศวกรรมเสียงในเบราว์เซอร์',
+        href: '/speak',
+        colors: 'bg-cyan-600/20 hover:bg-cyan-600/40',
+    },
 ];
 
 export default function PortfolioPage() {
@@ -47,7 +54,7 @@ export default function PortfolioPage() {
                     <p className="mt-4 text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
                         สะท้อนความเชี่ยวชาญด้าน Next.js App Router, TypeScript, และ High-Performance Development
                         <br />
-                        <span className="text-blue-300 font-semibold italic text-lg">"ผลงานที่พิสูจน์ได้ด้วยความเร็วและความสำเร็จของธุรกิจคุณ"</span>
+                        <span className="text-blue-300 font-semibold italic text-lg">&quot;ผลงานที่พิสูจน์ได้ด้วยความเร็วและความสำเร็จของธุรกิจคุณ&quot;</span>
                     </p>
                 </header>
 

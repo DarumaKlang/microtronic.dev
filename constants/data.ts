@@ -45,7 +45,6 @@ export const NAV_ITEMS = [
     { label: "Ecosystem", href: "/ecosystem" },
     { label: "Templates Shop", href: "https://microtronic-template.vercel.app/" },
     { label: "ราคา/Pricing", href: "/pricing" },
-    { label: "AI Speak", href: "/speak" },
     { label: "ติดต่อ", href: "/contact" },
 ];
 
