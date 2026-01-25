@@ -11,6 +11,7 @@ export interface StaffProject {
     description: string;
     status: 'completed' | 'ongoing';
     repo?: string; // e.g., "DarumaKlang/microtronic.dev"
+    link?: string; // e.g., "https://example.com"
     steps?: ProjectStep[];
 }
 
@@ -175,5 +176,43 @@ export const STAFF_DATA: StaffMember[] = [
         email: 'grids.bitcoin.sub3@gmail.com',
         bio: 'Developer focused on sustainable and efficient code solutions.',
         projects: []
+    },
+    {
+        id: 'ghost-micro',
+        name: 'GhostMicro',
+        role: 'Autopilot Specialist / Maintainer',
+        githubUsername: 'GhostMicro',
+        bio: 'ผู้ดูแลโครงการ THAP firmware autopilot มุ่งมั่นสร้างเทคโนโลยี Autopilot ฝีมือคนไทยเพื่อสนับสนุนงานสาธารณกุศลและกู้ภัย',
+        projects: [
+            {
+                id: 'thap-fw',
+                name: 'THAP firmware autopilot',
+                description: 'Open source autopilot firmware for rescue robots and UAVs.',
+                status: 'ongoing',
+                repo: 'GhostMicro/micro-ai-robot-thap-firmware'
+            },
+            {
+                id: 'iot-smart-farm',
+                name: 'Micro IoT Smart Farm',
+                description: 'Precision agriculture IoT system for farm management.',
+                status: 'ongoing',
+                repo: 'GhostMicro/micro-iot-smart-farm'
+            },
+            {
+                id: 'iot-smart-home',
+                name: 'Micro IoT Smart Home',
+                description: 'Integrated home automation and control system.',
+                status: 'ongoing',
+                repo: 'GhostMicro/micro-iot-smart-home'
+            },
+            {
+                id: 'iot-dashboard',
+                name: 'Micro IoT Dashboard & Hardware Controller',
+                description: 'Centralized IoT monitoring and hardware control dashboard.',
+                status: 'ongoing',
+                repo: 'GhostMicro/micro-iot-dashboard-hub',
+                link: 'https://micro-iot-dashboard-hub.vercel.app/'
+            }
+        ]
     }
 ];
