@@ -12,6 +12,7 @@ export interface StaffProject {
     status: 'completed' | 'ongoing';
     repo?: string; // e.g., "DarumaKlang/microtronic.dev"
     link?: string; // e.g., "https://example.com"
+    landingPage?: string; // e.g., "https://landing.example.com"
     steps?: ProjectStep[];
 }
 
@@ -40,6 +41,15 @@ export const STAFF_DATA: StaffMember[] = [
                 description: 'The core platform for Microtronic Smart Farm solutions.',
                 status: 'ongoing',
                 repo: 'microtronic-thailand/smartfarm-platform'
+            },
+            {
+                id: 'p-micro-account',
+                name: 'Micro-Account',
+                description: 'ระบบบัญชีออนไลน์',
+                status: 'ongoing',
+                repo: 'GridsMicro/Micro-Account',
+                link: 'https://micro-account.vercel.app/',
+                landingPage: 'https://micro-account-page.vercel.app/'
             }
         ]
     },

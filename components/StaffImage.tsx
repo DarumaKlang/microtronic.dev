@@ -23,6 +23,7 @@ export const StaffImage: React.FC<StaffImageProps> = ({ username, name, size }) 
                     src={`https://github.com/${username}.png`}
                     alt={name}
                     fill
+                    unoptimized
                     className="object-cover"
                     onError={() => setImgError(true)}
                 />
