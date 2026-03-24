@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5effff" />
+      <stop offset="40%" stop-color="#8b5dff" />
+      <stop offset="100%" stop-color="#ff3881" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="300" height="300" fill="#0a0b1a" />
+
+  <path d="M50 220 L50 80 L120 80 L120 220 Z M135 220 L135 80 L205 170 L205 220 Z" fill="url(#neon)" filter="url(#glow)" />
+
+  <path d="M50 120 L120 120" stroke="#58ffff" stroke-width="4" stroke-linecap="round" />
+  <path d="M135 160 L205 160" stroke="#ff6dca" stroke-width="4" stroke-linecap="round" />
+
+  <text x="150" y="260" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" letter-spacing="2">microtronic.dev</text>
+</svg>
