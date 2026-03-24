@@ -112,6 +112,15 @@ export const STAFF_DATA: StaffMember[] = [
                 description: 'User manual and instructional guides.',
                 status: 'ongoing',
                 repo: 'microtronic-thailand/app-micro-formula-manual-docs'
+            },
+            {
+                id: 'p-micro-headless-cms',
+                name: 'Micro Headless CMS (Ultra Premium v1.5)',
+                description: 'ระบบจัดการเนื้อหา (CMS) ระดับ High-end ที่มีความเร็วสูง สวยหรู และยืดหยุ่น ออกแบบมาเพื่อธุรกิจสตาร์ตอัปและพอร์ตโฟลิโอรุ่นใหม่ สร้างด้วย Next.js 15, Tailwind CSS 4 และ Prisma.',
+                status: 'completed',
+                repo: 'WebShardow/Micro-Headless-CMS',
+                link: 'https://micro-headless-cms.vercel.app/',
+                landingPage: 'https://micro-headless-cms.vercel.app/'
             }
         ]
     },

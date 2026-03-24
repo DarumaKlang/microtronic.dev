@@ -168,8 +168,43 @@ export default async function StaffDetailPage({ params }: { params: Promise<{ id
                             {completedProjects.length > 0 ? (
                                 completedProjects.map(project => (
                                     <div key={project.id} className={`${GLASS_PANEL_CLASS} p-6 rounded-3xl border-emerald-500/10 hover:border-emerald-500/30 transition-colors`}>
-                                        <h3 className="text-xl font-bold text-emerald-400">{project.name}</h3>
-                                        <p className="text-gray-400 text-sm mt-1">{project.description}</p>
+                                        <div className="flex justify-between items-start mb-4">
+                                            <div>
+                                                <h3 className="text-xl font-bold text-emerald-400">{project.name}</h3>
+                                                <div className="flex flex-col gap-1 mt-1">
+                                                    {project.repo && (
+                                                        <a
+                                                            href={`https://github.com/${project.repo}`}
+                                                            target="_blank"
+                                                            className="text-xs text-gray-500 hover:text-blue-400 transition-colors"
+                                                        >
+                                                            github.com/{project.repo}
+                                                        </a>
+                                                    )}
+                                                    {project.link && (
+                                                        <a
+                                                            href={project.link}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-xs text-blue-400/70 hover:text-blue-400 transition-colors inline-flex items-center gap-1"
+                                                        >
+                                                            <span>App:</span> {project.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                                                        </a>
+                                                    )}
+                                                    {project.landingPage && (
+                                                        <a
+                                                            href={project.landingPage}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-xs text-teal-400/70 hover:text-teal-400 transition-colors inline-flex items-center gap-1"
+                                                        >
+                                                            <span>Landing:</span> {project.landingPage.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                                                        </a>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p className="text-gray-400 text-sm">{project.description}</p>
                                     </div>
                                 ))
                             ) : (
