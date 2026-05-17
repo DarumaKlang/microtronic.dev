@@ -38,14 +38,13 @@ export const SERVICES_DATA: ServiceDataMap = {
 };
 
 export const NAV_ITEMS = [
-    { label: "บริการ", href: "/service" },
-    { label: "สินค้า", href: "/products" },
-    { label: "ผลงาน", href: "/portfolio" },
-    { label: "ทีมงาน", href: "/staff" },
+    { label: "Services", href: "/service" },
+    { label: "Products", href: "/products" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Team", href: "/staff" },
     { label: "Ecosystem", href: "/ecosystem" },
-    { label: "Templates Shop", href: "https://microtronic-template.vercel.app/" },
-    { label: "ราคา/Pricing", href: "/pricing" },
-    { label: "ติดต่อ", href: "/contact" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Contact", href: "/contact" },
 ];
 
 export const GRADIENT_TEXT_CLASS = "bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400";

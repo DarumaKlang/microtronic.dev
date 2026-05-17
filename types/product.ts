@@ -6,7 +6,9 @@ export interface Product {
     name: string;
     category: string;
     price: string;
-    github_repo_url: string; 
-    // ต้องมี field นี้เพื่อให้ ProductGrid ใช้งานได้
-    preview_image_url: string; 
+    github_repo_url: string;
+    preview_image_url: string;
+    direct_url?: string;
+    demo_url?: string;
+    description?: string;
 }

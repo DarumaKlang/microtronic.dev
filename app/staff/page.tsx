@@ -20,7 +20,7 @@ export default function StaffPage() {
                         Our Dedicated Team
                     </h1>
                     <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                        A group of 11+ passionate creators pushing the boundaries of what's possible in web and IoT technology.
+                        A group of 11+ passionate creators pushing the boundaries of what&apos;s possible in web and IoT technology.
                     </p>
                 </header>
 

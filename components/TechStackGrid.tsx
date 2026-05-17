@@ -14,7 +14,6 @@ import {
     SiGooglecloud,
     SiGoogle
 } from 'react-icons/si';
-import Link from 'next/link';
 
 // Define Neon Icon manually or use fallback if not available in current react-icons version
 // Fallback for Neon: Use Postgres icon with Neon color

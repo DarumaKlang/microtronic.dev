@@ -13,7 +13,7 @@ const GooeyBackground: React.FC = () => {
             
             {/* Blob 1: Orange/Light Orange */}
             <div 
-                className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full 
+                className="absolute top-1/4 left-1/4 w-[200px] h-[200px] sm:w-[500px] sm:h-[500px] rounded-full 
                            bg-linear-to-br from-g1-start to-g1-end 
                            filter blur-[150px] opacity-30 mix-blend-lighten 
                            animate-blob animation-delay-0"
@@ -21,7 +21,7 @@ const GooeyBackground: React.FC = () => {
             
             {/* Blob 2: Purple/Blue */}
             <div 
-                className="absolute top-2/3 right-1/4 w-[600px] h-[600px] rounded-full 
+                className="absolute top-2/3 right-1/4 w-[240px] h-[240px] sm:w-[600px] sm:h-[600px] rounded-full 
                            bg-linear-to-br from-g2-start to-g2-end 
                            filter blur-[180px] opacity-30 mix-blend-lighten 
                            animate-blob animation-delay-2000"
@@ -29,7 +29,7 @@ const GooeyBackground: React.FC = () => {
 
             {/* Blob 3: Pink/Light Pink */}
             <div 
-                className="absolute bottom-1/4 left-1/2 w-[450px] h-[450px] rounded-full 
+                className="absolute bottom-1/4 left-1/2 w-[180px] h-[180px] sm:w-[450px] sm:h-[450px] rounded-full 
                            bg-linear-to-br from-g3-start to-g3-end 
                            filter blur-[160px] opacity-30 mix-blend-lighten 
                            animate-blob animation-delay-4000"
@@ -37,7 +37,7 @@ const GooeyBackground: React.FC = () => {
             
             {/* Blob 4: Teal/Lime Green */}
             <div 
-                className="absolute top-1/2 left-1/4 w-[700px] h-[700px] rounded-full 
+                className="absolute top-1/2 left-1/4 w-[280px] h-[280px] sm:w-[700px] sm:h-[700px] rounded-full 
                            bg-linear-to-br from-g4-start to-g4-end 
                            filter blur-[200px] opacity-30 mix-blend-lighten 
                            animate-blob animation-delay-6000"

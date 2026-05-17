@@ -1,6 +1,5 @@
 // components/ProductGrid.tsx
 
-import Link from 'next/link';
 import Image from 'next/image'; // ใช้ Next/Image เพื่อจัดการรูปภาพให้มีประสิทธิภาพ
 import { Product } from '@/types/product'; // ⬅️ นำเข้า Product Interface
 
@@ -19,7 +18,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {products.map((product: any) => (
+            {products.map((product: Product) => (
                 <div
                     key={product.slug}
                     className="group relative bg-slate-900/50 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 hover:border-blue-500/50 transition-all duration-500 shadow-2xl"
@@ -37,16 +36,16 @@ export default function ProductGrid({ products }: ProductGridProps) {
                     <a href={product.direct_url || `/products/${product.slug}`} target={product.direct_url ? "_blank" : "_self"} rel="noopener noreferrer">
                         {/* 🖼️ Product Preview with Scanner Effect */}
                         <div className="relative w-full h-52 bg-slate-800 overflow-hidden">
-                            <Image
+                            <img
                                 src={product.preview_image_url || '/placeholder.jpg'}
                                 alt={`Preview of ${product.name}`}
-                                fill
-                                className="object-cover transition duration-700 group-hover:scale-110 group-hover:opacity-80"
+                                loading="lazy"
+                                className="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:opacity-80"
                             />
                             {/* Scanning Animation Line */}
                             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-0 group-hover:opacity-100 animate-[scan_2s_linear_infinite]" />
 
-                            <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent opacity-60" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
 
                             {/* Tech Badge */}
                             <div className="absolute top-4 right-4 px-3 py-1 bg-blue-600/20 backdrop-blur-md border border-blue-500/30 rounded-full">

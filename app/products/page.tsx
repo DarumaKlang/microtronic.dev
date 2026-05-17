@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useCallback } from 'react';
+import React from 'react';
 import ProductFilterGlass from '@/components/ProductFilterGlass';
 import ProductGrid from '@/components/ProductGrid';
 import productsData from '@/data/products.json';

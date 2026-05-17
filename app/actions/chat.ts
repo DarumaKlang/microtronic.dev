@@ -54,13 +54,13 @@ export async function chatWithGemini(history: ChatMessage[], newMessage: string)
             error: false,
             message: text
         };
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Gemini API Error:", error);
 
         let userMessage = "ขออภัยครับ ระบบ AI ขัดข้องชั่วคราว ลองใหม่อีกครั้งนะครับ";
 
         // Handle Rate Limiting (429) specifically
-        if (error.message?.includes('429') || error.status === 429) {
+        if (error instanceof Error && error.message?.includes('429')) {
             userMessage = "ขณะนี้มีผู้ใช้งานจำนวนมาก (API Quota Exceeded) กรุณารอสักครู่แล้วลองใหม่ครับ";
         }
 

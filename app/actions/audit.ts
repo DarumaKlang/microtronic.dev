@@ -45,7 +45,7 @@ export async function generateBusinessAudit(businessIdea: string) {
             error: false,
             message: text
         };
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Audit Generation Error:", error);
         return {
             error: true,

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Bot, User, Zap } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { chatWithGemini, ChatMessage } from '@/app/actions/chat';
@@ -86,7 +86,7 @@ const AIChatbot: React.FC = () => {
                 };
                 setMessages((prev) => [...prev, botMessage]);
             }
-        } catch (error) {
+        } catch {
             const errorMessage: Message = {
                 id: (Date.now() + 1).toString(),
                 text: "ขออภัยครับ เกิดข้อผิดพลาดในการเชื่อมต่อ",

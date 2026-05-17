@@ -2,7 +2,7 @@ import React from 'react';
 import GooeyBackground from '@/components/GooeyBackground';
 import { PARTNERS_DATA } from '@/data/PartnersData';
 import { GLASS_PANEL_CLASS, GRADIENT_TEXT_CLASS } from '@/constants/data';
-import { Cloud, Code, Database, Globe, Cpu, Terminal } from 'lucide-react';
+import { Cloud, Code, Globe, Cpu, Terminal } from 'lucide-react';
 
 const CategoryIcon = ({ category }: { category: string }) => {
     switch (category) {

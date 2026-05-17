@@ -50,6 +50,14 @@ export const STAFF_DATA: StaffMember[] = [
                 repo: 'GridsMicro/Micro-Account',
                 link: 'https://micro-account.vercel.app/',
                 landingPage: 'https://micro-account-page.vercel.app/'
+            },
+            {
+                id: 'p-smart-planner',
+                name: 'SMART PLANNER',
+                description: 'แอปพลิเคชันการวางแผนการเงินส่วนตัวที่ฉลาดและเป็นมิตรต่อผู้ใช้ มาพร้อมการวิเคราะห์งบประมาณ การติดตามรายรับ-รายจ่าย และการวางแผนการออมอัจฉริยะ',
+                status: 'completed',
+                repo: 'GridsMicro/Micro-Personal-Smart-Finance',
+                link: 'https://micro-personal-smart-finance.vercel.app/'
             }
         ]
     },

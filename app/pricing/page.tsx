@@ -3,7 +3,7 @@
 import GooeyBackground from '@/components/GooeyBackground';
 import Link from 'next/link';
 import { Metadata } from 'next'; // นำเข้า Metadata
-import { ChevronRight, Zap, Code, Star, Heart } from 'lucide-react'; // นำเข้าไอคอนจาก lucide-react
+import { ChevronRight, Zap, Star, Heart } from 'lucide-react'; // นำเข้าไอคอนจาก lucide-react
 
 // 3.2: SEO สำหรับหน้า Pricing
 export const metadata: Metadata = {

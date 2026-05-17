@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g3" x1="0" x2="1">
+      <stop offset="0" stop-color="#f97316"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <style>
+      .bg{fill:#061226}
+      .card{fill:url(#g3);opacity:0.08}
+      .title{font-family:Inter, system-ui; font-weight:800; fill:#fff}
+      .subtitle{font-family:Inter, system-ui; fill:#b3c0cf}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="800" rx="24"/>
+  <g transform="translate(80,80)">
+    <rect class="card" width="1040" height="640" rx="28"/>
+    <g transform="translate(48,48)">
+      <text class="title" x="0" y="120" font-size="56">Kafra Platform</text>
+      <text class="subtitle" x="0" y="170" font-size="20">E-commerce Ready — Catalog, Checkout, Payments</text>
+
+      <g transform="translate(0,220)">
+        <rect x="0" y="0" width="360" height="240" rx="16" fill="#021124" opacity="0.6"/>
+        <text x="20" y="44" fill="#fb923c" font-size="18" font-weight="700">Storefront</text>
+        <text x="20" y="78" fill="#94a3b8" font-size="15">• Product catalog</text>
+        <text x="20" y="102" fill="#94a3b8" font-size="15">• Cart &amp; Checkout</text>
+        <text x="20" y="126" fill="#94a3b8" font-size="15">• Payment gateway integrations</text>
+      </g>
+
+      <g transform="translate(420,220)">
+        <rect x="0" y="0" width="560" height="240" rx="16" fill="#021124" opacity="0.6"/>
+        <text x="24" y="44" fill="#f97316" font-size="18" font-weight="700">Admin &amp; Orders</text>
+        <rect x="24" y="76" width="200" height="28" rx="6" fill="#ef4444"/>
+        <rect x="24" y="114" width="480" height="14" rx="4" fill="#0f172a" opacity="0.4"/>
+      </g>
+    </g>
+  </g>
+</svg>

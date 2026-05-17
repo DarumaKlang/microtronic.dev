@@ -1,5 +1,15 @@
 [
     {
+        "slug": "templates-shop",
+        "name": "Templates Shop - Next.js Template Store",
+        "category": "templates",
+        "price": "จาก 5,000 THB",
+        "github_repo_url": "https://github.com/microtronic-thailand/microtronic-template",
+        "description": "รวม Templates สูงระดับ High-End ของ Microtronic แยกขายเฉพาะ Template เพื่อเข้าใช้งานได้ทันที",
+        "preview_image_url": "/images/templates-shop-square.png",
+        "direct_url": "https://microtronic-template.vercel.app/"
+    },
+    {
         "slug": "micro-formula-v1",
         "name": "Micro Formula V1.0 - Cloud Accounting Solution",
         "category": "saas",
@@ -56,5 +66,32 @@
         "github_repo_url": "https://github.com/microtronic-thailand/finance-app-ui",
         "preview_image_url": "/images/finance-mobile-kit.jpg",
         "direct_url": "https://microtronic-template.vercel.app/"
+    },
+    {
+        "slug": "micro-account-platform",
+        "name": "Micro-Account Platform - บัญชี Formula",
+        "category": "saas",
+        "price": "Contact for Pricing",
+        "github_repo_url": "https://github.com/microtronic-thailand/micro-account-platform",
+        "description": "ระบบบัญชี Formula ที่ออกแบบสำหรับธุรกิจไทย พร้อม AI คำนวณยอดและรายงานอัตโนมัติ",
+        "preview_image_url": "/images/micro-account-preview.svg"
+    },
+    {
+        "slug": "thoth-platform-cms",
+        "name": "THOTH Platform - Website CMS",
+        "category": "websites",
+        "price": "Contact for Pricing",
+        "github_repo_url": "https://github.com/microtronic-thailand/thoth-platform-cms",
+        "description": "Content Management System สำหรับเว็บไซต์องค์กร รองรับการจัดการเนื้อหาแบบ Modular และ SEO-first",
+        "preview_image_url": "/images/thoth-cms-preview.svg"
+    },
+    {
+        "slug": "kafra-platform-ecommerce",
+        "name": "Kafra Platform - E-commerce สำเร็จรูป",
+        "category": "websites",
+        "price": "Contact for Pricing",
+        "github_repo_url": "https://github.com/microtronic-thailand/kafra-platform-ecommerce",
+        "description": "แพลตฟอร์ม E-commerce สำเร็จรูปสำหรับธุรกิจไทย พร้อมระบบแคตาล็อกสินค้าและการชำระเงินทุกช่องทาง",
+        "preview_image_url": "/images/kafra-ecommerce-preview.svg"
     }
 ]

@@ -109,7 +109,7 @@ export default function EnterpriseGroupSection() {
                         <div className="text-center max-w-5xl mx-auto">
                             <div className="text-5xl mb-4">💎</div>
                             <blockquote className="text-2xl sm:text-3xl font-bold text-white leading-relaxed mb-4">
-                                "การจ่ายหลักแสนบาท คือการ <span className="text-emerald-400">ซื้อความมั่นใจ, ความเสถียร</span>, และ<span className="text-blue-400"> ระบบที่ถูกออกแบบมาเพื่อสร้างรายได้และลดต้นทุน</span> ให้กับองค์กรของคุณโดยเฉพาะ ซึ่งถือเป็น<span className="text-emerald-400"> สินทรัพย์ดิจิทัลที่สำคัญที่สุด</span>ของธุรกิจในระยะยาว"
+                                &ldquo;การจ่ายหลักแสนบาท คือการ <span className="text-emerald-400">ซื้อความมั่นใจ, ความเสถียร</span>, และ<span className="text-blue-400"> ระบบที่ถูกออกแบบมาเพื่อสร้างรายได้และลดต้นทุน</span> ให้กับองค์กรของคุณโดยเฉพาะ ซึ่งถือเป็น<span className="text-emerald-400"> สินทรัพย์ดิจิทัลที่สำคัญที่สุด</span>ของธุรกิจในระยะยาว&rdquo;
                             </blockquote>
                             <p className="text-gray-400 text-sm">— Microtronic Development Team</p>
                         </div>

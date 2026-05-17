@@ -1,4 +1,4 @@
-import { STAFF_DATA, StaffMember } from '@/data/StaffData';
+import { StaffMember } from '@/data/StaffData';
 import Link from 'next/link';
 import { GLASS_PANEL_CLASS } from '@/constants/data';
 import { ExternalLink, Mail } from 'lucide-react';

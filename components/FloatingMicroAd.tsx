@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Sparkles, X, ArrowRight, BarChart3 } from 'lucide-react';
+import { X, ArrowRight, BarChart3 } from 'lucide-react';
 
 const FloatingMicroAd = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -28,7 +28,7 @@ const FloatingMicroAd = () => {
     }
 
     return (
-        <div className="fixed bottom-6 left-6 z-[60] max-w-[320px] w-[90vw] animate-in slide-in-from-bottom duration-500">
+        <div className="hidden md:block fixed bottom-6 left-6 z-[60] max-w-[320px] w-[90vw] animate-in slide-in-from-bottom duration-500">
             <div className="relative group bg-slate-900/90 backdrop-blur-2xl border border-blue-500/30 rounded-2xl p-6 shadow-2xl shadow-blue-500/20 overflow-hidden">
                 {/* Close Button */}
                 <button

@@ -1,7 +1,6 @@
 import React from 'react';
 import { STAFF_DATA } from '@/data/StaffData';
 import GooeyBackground from '@/components/GooeyBackground';
-import Image from 'next/image';
 import { GLASS_PANEL_CLASS, GRADIENT_TEXT_CLASS } from '@/constants/data';
 import { ProjectProgress } from '@/components/ProjectProgress';
 import { ArrowLeft, CheckCircle, Hammer } from 'lucide-react';
@@ -11,10 +10,6 @@ import { getRepoMilestones, getGitHubUserInfo } from '@/lib/github';
 import { ProjectStep } from '@/data/StaffData';
 import { Mail } from 'lucide-react';
 import { StaffImage } from '@/components/StaffImage';
-
-interface PageProps {
-    params: { id: string };
-}
 
 export default async function StaffDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;

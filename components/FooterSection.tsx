@@ -3,8 +3,6 @@ import React from 'react';
 // นำเข้า Icons ทั้งหมดที่ใช้ใน Footer
 import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Code } from 'lucide-react';
 import Link from 'next/link';
-// นำเข้า NAV_ITEMS จาก Constants
-import { NAV_ITEMS } from '@/constants/data';
 
 /**
  * FooterSection Component: ส่วนท้ายของหน้า Landing Page
@@ -43,7 +41,7 @@ const FooterSection: React.FC = () => (
                         <Link href="/about" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">เกี่ยวกับเรา</Link>
                     </li>
                     <li>
-                        <Link href="/services" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">บริการของเรา</Link>
+                        <Link href="/service" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">บริการของเรา</Link>
                     </li>
                     <li>
                         <Link href="/portfolio" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">ผลงาน</Link>
@@ -84,13 +82,13 @@ const FooterSection: React.FC = () => (
             <div>
                 <h4 className="text-lg font-semibold mb-4 text-white">ติดตามเรา</h4>
                 <div className="flex space-x-4">
-                    <a href="#" aria-label="Facebook" className="text-gray-400 hover:text-blue-500 transition duration-200">
+                    <a href="https://www.facebook.com/MicrotronicTH/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-gray-400 hover:text-blue-500 transition duration-200">
                         <Facebook className="w-6 h-6" />
                     </a>
-                    <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-cyan-400 transition duration-200">
+                    <a href="https://x.com/Microtronic2" target="_blank" rel="noopener noreferrer" aria-label="X" className="text-gray-400 hover:text-cyan-400 transition duration-200">
                         <Twitter className="w-6 h-6" />
                     </a>
-                    <a href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-indigo-400 transition duration-200">
+                    <a href="https://www.linkedin.com/in/micro-dev-g/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-indigo-400 transition duration-200">
                         <Linkedin className="w-6 h-6" />
                     </a>
                 </div>

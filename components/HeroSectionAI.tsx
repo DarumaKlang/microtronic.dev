@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Cpu, Globe, Zap, Sparkles } from 'lucide-react';
 import { GRADIENT_TEXT_CLASS, GLASS_PANEL_CLASS } from '@/constants/data';
@@ -72,8 +73,16 @@ const HeroSectionAI: React.FC = () => {
                                     <span className="text-gray-300 font-medium tracking-tight whitespace-nowrap">GEO Optimized</span>
                                 </div>
                             </motion.div>
-                        </div>
 
+                            <div className="mt-10">
+                                <Link
+                                    href="/products"
+                                    className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-white text-slate-900 font-bold hover:bg-gray-100 transition duration-300 shadow-lg"
+                                >
+                                    สำรวจผลิตภัณฑ์ AI ของเรา
+                                </Link>
+                            </div>
+                        </div>
                         <div className="relative">
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.8 }}

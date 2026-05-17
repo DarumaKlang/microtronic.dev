@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     }
 };
 
-import { Terminal, Shield, Zap, Globe, Cpu, Layers } from 'lucide-react';
+import { Terminal, Shield, Zap, Cpu, Layers } from 'lucide-react';
 
 /**
  * Service Page - Futuristic Tech Style
@@ -59,7 +59,7 @@ export default function ServicePage() {
                             CORE SERVICES
                         </h1>
                         <p className="text-xl text-gray-400 mb-12 leading-relaxed max-w-2xl mx-auto font-medium">
-                            เราไม่ได้แค่ทำเว็บ แต่เรา <span className="text-white italic">"Architecting the Future"</span> ด้วยเทคโนโลยียุคใหม่ที่รีดประสิทธิภาพสูงสุดถึงขีดสุด
+                            เราไม่ได้แค่ทำเว็บ แต่เรา <span className="text-white italic">&ldquo;Architecting the Future&rdquo;</span> ด้วยเทคโนโลยียุคใหม่ที่รีดประสิทธิภาพสูงสุดถึงขีดสุด
                         </p>
 
                         {/* Quick Navigation Cards */}

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <style>
+      .bg{fill:#0f172a}
+      .card{fill:url(#g);opacity:0.12}
+      .title{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; font-weight:800; fill:#ffffff}
+      .subtitle{font-family:Inter, system-ui; fill:#cbd5e1}
+      .pill{fill:#111827;stroke:#0ea5a0;stroke-width:2}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="800" rx="24"/>
+  <g transform="translate(80,80)">
+    <rect class="card" width="1040" height="640" rx="28"/>
+    <g transform="translate(48,48)">
+      <rect class="pill" width="200" height="48" rx="12"/>
+      <text x="28" y="34" font-size="16" fill="#06b6d4" font-weight="700">Micro-Account</text>
+      <text class="title" x="0" y="140" font-size="56">Micro-Account Platform</text>
+      <text class="subtitle" x="0" y="190" font-size="20">บัญชี Formula — AI-driven accounting for Thai SMEs</text>
+
+      <g transform="translate(0,260)">
+        <rect x="0" y="0" width="420" height="220" rx="18" fill="#021124" opacity="0.6"/>
+        <text x="28" y="48" fill="#60a5fa" font-size="20" font-weight="700">Feature Highlights</text>
+        <text x="28" y="88" fill="#94a3b8" font-size="16">• Auto journal & reconciliation</text>
+        <text x="28" y="118" fill="#94a3b8" font-size="16">• AI cashflow forecasting</text>
+        <text x="28" y="148" fill="#94a3b8" font-size="16">• Thai tax ready reports</text>
+      </g>
+
+      <g transform="translate(520,260)">
+        <rect x="0" y="0" width="420" height="220" rx="18" fill="#021124" opacity="0.6"/>
+        <text x="28" y="48" fill="#7c3aed" font-size="20" font-weight="700">Demo</text>
+        <text x="28" y="88" fill="#94a3b8" font-size="16">Live demo available</text>
+        <circle cx="360" cy="160" r="36" fill="#06b6d4"/>
+      </g>
+    </g>
+  </g>
+</svg>

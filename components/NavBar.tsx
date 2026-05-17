@@ -3,6 +3,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { NAV_ITEMS, GRADIENT_TEXT_CLASS } from '@/constants/data';
 
 const NavBar: React.FC = () => (
@@ -10,7 +11,7 @@ const NavBar: React.FC = () => (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-cyan-500 rounded flex items-center justify-center font-bold text-lg">
-                    <img src="/images/cyberpunk-logo.jpg" alt="Cyberpunk Microtronic Logo" />
+                    <Image src="/images/cyberpunk-logo.jpg" alt="Cyberpunk Microtronic Logo" width={32} height={32} />
                 </div>
                 <Link href="/" className="font-extrabold text-2xl tracking-tight hover:text-white transition duration-300">
                     Microtronic <span className={GRADIENT_TEXT_CLASS}>Dev</span>

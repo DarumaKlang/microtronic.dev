@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0" stop-color="#0ea5a0"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <style>
+      .bg{fill:#071026}
+      .card{fill:url(#g2);opacity:0.09}
+      .title{font-family:Inter, system-ui; font-weight:800; fill:#fff}
+      .subtitle{font-family:Inter, system-ui; fill:#9aa9bf}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="800" rx="24"/>
+  <g transform="translate(80,80)">
+    <rect class="card" width="1040" height="640" rx="28"/>
+    <g transform="translate(48,48)">
+      <text class="title" x="0" y="120" font-size="56">THOTH Platform</text>
+      <text class="subtitle" x="0" y="170" font-size="20">Website CMS — Modular, SEO-first, enterprise-ready</text>
+
+      <g transform="translate(0,220)">
+        <rect x="0" y="0" width="320" height="240" rx="16" fill="#021124" opacity="0.55"/>
+        <text x="20" y="42" fill="#7dd3fc" font-size="18" font-weight="700">Content Blocks</text>
+        <text x="20" y="76" fill="#94a3b8" font-size="15">• Modular page builder</text>
+        <text x="20" y="100" fill="#94a3b8" font-size="15">• Headless API</text>
+        <text x="20" y="124" fill="#94a3b8" font-size="15">• SEO &amp; Schema tools</text>
+      </g>
+
+      <g transform="translate(360,220)">
+        <rect x="0" y="0" width="640" height="240" rx="16" fill="#021124" opacity="0.55"/>
+        <text x="24" y="44" fill="#60a5fa" font-size="18" font-weight="700">Admin UI Preview</text>
+        <rect x="24" y="76" width="240" height="28" rx="6" fill="#0ea5a0"/>
+        <rect x="24" y="114" width="520" height="14" rx="4" fill="#0f172a" opacity="0.4"/>
+        <rect x="24" y="136" width="420" height="14" rx="4" fill="#0f172a" opacity="0.4"/>
+      </g>
+    </g>
+  </g>
+</svg>

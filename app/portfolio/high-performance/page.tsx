@@ -20,17 +20,29 @@ const highPerformanceProjects = [
         image: 'https://nextjs-micro-account.vercel.app/og-image.png'
     },
     {
+        title: 'SMART PLANNER',
+        description: 'แอปพลิเคชันการวางแผนการเงินส่วนตัวที่ฉลาดและเป็นมิตรต่อผู้ใช้ มาพร้อมการวิเคราะห์งบประมาณ การติดตามรายรับ-รายจ่าย และการวางแผนการออมอัจฉริยะ ให้คุณเข้าใจสถานการณ์ทางการเงินของคุณได้อย่างชัดเจนและทำการตัดสินใจที่ฉลาดขึ้น',
+        stack: 'React, TypeScript, Tailwind CSS, Responsive Design',
+        focus: 'User-Friendly Finance Planning & Real-time Analytics',
+        link: 'https://micro-personal-smart-finance.vercel.app/',
+        github: 'https://github.com/GridsMicro/Micro-Personal-Smart-Finance',
+        image: '/images/image.png'
+    },
+    {
+        title: 'Micro Headless CMS',
+        description: 'ระบบ Micro Headless CMS สำหรับจัดการเนื้อหาขนาดใหญ่ ปรับแต่งได้สูง พร้อมสเกลสำหรับองค์กร และยึดมาตรฐาน Headless API',
+        stack: 'Next.js 15, Tailwind CSS, Supabase, Headless CMS',
+        focus: 'Headless Content Management & Headless Commerce',
+        link: 'https://micro-headless-cms.vercel.app/',
+        github: 'https://github.com/WebShardow/Micro-Headless-CMS',
+        image: '/images/work-1.png'
+    },
+    {
         title: 'หิวจัง (Hiwchung) Restaurant System',
         description: 'ระบบ Order-to-Server แบบ Seamless สำหรับร้านอาหารยุคใหม่ ลูกค้าสแกนสั่งเองผ่าน QR Code ออเดอร์ส่งตรงถึงแม่ครัว พร้อมระบบเสิร์ฟและคิดเงินที่รวดเร็ว ลดความผิดพลาดและเพิ่มรอบการขาย',
         stack: 'Next.js App Router, Real-time WebSockets, PostgreSQL',
         focus: 'High Concurrent Ordering & Zero-Lag UX',
         github: 'https://github.com/microtronic-thailand/hiwchung-app'
-    },
-    {
-        title: 'Enterprise E-commerce Platform',
-        description: 'ระบบร้านค้าออนไลน์ขนาดใหญ่ที่รองรับทราฟฟิกมหาศาล พร้อมระบบค้นหาที่รวดเร็วและการเชื่อมต่อคลังสินค้าแบบ Real-time',
-        stack: 'Next.js App Router, RSC, Tailwind CSS',
-        focus: 'Page Load Time < 500ms'
     },
 ];
 

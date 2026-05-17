@@ -11,7 +11,7 @@ import Link from 'next/link';
 const TestimonialCard: React.FC<{ quote: string; name: string; title: string }> = ({ quote, name, title }) => (
     <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-2xl transition-all hover:scale-[1.02] transform duration-300">
         <MessageCircle className="w-8 h-8 text-fuchsia-400 mb-4" />
-        <p className="text-lg italic mb-4">"{quote}"</p>
+        <p className="text-lg italic mb-4">&ldquo;{quote}&rdquo;</p>
         <div className="text-right">
             <p className="font-bold text-lg">{name}</p>
             <p className="text-sm text-gray-300">{title}</p>
@@ -20,7 +20,7 @@ const TestimonialCard: React.FC<{ quote: string; name: string; title: string }> 
 );
 
 // Component ย่อย: Feature Item สำหรับคุณสมบัติหลัก
-const FeatureItem: React.FC<{ icon: React.FC<any>; title: string; description: string }> = ({ icon: Icon, title, description }) => (
+const FeatureItem: React.FC<{ icon: React.FC<{ className?: string }>; title: string; description: string }> = ({ icon: Icon, title, description }) => (
     <div className="flex flex-col items-center text-center p-6 border border-white/20 rounded-xl bg-white/5 backdrop-blur-sm shadow-lg hover:bg-white/10 transition duration-300">
         <Icon className="w-10 h-10 text-cyan-400 mb-4" />
         <h3 className="text-2xl font-semibold mb-3">{title}</h3>
