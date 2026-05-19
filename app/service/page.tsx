@@ -35,7 +35,7 @@ export default function ServicePage() {
             <GooeyBackground />
 
             {/* Matrix-like background pattern */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none font-mono text-[10px] leading-none overflow-hidden select-none">
+            <div className="absolute inset-0 opacity-5 pointer-events-none font-mono text-[10px] leading-none overflow-hidden select-none">
                 {Array.from({ length: 50 }).map((_, i) => (
                     <div key={i} className="whitespace-nowrap">
                         {Array.from({ length: 20 }).map((_, j) => (
@@ -55,7 +55,7 @@ export default function ServicePage() {
                         <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 font-mono text-xs font-bold uppercase tracking-[0.3em]">
                             Future-Proof Development Shell
                         </div>
-                        <h1 className="text-6xl sm:text-8xl font-black mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500 leading-tight tracking-tighter">
+                        <h1 className="text-6xl sm:text-8xl font-black mb-8 bg-clip-text text-transparent bg-linear-to-b from-white to-gray-500 leading-tight tracking-tighter">
                             CORE SERVICES
                         </h1>
                         <p className="text-xl text-gray-400 mb-12 leading-relaxed max-w-2xl mx-auto font-medium">

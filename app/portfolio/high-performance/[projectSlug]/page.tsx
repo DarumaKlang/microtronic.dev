@@ -36,7 +36,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
     
     if (!repoPath) {
         return (
-            <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px]">
+            <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-32 pb-24">
                 <GooeyBackground />
                 <main className="container mx-auto max-w-7xl flex flex-col gap-8 relative z-10 text-center">
                     <h1 className="text-4xl font-bold text-red-400">❌ โครงการไม่พบ</h1>
@@ -54,7 +54,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
     const githubRepoUrl = `https://github.com/${repoPath}`;
 
     return (
-        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px]">
+        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-32 pb-24">
             <GooeyBackground />
 
             <main className="container mx-auto max-w-7xl flex flex-col gap-8 relative z-10">

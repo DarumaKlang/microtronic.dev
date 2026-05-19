@@ -57,7 +57,7 @@ const innovationProjects: InnovationProject[] = [
 
 export default function InnovationControlPage() {
     return (
-        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px] relative overflow-hidden">
+        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-32 pb-24 relative overflow-hidden">
             <GooeyBackground />
 
             <main className="container mx-auto max-w-7xl flex flex-col gap-8 relative z-10">

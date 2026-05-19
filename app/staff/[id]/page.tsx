@@ -69,7 +69,7 @@ export default async function StaffDetailPage({ params }: { params: Promise<{ id
                 </Link>
 
                 {/* Profile Header */}
-                <section className={`${GLASS_PANEL_CLASS} p-8 lg:p-12 rounded-[2rem] border-white/10 mb-12 flex flex-col md:flex-row gap-12 items-center md:items-start`}>
+                <section className={`${GLASS_PANEL_CLASS} p-8 lg:p-12 rounded-3xl border-white/10 mb-12 flex flex-col md:flex-row gap-12 items-center md:items-start`}>
                     <div className="flex-shrink-0">
                         <StaffImage username={staff.githubUsername} name={staff.name} size="large" />
                     </div>

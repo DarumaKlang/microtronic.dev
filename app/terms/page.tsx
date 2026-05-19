@@ -11,15 +11,15 @@ export const metadata: Metadata = {
 
 export default function TermsAndConditionsPage() {
     return (
-        <div className="min-h-screen p-8 pb-20 mt-8 sm:p-20 pt-[120px] relative overflow-hidden bg-slate-950">
+        <div className="min-h-screen p-8 pb-20 mt-8 sm:p-20 pt-32 relative overflow-hidden bg-slate-950">
             {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950/30 to-slate-950 opacity-95 z-0" />
+            <div className="absolute inset-0 bg-linear-to-br from-slate-950 via-indigo-950/30 to-slate-950 opacity-95 z-0" />
             <GooeyBackground />
 
             <main className="container mx-auto max-w-6xl relative z-10">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h1 className="text-5xl sm:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+                    <h1 className="text-5xl sm:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-linear-to-r from-cyan-400 to-purple-400">
                         📄 ข้อกำหนดและข้อตกลง
                     </h1>
                     <p className="text-xl text-gray-300 mb-2">
@@ -37,12 +37,12 @@ export default function TermsAndConditionsPage() {
                         โดยแบ่งออกเป็น <span className="font-bold text-pink-400">2 ส่วนหลัก</span> ตามประเภทบริการ:
                     </p>
                     <div className="mt-4 grid md:grid-cols-2 gap-4">
-                        <div className="bg-gradient-to-r from-pink-500/10 to-cyan-500/10 border border-pink-500/30 rounded-xl p-4">
+                        <div className="bg-linear-to-r from-pink-500/10 to-cyan-500/10 border border-pink-500/30 rounded-xl p-4">
                             <div className="text-2xl mb-2">📦</div>
                             <h3 className="font-bold text-pink-300 mb-1">ส่วนที่ 1</h3>
                             <p className="text-sm text-gray-300">Template & Starter Kits (5,000 - 22,900 บาท)</p>
                         </div>
-                        <div className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/30 rounded-xl p-4">
+                        <div className="bg-linear-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/30 rounded-xl p-4">
                             <div className="text-2xl mb-2">🏢</div>
                             <h3 className="font-bold text-emerald-300 mb-1">ส่วนที่ 2</h3>
                             <p className="text-sm text-gray-300">Custom Enterprise Solution (120,000+ บาท)</p>

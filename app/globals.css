@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
+/* ================================================= */
+/* FIX #3: Tailwind v4 — Custom Theme via @theme     */
+/* ใน v4 ต้องประกาศ custom colors/animations ใน CSS  */
+/* แทนการใช้ tailwind.config.ts extend              */
+/* ================================================= */
+@theme {
+  /* Custom Colors สำหรับ GooeyBackground */
+  --color-g1-start: #ff7e5f;
+  --color-g1-end: #feb47b;
+  --color-g2-start: #6a11cb;
+  --color-g2-end: #2575fc;
+  --color-g3-start: #ee9ca7;
+  --color-g3-end: #ffdde1;
+  --color-g4-start: #00b09b;
+  --color-g4-end: #96c93d;
+
+  /* Custom Animations */
+  --animate-blob: blob-movement 16s infinite alternate;
+  --animate-blob-medium: blob-medium 20s infinite alternate;
+  --animate-blob-slow: blob-slow 25s infinite alternate;
+}
+
 /* 1. Default (Light Mode) CSS Variables */
 :root {
   --background: #ffffff;
@@ -97,3 +119,38 @@ body::before {
 .animation-delay-2000 { animation-delay: -4s; }
 .animation-delay-4000 { animation-delay: -8s; }
 .animation-delay-6000 { animation-delay: -12s; }
+
+/* FIX #2: Ticker animation สำหรับ StrategicTicker — seamless infinite scroll */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+/* FIX #9: animate-in utilities สำหรับ Tailwind v4                          */
+/* ใช้ใน products/page.tsx: animate-in fade-in slide-in-from-bottom-4        */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-in-from-bottom {
+  from { transform: translateY(1rem); }
+  to   { transform: translateY(0); }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+  animation-duration: 700ms;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.slide-in-from-bottom-4 {
+  animation-name: fade-in, slide-in-from-bottom;
+}
+
+.duration-700 {
+  animation-duration: 700ms;
+}

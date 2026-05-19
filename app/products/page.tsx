@@ -29,7 +29,7 @@ export default function ProductsPage() {
                     <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 font-mono text-xs font-bold uppercase tracking-[0.3em]">
                         Project Showcase v2026
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500 leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-black mb-4 bg-clip-text text-transparent bg-linear-to-b from-white to-gray-500 leading-tight">
                         PRODUCT CATALOG
                     </h1>
                     <p className="text-xl text-gray-400 font-medium">

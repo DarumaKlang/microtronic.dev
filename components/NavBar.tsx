@@ -10,7 +10,7 @@ const NavBar: React.FC = () => (
     <header className="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-cyan-500 rounded flex items-center justify-center font-bold text-lg">
+                <div className="w-8 h-8 bg-linear-to-br from-pink-500 to-cyan-500 rounded flex items-center justify-center font-bold text-lg">
                     <Image src="/images/cyberpunk-logo.jpg" alt="Cyberpunk Microtronic Logo" width={32} height={32} />
                 </div>
                 <Link href="/" className="font-extrabold text-2xl tracking-tight hover:text-white transition duration-300">

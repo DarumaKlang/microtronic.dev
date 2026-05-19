@@ -14,12 +14,12 @@ export default function EnterpriseGroupSection() {
     return (
         <section id="enterprise" className="relative py-16 px-4">
             {/* Background Gradient - Group II (Green/Blue Theme - ตัดกับ Group I) */}
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/30 via-blue-900/20 to-indigo-900/30 -z-10" />
+            <div className="absolute inset-0 bg-linear-to-br from-emerald-900/30 via-blue-900/20 to-indigo-900/30 -z-10" />
 
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-8">
-                    <h2 className="text-5xl sm:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-400">
+                    <h2 className="text-5xl sm:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-linear-to-r from-emerald-400 to-blue-400">
                         {ENTERPRISE_GROUP_DATA.headline}
                     </h2>
                     <p className="text-2xl sm:text-3xl font-semibold text-emerald-300 mb-6">
@@ -81,7 +81,7 @@ export default function EnterpriseGroupSection() {
                                 </li>
                             </ul>
                         </div>
-                        <div className="bg-gradient-to-br from-emerald-500/10 to-blue-500/10 rounded-2xl p-8 border border-emerald-500/30">
+                        <div className="bg-linear-to-br from-emerald-500/10 to-blue-500/10 rounded-2xl p-8 border border-emerald-500/30">
                             <div className="text-center">
                                 <p className="text-sm text-gray-400 mb-2">เฉลี่ย ROI ที่ลูกค้าได้รับ</p>
                                 <p className="text-6xl font-extrabold text-emerald-400 mb-2">2.5x</p>
@@ -105,7 +105,7 @@ export default function EnterpriseGroupSection() {
                     </div>
 
                     {/* Investment Value Quote - เน้นย้ำคุณค่าการลงทุน */}
-                    <div className={`${GLASS_PANEL_CLASS} p-8 rounded-3xl mb-12 mt-12 border-emerald-500/30 bg-gradient-to-r from-emerald-900/20 to-blue-900/20`}>
+                    <div className={`${GLASS_PANEL_CLASS} p-8 rounded-3xl mb-12 mt-12 border-emerald-500/30 bg-linear-to-r from-emerald-900/20 to-blue-900/20`}>
                         <div className="text-center max-w-5xl mx-auto">
                             <div className="text-5xl mb-4">💎</div>
                             <blockquote className="text-2xl sm:text-3xl font-bold text-white leading-relaxed mb-4">
@@ -227,7 +227,7 @@ export default function EnterpriseGroupSection() {
                         <Link
                             href={ENTERPRISE_GROUP_DATA.ctaLink}
                             className="inline-flex items-center gap-2 px-12 py-5 text-xl font-extrabold rounded-full 
-                                   bg-gradient-to-r from-emerald-500 to-blue-500 
+                                   bg-linear-to-r from-emerald-500 to-blue-500 
                                    hover:from-emerald-600 hover:to-blue-600
                                    text-white shadow-2xl shadow-emerald-500/30
                                    transform hover:scale-110 transition-all duration-300
@@ -275,7 +275,7 @@ function EnterpriseFeatureCard({ feature }: EnterpriseFeatureCardProps) {
             </div>
 
             {/* ROI Indicator / Service Type / Special Feature */}
-            <div className="inline-block bg-gradient-to-r from-emerald-500/20 to-blue-500/20 border border-emerald-500/30 rounded-full px-3 py-1 mb-4">
+            <div className="inline-block bg-linear-to-r from-emerald-500/20 to-blue-500/20 border border-emerald-500/30 rounded-full px-3 py-1 mb-4">
                 <span className="text-sm font-bold text-emerald-300">
                     ROI Focus: <span itemProp="identifier">{feature.roi}</span>
                 </span>

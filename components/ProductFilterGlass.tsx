@@ -29,7 +29,7 @@ export default function ProductFilterGlass({ onCategoryChange }: ProductFilterGl
         <div className="w-full mb-12">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-1 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl md:rounded-full">
                 {/* Mode Indicator */}
-                <div className="flex items-center gap-3 px-6 py-3 border-r border-white/10 hidden md:flex">
+                <div className="items-center gap-3 px-6 py-3 border-r border-white/10 hidden md:flex">
                     <Filter className="w-4 h-4 text-blue-400" />
                     <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest">Filter Engine</span>
                 </div>

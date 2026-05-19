@@ -121,8 +121,8 @@ const PricingCard: React.FC<{ plan: typeof pricingPlans[0] }> = ({ plan }) => {
 // Component หลักสำหรับหน้า Pricing
 export default function PricingPage() {
     return (
-        // แก้ไข class 'bg-linear-to-br' เป็น 'bg-gradient-to-br'
-        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px] relative overflow-hidden">
+        // แก้ไข class 'bg-linear-to-br' เป็น 'bg-linear-to-br'
+        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-32 pb-24 relative overflow-hidden">
             <GooeyBackground />
 
             <main className="container mx-auto max-w-7xl flex flex-col gap-12 relative z-10">
@@ -146,12 +146,12 @@ export default function PricingPage() {
 
                 {/* Custom Enterprise Section - แยกออกมาให้ชัดเจน */}
                 <section className="mt-8 pt-8 border-t border-gray-700">
-                    <div className="bg-gradient-to-r from-emerald-900/40 to-blue-900/40 border border-emerald-500/30 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+                    <div className="bg-linear-to-r from-emerald-900/40 to-blue-900/40 border border-emerald-500/30 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
                         <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-emerald-500/20 rounded-full blur-3xl"></div>
 
                         <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
                             <div>
-                                <h2 className="text-4xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-400">
+                                <h2 className="text-4xl font-extrabold mb-4 bg-clip-text text-transparent bg-linear-to-r from-emerald-400 to-blue-400">
                                     Custom Enterprise Solution
                                 </h2>
                                 <p className="text-xl text-gray-300 mb-6 leading-relaxed">
@@ -174,7 +174,7 @@ export default function PricingPage() {
                                 </ul>
                                 <Link
                                     href="/contact?type=enterprise"
-                                    className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-500 hover:to-blue-500 text-white shadow-lg shadow-emerald-600/30 transition-all duration-200"
+                                    className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-linear-to-r from-emerald-600 to-blue-600 hover:from-emerald-500 hover:to-blue-500 text-white shadow-lg shadow-emerald-600/30 transition-all duration-200"
                                 >
                                     นัดปรึกษาโครงการ (ฟรี)
                                 </Link>

@@ -23,7 +23,7 @@ const ROICalculator: React.FC = () => {
     return (
         <section className="py-24 relative overflow-hidden">
             <div className="max-w-4xl mx-auto px-4">
-                <div className="p-8 md:p-12 rounded-[2rem] bg-slate-900/50 border border-white/10 backdrop-blur-xl relative group">
+                <div className="p-8 md:p-12 rounded-3xl bg-slate-900/50 border border-white/10 backdrop-blur-xl relative group">
                     <div className="absolute -top-6 -right-6 w-12 h-12 hidden sm:flex bg-blue-600 rounded-full items-center justify-center text-white shadow-xl shadow-blue-500/20 group-hover:scale-110 transition-transform">
                         <TrendingUp size={24} />
                     </div>
@@ -66,19 +66,37 @@ const ROICalculator: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="bg-white/[0.03] p-6 sm:p-8 rounded-3xl border border-white/5 flex flex-col justify-center text-center min-w-0 overflow-hidden">
+                        <div className="bg-white/5 p-6 sm:p-8 rounded-3xl border border-white/5 flex flex-col justify-center text-center min-w-0 overflow-hidden">
                             <div className="text-sm font-bold text-gray-500 uppercase mb-2">Potential Revenue Lift</div>
-                            <motion.div
-                                className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 break-words"
-                                key={results.lift}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                            >
-                                +฿{results.lift.toLocaleString()}
-                            </motion.div>
+                            {/* FIX #4: แสดง feedback ที่ดีกว่าเมื่อ load time ดีอยู่แล้ว */}
+                            {results.lift > 0 ? (
+                                <motion.div
+                                    className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400 break-words"
+                                    key={results.lift}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                >
+                                    +฿{results.lift.toLocaleString()}
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-green-400"
+                                    key="optimal"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                >
+                                    🚀 Optimal
+                                </motion.div>
+                            )}
                             <div className="mt-4 text-[10px] text-gray-500 leading-relaxed">
-                                เมื่อเป้าหมายคือโหลดเร็ว <span className="text-blue-400 font-bold">1.5s</span> <br />
-                                คุณกำลังเสียโอกาสทางการขายไปประมาณ <span className="text-pink-400 font-bold">{results.efficiency}%</span>
+                                {results.lift > 0 ? (
+                                    <>
+                                        เมื่อเป้าหมายคือโหลดเร็ว <span className="text-blue-400 font-bold">1.5s</span> <br />
+                                        คุณกำลังเสียโอกาสทางการขายไปประมาณ <span className="text-pink-400 font-bold">{results.efficiency}%</span>
+                                    </>
+                                ) : (
+                                    <span className="text-emerald-400 font-bold">ระบบของคุณเร็วกว่า 1.5s แล้ว — ยอดเยี่ยมมาก</span>
+                                )}
                             </div>
 
                             <button className="mt-8 py-3 bg-white text-slate-950 rounded-xl font-bold text-sm hover:scale-105 transition-transform flex items-center justify-center gap-2 w-full max-w-xs mx-auto">

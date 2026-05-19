@@ -129,7 +129,7 @@ export default function AISpeakPage() {
                                 disabled={isGenerating || !text.trim()}
                                 className={`flex-1 group relative flex items-center justify-center gap-2 py-4 px-8 rounded-2xl font-bold text-lg overflow-hidden transition-all transform active:scale-95 ${isGenerating || !text.trim()
                                     ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
-                                    : 'bg-gradient-to-r from-pink-600 to-purple-600 text-white hover:shadow-[0_0_30px_-5px_rgba(219,39,119,0.5)]'
+                                    : 'bg-linear-to-r from-pink-600 to-purple-600 text-white hover:shadow-[0_0_30px_-5px_rgba(219,39,119,0.5)]'
                                     }`}
                             >
                                 {isGenerating ? (
@@ -211,7 +211,7 @@ export default function AISpeakPage() {
                         </div>
 
                         {/* Quick Tips */}
-                        <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-white/10 rounded-3xl p-6">
+                        <div className="bg-linear-to-br from-blue-600/20 to-purple-600/20 border border-white/10 rounded-3xl p-6">
                             <h4 className="font-bold mb-3 flex items-center gap-2">
                                 <Info className="w-4 h-4 text-blue-400" />
                                 Developer Tip

@@ -14,12 +14,12 @@ export default function TemplateGroupSection() {
     return (
         <section id="templates" className="relative py-20 px-4">
             {/* Background Gradient - Group I (Pink/Cyan Theme) */}
-            <div className="absolute inset-0 bg-gradient-to-br from-pink-900/30 via-purple-900/20 to-cyan-900/30 -z-10" />
+            <div className="absolute inset-0 bg-linear-to-br from-pink-900/30 via-purple-900/20 to-cyan-900/30 -z-10" />
 
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-5xl sm:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-cyan-400">
+                    <h2 className="text-5xl sm:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-linear-to-r from-pink-400 to-cyan-400">
                         {TEMPLATE_GROUP_DATA.headline}
                     </h2>
                     <p className="text-2xl sm:text-3xl font-semibold text-pink-300 mb-6">
@@ -65,7 +65,7 @@ export default function TemplateGroupSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-12 py-5 text-xl font-extrabold rounded-full 
-                                   bg-gradient-to-r from-pink-500 to-cyan-500 
+                                   bg-linear-to-r from-pink-500 to-cyan-500 
                                    hover:from-pink-600 hover:to-cyan-600
                                    text-white shadow-2xl shadow-pink-500/30
                                    transform hover:scale-110 transition-all duration-300
@@ -99,7 +99,7 @@ function TemplateCard({ template }: TemplateCardProps) {
             <meta itemProp="sku" content={template.id} />
 
             {/* Preview Image Placeholder */}
-            <div className="relative h-48 bg-gradient-to-br from-pink-500/20 to-cyan-500/20 rounded-xl mb-4 overflow-hidden">
+            <div className="relative h-48 bg-linear-to-br from-pink-500/20 to-cyan-500/20 rounded-xl mb-4 overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-6xl opacity-20">🎨</div>
                 </div>
@@ -155,7 +155,7 @@ function TemplateCard({ template }: TemplateCardProps) {
                     href={template.purchaseLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-cyan-500 text-white hover:from-pink-600 hover:to-cyan-600 transition-all text-sm font-bold shadow-lg"
+                    className="flex-1 text-center px-4 py-2 rounded-lg bg-linear-to-r from-pink-500 to-cyan-500 text-white hover:from-pink-600 hover:to-cyan-600 transition-all text-sm font-bold shadow-lg"
                 >
                     ซื้อเลย
                 </a>

@@ -56,7 +56,7 @@ function PackageCard({ package: pkg }: PackageCardProps) {
             {/* Recommended Badge */}
             {isRecommended && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-pink-500 to-cyan-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                    <div className="bg-linear-to-r from-pink-500 to-cyan-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                         ⭐ แนะนำ
                     </div>
                 </div>
@@ -133,15 +133,15 @@ function PackageCard({ package: pkg }: PackageCardProps) {
                     block text-center px-6 py-3 rounded-lg font-bold text-white
                     transition-all duration-300 shadow-lg
                     ${isRecommended
-                        ? 'bg-gradient-to-r from-pink-500 to-cyan-500 hover:from-pink-600 hover:to-cyan-600 hover:shadow-pink-500/50'
-                        : 'bg-gradient-to-r from-pink-600/80 to-cyan-600/80 hover:from-pink-600 hover:to-cyan-600'}
+                        ? 'bg-linear-to-r from-pink-500 to-cyan-500 hover:from-pink-600 hover:to-cyan-600 hover:shadow-pink-500/50'
+                        : 'bg-linear-to-r from-pink-600/80 to-cyan-600/80 hover:from-pink-600 hover:to-cyan-600'}
                 `}
             >
                 {pkg.ctaText}
             </Link>
 
             {/* Hover Effect Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+            <div className="absolute inset-0 bg-linear-to-br from-pink-500/5 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
         </div>
     );
 }

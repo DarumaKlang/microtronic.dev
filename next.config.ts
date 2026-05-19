@@ -66,7 +66,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'avatars.githubusercontent.com',
-      }
+      },
+      // FIX #7: เพิ่ม domain สำหรับ product preview images
+      {
+        protocol: 'https',
+        hostname: 'microtronic-template.vercel.app',
+      },
     ],
   },
 };

@@ -34,7 +34,7 @@ export default function AboutPage() {
 
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <header className="text-center mb-24">
-                    <h1 className="text-5xl md:text-7xl font-black mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-white to-pink-400">
+                    <h1 className="text-5xl md:text-7xl font-black mb-8 bg-clip-text text-transparent bg-linear-to-r from-blue-400 via-white to-pink-400">
                         WE_ARE_MICROTRONIC
                     </h1>
                     <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
@@ -55,11 +55,11 @@ export default function AboutPage() {
                             โดยเน้นการใช้ Next.js และ AI มาเพิ่มศักยภาพให้ธุรกิจทุกขนาด
                         </p>
                     </div>
-                    <div className="relative p-1 bg-gradient-to-br from-blue-500/20 to-pink-500/20 rounded-[40px] overflow-hidden">
+                    <div className="relative p-1 bg-linear-to-br from-blue-500/20 to-pink-500/20 rounded-[40px] overflow-hidden">
                         <div className="bg-slate-900/80 backdrop-blur-3xl rounded-[38px] p-12 text-center aspect-square flex flex-col justify-center border border-white/5 shadow-2xl">
                             <div className="text-8xl mb-6">🇹🇭</div>
                             <h3 className="text-2xl font-black text-white mb-2 uppercase tracking-widest">Tech with Heart</h3>
-                            <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-pink-500 mx-auto rounded-full mt-4" />
+                            <div className="h-1 w-24 bg-linear-to-r from-blue-500 to-pink-500 mx-auto rounded-full mt-4" />
                         </div>
                     </div>
                 </div>

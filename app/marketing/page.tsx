@@ -33,7 +33,7 @@ const FeatureItem: React.FC<{ icon: React.FC<{ className?: string }>; title: str
 export default function MarketingPage() {
     return (
         // การจัดวางเนื้อหา, โดยการใช้ Tailwind CSS utility classes และ GooeyBackground component
-        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-gradient-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px]">
+        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-32 pb-24">
             <GooeyBackground />
 
             <main className="container mx-auto max-w-7xl flex flex-col gap-24 relative z-10">
@@ -45,7 +45,7 @@ export default function MarketingPage() {
                         Microtronic: พลังแห่ง Next.js และ Lightning Network
                     </p>
                     <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                        สร้าง <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500">แพลตฟอร์มระดับโลก</span> <br className="hidden md:inline" /> ที่พร้อมรับการเติบโต
+                        สร้าง <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-pink-500">แพลตฟอร์มระดับโลก</span> <br className="hidden md:inline" /> ที่พร้อมรับการเติบโต
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
                         เราคือพันธมิตรในการสร้างโซลูชันดิจิทัลแห่งอนาคต ด้วยความเชี่ยวชาญในเทคโนโลยีล่าสุด เพื่อความเร็ว ความปลอดภัย และนวัตกรรมทางการเงิน

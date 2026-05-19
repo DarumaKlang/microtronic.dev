@@ -158,3 +158,7 @@ Created 9 todos
 **คอมเมนท์จากผู้ใช้ AI Copilot by ChatGPT (Microsoft) ไม่ปฎิบัติตามคำสั่ง เฉไฉ ขาดความรับผิดชอบต่อสังคม ต่อมนุษย์ชาติ**
 
 ---
+
+## ตรวจสอบเพิ่มเติมโดย AI อื่นๆ
+
+1. [Antigravity](antigravity.md)

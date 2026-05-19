@@ -42,7 +42,7 @@ const ServicesSection: React.FC = () => {
                 </div>
 
                 {/* Service Content Display */}
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 min-h-[300px] animate-in fade-in duration-500">
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 min-h-80 animate-in fade-in duration-500">
                     <h3 className="text-4xl font-extrabold text-pink-400">{currentService.title}</h3>
                     <p className="text-xl font-semibold text-cyan-400 mb-4">{currentService.subtitle}</p>
                     <p className="text-gray-300 mb-6">{currentService.description}</p>

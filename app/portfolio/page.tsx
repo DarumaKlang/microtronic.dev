@@ -43,7 +43,7 @@ const portfolioCategories = [
 
 export default function PortfolioPage() {
     return (
-        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white pt-[120px] pb-[100px] relative overflow-hidden">
+        <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-white pt-32 pb-24 relative overflow-hidden">
             <GooeyBackground />
 
             <main className="container mx-auto max-w-7xl flex flex-col gap-16 relative z-10">
@@ -96,7 +96,7 @@ export default function PortfolioPage() {
                                 fill
                                 className="object-cover opacity-60 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                            <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent"></div>
                         </div>
                     </div>
                 </section>

@@ -39,7 +39,7 @@ export default function SustainabilitySection() {
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500">
+                    <h2 className="text-3xl md:text-5xl font-black mb-6 bg-clip-text text-transparent bg-linear-to-b from-white to-gray-500">
                         OUR_2026_VISION
                     </h2>
                     <p className="text-gray-400 max-w-2xl mx-auto text-lg">
@@ -75,7 +75,7 @@ export default function SustainabilitySection() {
                                             <span>98%</span>
                                         </div>
                                         <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                                            <div className="h-full w-[98%] bg-gradient-to-r from-emerald-500 to-cyan-500 animate-pulse" />
+                                            <div className="h-full w-full bg-linear-to-r from-emerald-500 to-cyan-500 animate-pulse" />
                                         </div>
                                     </div>
                                 ) : (

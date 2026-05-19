@@ -47,7 +47,7 @@ export const NAV_ITEMS = [
     { label: "Contact", href: "/contact" },
 ];
 
-export const GRADIENT_TEXT_CLASS = "bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400";
+export const GRADIENT_TEXT_CLASS = "bg-clip-text text-transparent bg-linear-to-r from-pink-400 via-purple-400 to-cyan-400";
 export const GLASS_PANEL_CLASS = "bg-white/5 backdrop-blur-xl border border-white/10 shadow-lg";
 
 // ===== SERVICE PAGE DATA STRUCTURES =====

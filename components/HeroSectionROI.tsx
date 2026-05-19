@@ -22,42 +22,26 @@ export default function HeroSectionROI() {
                     {HERO_CONTENT.headline}
                 </h1>
 
-                {/* Subhead (Technical Value Prop) */}
-                <p className="max-w-3xl mx-auto text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8">
+                {/* FIX #1: เปลี่ยนจาก text-gray-700 (Light Mode) เป็น text-gray-300 เพื่อให้อ่านได้บน Dark Background */}
+                <p className="max-w-3xl mx-auto text-xl md:text-2xl text-gray-300 mb-8">
                     {HERO_CONTENT.subhead}
                 </p>
 
-                {/* Social Proof Statement */}
-                <p className="max-w-2xl mx-auto text-lg text-indigo-600 font-semibold mb-10 dark:text-indigo-400">
+                {/* FIX #1: เปลี่ยนจาก text-indigo-600 เป็น text-blue-400 ให้เข้ากับ Dark Mode */}
+                <p className="max-w-2xl mx-auto text-lg text-blue-400 font-semibold mb-10">
                     {HERO_CONTENT.proof}
                 </p>
 
-                {/* CTA Buttons (Now only showing CTA 2) */}
+                {/* CTA Buttons */}
                 <div className="flex flex-col md:flex-row justify-center gap-4">
-
-                    {/* ---------------------------------------------------- */}
-                    {/* CTA 1 (Agility/Quick Win) - COMMENTED OUT FOR FUTURE */}
-                    {/*
-          <Link 
-            href={HERO_CONTENT.cta1Link} 
-            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-indigo-600 hover:bg-indigo-700 transition duration-150 ease-in-out md:text-lg"
-          >
-            {HERO_CONTENT.cta1Text}
-            <ChevronRight className="ml-2 h-5 w-5" />
-          </Link>
-          */}
-                    {/* ---------------------------------------------------- */}
-
-                    {/* CTA 2 (Authority/Deep Trust - Now the primary focus) */}
+                    {/* FIX #1: เปลี่ยนจาก bg-indigo-600 เป็น bg-blue-600 ให้สอดคล้องกับ Design System */}
                     <Link
                         href={HERO_CONTENT.cta2Link}
-                        // ใช้ Style ของปุ่มหลัก เพื่อให้โดดเด่น แม้จะมีปุ่มเดียว
-                        className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-indigo-600 hover:bg-indigo-700 transition duration-150 ease-in-out md:text-lg"
+                        className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-blue-600 hover:bg-blue-500 transition duration-150 ease-in-out md:text-lg shadow-blue-500/20"
                     >
                         {HERO_CONTENT.cta2Text}
                         <ChevronRight className="ml-2 h-5 w-5" />
                     </Link>
-
                 </div>
             </div>
         </section>

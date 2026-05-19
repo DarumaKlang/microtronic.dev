@@ -24,7 +24,7 @@
       <g transform="translate(0,260)">
         <rect x="0" y="0" width="420" height="220" rx="18" fill="#021124" opacity="0.6"/>
         <text x="28" y="48" fill="#60a5fa" font-size="20" font-weight="700">Feature Highlights</text>
-        <text x="28" y="88" fill="#94a3b8" font-size="16">• Auto journal & reconciliation</text>
+        <text x="28" y="88" fill="#94a3b8" font-size="16">• Auto journal &amp; reconciliation</text>
         <text x="28" y="118" fill="#94a3b8" font-size="16">• AI cashflow forecasting</text>
         <text x="28" y="148" fill="#94a3b8" font-size="16">• Thai tax ready reports</text>
       </g>

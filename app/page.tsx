@@ -17,6 +17,7 @@ import PortfolioLinkSection from '@/components/PortfolioLinkSection';
 import SustainabilitySection from '@/components/SustainabilitySection';
 import StrategicTicker from '@/components/StrategicTicker';
 import ROICalculator from '@/components/ROICalculator';
+// FooterSection อยู่ใน layout.tsx แล้ว ไม่ต้อง import ซ้ำที่นี่
 
 // เนื่องจาก Component ที่เรา Import มาแล้วจัดการ Data และ Style Classs ภายในตัวเอง
 // เราจึงไม่จำเป็นต้อง Import constants ต่างๆ เช่น SERVICES_DATA, GRADIENT_TEXT_CLASS 
@@ -64,8 +65,7 @@ export default function Home() {
 
             </main>
 
-            {/* 3. ส่วนท้ายของหน้า (Footer) */}
-            {/* <FooterSection /> */}
+            {/* Footer อยู่ใน layout.tsx แล้ว ไม่ต้องใส่ซ้ำที่นี่ */}
 
         </div>
     );

@@ -108,7 +108,7 @@ const AIChatbot: React.FC = () => {
             {/* Toggle Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`fixed bottom-6 right-6 z-[60] p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 ${isOpen ? 'bg-red-500 rotate-90' : 'bg-linear-to-r from-pink-500 to-cyan-500'
+                className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 ${isOpen ? 'bg-red-500 rotate-90' : 'bg-linear-to-r from-pink-500 to-cyan-500'
                     } text-white`}
             >
                 {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
@@ -122,7 +122,7 @@ const AIChatbot: React.FC = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 50, scale: 0.9 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed bottom-24 right-6 w-80 md:w-96 h-[500px] bg-slate-900 border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden z-[60] backdrop-blur-xl"
+                        className="fixed bottom-24 right-6 w-80 md:w-96 h-[80vh] bg-slate-900 border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50 backdrop-blur-xl"
                     >
                         {/* Header */}
                         <div className="bg-slate-800/80 p-4 border-b border-white/5 flex items-center justify-between">

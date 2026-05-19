@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function BackendDataPage() {
   return (
-    <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-[120px] pb-[100px]">
+    <div className="font-sans min-h-screen p-8 mb-8 mt-8 sm:p-20 bg-linear-to-br from-blue-980 via-blue-900 to-fuchsia-800 text-white pt-32 pb-24">
       <GooeyBackground />
       <main className="container mx-auto max-w-7xl flex flex-col gap-8 relative z-10">
         <h1 className="text-4xl font-extrabold sm:text-5xl text-green-300">Micro Headless CMS (Ultra Premium v1.5)</h1>
