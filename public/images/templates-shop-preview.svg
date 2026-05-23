@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#ec4899"/>
+    </linearGradient>
+    <style>
+      .bg{fill:#0f172a}
+      .card{fill:url(#g);opacity:0.12}
+      .title{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; font-weight:800; fill:#ffffff}
+      .subtitle{font-family:Inter, system-ui; fill:#cbd5e1}
+      .pill{fill:#111827;stroke:#3b82f6;stroke-width:2}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="800" rx="24"/>
+  <g transform="translate(80,80)">
+    <rect class="card" width="1040" height="640" rx="28"/>
+    <g transform="translate(48,48)">
+      <rect class="pill" width="200" height="48" rx="12"/>
+      <text x="28" y="34" font-size="16" fill="#3b82f6" font-weight="700">Templates</text>
+      <text class="title" x="0" y="140" font-size="56">Premium Next.js Templates</text>
+      <text class="subtitle" x="0" y="190" font-size="20">High-End Templates &amp; Expert Development</text>
+
+      <g transform="translate(0,260)">
+        <rect x="0" y="0" width="420" height="220" rx="18" fill="#021124" opacity="0.6"/>
+        <text x="28" y="48" fill="#60a5fa" font-size="20" font-weight="700">Template Store</text>
+        <text x="28" y="88" fill="#94a3b8" font-size="16">&#x2022; Next.js 16 Ready</text>
+        <text x="28" y="118" fill="#94a3b8" font-size="16">&#x2022; SEO Optimized</text>
+        <text x="28" y="148" fill="#94a3b8" font-size="16">&#x2022; Dark Mode Built-in</text>
+      </g>
+
+      <g transform="translate(520,260)">
+        <rect x="0" y="0" width="420" height="220" rx="18" fill="#021124" opacity="0.6"/>
+        <text x="28" y="48" fill="#ec4899" font-size="20" font-weight="700">Browse Templates</text>
+        <text x="28" y="88" fill="#94a3b8" font-size="16">Starting from 5,000 THB</text>
+        <circle cx="360" cy="160" r="36" fill="#3b82f6"/>
+      </g>
+    </g>
+  </g>
+</svg>

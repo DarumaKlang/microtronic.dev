@@ -11,4 +11,5 @@ export interface Product {
     direct_url?: string;
     demo_url?: string;
     description?: string;
+    active?: boolean;
 }

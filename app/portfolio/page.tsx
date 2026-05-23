@@ -75,11 +75,10 @@ export default function PortfolioPage() {
                             </p>
                             <div className="flex flex-wrap gap-4">
                                 <a
-                                    href="https://nextjs-micro-account.vercel.app/"
-                                    target="_blank"
+                                    href="/products/micro-account"
                                     className="px-8 py-3 bg-white text-blue-900 font-bold rounded-full hover:bg-blue-50 transition transform hover:scale-105 active:scale-95 shadow-xl"
                                 >
-                                    เข้าชมหน้า Landing Page
+                                    ดูรายละเอียด Micro-Account
                                 </a>
                                 <Link
                                     href="/portfolio/high-performance"
@@ -94,10 +93,87 @@ export default function PortfolioPage() {
                                 src="/micro-formula-logo.png"
                                 alt="Micro Formula"
                                 fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                                 className="object-cover opacity-60 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
                             />
                             <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent"></div>
                         </div>
+                    </div>
+                </section>
+
+                {/* Our Products Section */}
+                <section>
+                    <div className="flex items-center gap-4 mb-8">
+                        <div className="h-px flex-1 bg-white/20"></div>
+                        <h2 className="text-2xl font-bold uppercase tracking-widest text-purple-300">Our Products</h2>
+                        <div className="h-px flex-1 bg-white/20"></div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {[
+                            {
+                                slug: 'micro-account',
+                                label: 'SaaS',
+                                labelColor: 'text-purple-400 border-purple-500/30 bg-purple-500/10',
+                                title: 'Micro-Account — บัญชี Formula',
+                                description: 'ระบบบัญชีครบวงจรสำหรับธุรกิจไทย พร้อม AI คำนวณยอดและรายงาน VAT อัตโนมัติ',
+                                image: '/images/micro-account-preview.svg',
+                                href: '/products/micro-account',
+                                accentColor: 'hover:border-purple-500/50',
+                            },
+                            {
+                                slug: 'thoth-platform-cms',
+                                label: 'CMS',
+                                labelColor: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/10',
+                                title: 'THOTH Platform — Website CMS',
+                                description: 'Content Management System สำหรับเว็บไซต์องค์กร รองรับ Modular และ SEO-first',
+                                image: '/images/thoth-cms-preview.svg',
+                                href: '/products/thoth-platform-cms',
+                                accentColor: 'hover:border-emerald-500/50',
+                            },
+                            {
+                                slug: 'kafra-platform-ecommerce',
+                                label: 'E-commerce',
+                                labelColor: 'text-orange-400 border-orange-500/30 bg-orange-500/10',
+                                title: 'Kafra Platform — E-commerce สำเร็จรูป',
+                                description: 'แพลตฟอร์ม E-commerce สำเร็จรูปสำหรับธุรกิจไทย พร้อมระบบแคตาล็อกและการชำระเงิน',
+                                image: '/images/kafra-ecommerce-preview.svg',
+                                href: '/products/kafra-platform-ecommerce',
+                                accentColor: 'hover:border-orange-500/50',
+                            },
+                        ].map((item) => (
+                            <Link
+                                key={item.slug}
+                                href={item.href}
+                                className={`group flex flex-col overflow-hidden rounded-2xl bg-white/5 border border-white/10 ${item.accentColor} transition-all duration-300 hover:-translate-y-1 shadow-xl`}
+                            >
+                                <div className="relative w-full h-44 bg-slate-800 overflow-hidden flex-shrink-0">
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        className="object-cover object-top transition duration-500 group-hover:scale-105"
+                                        unoptimized={item.image.endsWith('.svg')}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+                                    <div className={`absolute top-3 left-3 px-3 py-1 rounded-full border text-[10px] font-mono font-bold uppercase tracking-widest ${item.labelColor}`}>
+                                        {item.label}
+                                    </div>
+                                </div>
+                                <div className="p-6 flex flex-col flex-grow">
+                                    <h3 className="text-base font-bold text-white group-hover:text-blue-400 transition-colors mb-2 leading-snug">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-sm text-gray-400 leading-relaxed flex-grow">
+                                        {item.description}
+                                    </p>
+                                    <div className="mt-4 text-xs font-bold text-white/40 group-hover:text-white/80 flex items-center gap-1 transition-colors">
+                                        ดูรายละเอียด <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
                     </div>
                 </section>
 

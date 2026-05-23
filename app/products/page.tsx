@@ -14,7 +14,7 @@ export default function ProductsPage() {
     }, []);
 
     const filteredProducts: Product[] = React.useMemo(() => {
-        const allProducts = productsData as Product[];
+        const allProducts = (productsData as Product[]).filter(p => p.active !== false);
         if (selectedCategory === 'all') return allProducts;
         return allProducts.filter(p => p.category === selectedCategory);
     }, [selectedCategory]);

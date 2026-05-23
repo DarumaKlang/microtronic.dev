@@ -33,8 +33,10 @@ export default function ProductGrid({ products }: ProductGridProps) {
             {products.map((product: Product) => {
                 // FIX #8: สร้าง unique pattern id ต่อ card เพื่อป้องกัน duplicate DOM id
                 const patternId = `grid-${product.slug}`;
-                const href = product.direct_url || `/products/${product.slug}`;
-                const isExternal = !!product.direct_url;
+                const href = product.slug === 'micro-account-platform'
+                    ? '/products/micro-account'
+                    : `/products/${product.slug}`;
+                const isExternal = false;
 
                 return (
                     <div

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#0f172a"/>
+  <!-- Nav -->
+  <rect x="0" y="0" width="800" height="56" fill="#1e293b"/>
+  <rect x="24" y="20" width="80" height="16" rx="4" fill="#3b82f6"/>
+  <rect x="580" y="20" width="48" height="16" rx="4" fill="#1e293b"/>
+  <rect x="640" y="20" width="48" height="16" rx="4" fill="#1e293b"/>
+  <rect x="700" y="16" width="76" height="24" rx="12" fill="#3b82f6"/>
+  <!-- Hero -->
+  <rect x="0" y="56" width="800" height="280" fill="#0f172a"/>
+  <rect x="60" y="100" width="320" height="12" rx="6" fill="#ffffff" opacity="0.9"/>
+  <rect x="60" y="124" width="260" height="12" rx="6" fill="#ffffff" opacity="0.7"/>
+  <rect x="60" y="148" width="200" height="10" rx="5" fill="#94a3b8"/>
+  <rect x="60" y="176" width="120" height="36" rx="18" fill="#3b82f6"/>
+  <rect x="196" y="176" width="120" height="36" rx="18" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <!-- Hero image placeholder -->
+  <rect x="440" y="72" width="320" height="240" rx="16" fill="#1e293b"/>
+  <rect x="460" y="92" width="280" height="160" rx="8" fill="#0f172a"/>
+  <circle cx="600" cy="172" r="40" fill="#3b82f6" opacity="0.2"/>
+  <rect x="480" y="200" width="240" height="8" rx="4" fill="#1e293b"/>
+  <rect x="500" y="216" width="200" height="8" rx="4" fill="#1e293b"/>
+  <!-- Cards row -->
+  <rect x="0" y="360" width="800" height="240" fill="#0f172a"/>
+  <rect x="40" y="380" width="220" height="140" rx="12" fill="#1e293b"/>
+  <rect x="56" y="396" width="40" height="40" rx="8" fill="#3b82f6" opacity="0.3"/>
+  <rect x="56" y="448" width="140" height="10" rx="5" fill="#ffffff" opacity="0.8"/>
+  <rect x="56" y="466" width="100" height="8" rx="4" fill="#94a3b8"/>
+  <rect x="290" y="380" width="220" height="140" rx="12" fill="#1e293b"/>
+  <rect x="306" y="396" width="40" height="40" rx="8" fill="#ec4899" opacity="0.3"/>
+  <rect x="306" y="448" width="140" height="10" rx="5" fill="#ffffff" opacity="0.8"/>
+  <rect x="306" y="466" width="100" height="8" rx="4" fill="#94a3b8"/>
+  <rect x="540" y="380" width="220" height="140" rx="12" fill="#1e293b"/>
+  <rect x="556" y="396" width="40" height="40" rx="8" fill="#06b6d4" opacity="0.3"/>
+  <rect x="556" y="448" width="140" height="10" rx="5" fill="#ffffff" opacity="0.8"/>
+  <rect x="556" y="466" width="100" height="8" rx="4" fill="#94a3b8"/>
+  <!-- Label -->
+  <rect x="24" y="568" width="120" height="20" rx="4" fill="#3b82f6" opacity="0.2"/>
+  <text x="84" y="582" font-family="Inter,sans-serif" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="700">CORPORATE</text>
+</svg>

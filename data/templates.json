@@ -1,0 +1,62 @@
+[
+  {
+    "id": "tpl-corporate-01",
+    "name": "Corporate Pro",
+    "category": "corporate",
+    "price": 5000,
+    "preview_image": "/images/templates/tpl-corporate.svg",
+    "tags": ["Next.js 16", "Dark Mode", "SEO"],
+    "demo_url": "",
+    "buy_url": "/contact?product=tpl-corporate-01"
+  },
+  {
+    "id": "tpl-saas-01",
+    "name": "SaaS Dashboard",
+    "category": "saas",
+    "price": 8000,
+    "preview_image": "/images/templates/tpl-saas.svg",
+    "tags": ["Next.js 16", "TypeScript", "Charts"],
+    "demo_url": "",
+    "buy_url": "/contact?product=tpl-saas-01"
+  },
+  {
+    "id": "tpl-ecommerce-01",
+    "name": "E-commerce Starter",
+    "category": "ecommerce",
+    "price": 12000,
+    "preview_image": "/images/templates/tpl-ecommerce.svg",
+    "tags": ["Next.js 16", "Stripe", "Mobile First"],
+    "demo_url": "",
+    "buy_url": "/contact?product=tpl-ecommerce-01"
+  },
+  {
+    "id": "tpl-portfolio-01",
+    "name": "Portfolio & Agency",
+    "category": "portfolio",
+    "price": 4500,
+    "preview_image": "/images/templates/tpl-portfolio.svg",
+    "tags": ["Next.js 16", "Framer Motion", "Dark Mode"],
+    "demo_url": "",
+    "buy_url": "/contact?product=tpl-portfolio-01"
+  },
+  {
+    "id": "tpl-restaurant-01",
+    "name": "Restaurant & Food",
+    "category": "restaurant",
+    "price": 5500,
+    "preview_image": "/images/templates/tpl-restaurant.svg",
+    "tags": ["Next.js 16", "Menu System", "QR Order"],
+    "demo_url": "",
+    "buy_url": "/contact?product=tpl-restaurant-01"
+  },
+  {
+    "id": "tpl-realestate-01",
+    "name": "Real Estate",
+    "category": "realestate",
+    "price": 7000,
+    "preview_image": "/images/templates/tpl-realestate.svg",
+    "tags": ["Next.js 16", "Map Integration", "Search"],
+    "demo_url": "",
+    "buy_url": "/contact?product=tpl-realestate-01"
+  }
+]
