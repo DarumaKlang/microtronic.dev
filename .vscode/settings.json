@@ -8,6 +8,10 @@
         "/^pnpm exec eslint app/layout\\.tsx$/": {
             "approve": true,
             "matchCommandLine": true
+        },
+        "/^grep -nE 'AIza\\|sk-\\[A-Za-z0-9\\]\\|GEMINI_API_KEY=' GEMINI_BACKEND_READINESS\\.md \\|\\| true$/": {
+            "approve": true,
+            "matchCommandLine": true
         }
     }
 }
