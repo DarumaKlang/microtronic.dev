@@ -70,6 +70,7 @@ export const metadata: Metadata = {
     },
     // Custom Tags for AI Agents (GEO/LLM-SEO)
     other: {
+        'facebook-domain-verification': 'e0e02cbvue3gh4uaf0drot0w6kfgvg',
         'ai-optimized': 'true',
         'llm-content-verified': '2026-01-01',
         'architecture-type': 'RSC-First AI-Integrated Shell',

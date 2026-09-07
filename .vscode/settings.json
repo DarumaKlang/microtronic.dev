@@ -1,3 +1,13 @@
 {
-    "idf.pythonInstallPath": "/usr/bin/python3"
+    "idf.pythonInstallPath": "/usr/bin/python3",
+    "chat.tools.terminal.autoApprove": {
+        "/^test -d node_modules && printf 'node_modules-present\\\\n' \\|\\| printf 'node_modules-missing\\\\n'; test -x node_modules/\\.bin/tsc && printf 'tsc-present\\\\n' \\|\\| printf 'tsc-missing\\\\n'; test -x node_modules/\\.bin/next && printf 'next-present\\\\n' \\|\\| printf 'next-missing\\\\n'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^pnpm exec eslint app/layout\\.tsx$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
 }
