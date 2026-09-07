@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TikTok Authorization Callback</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background:#0b0b0f; color:#e8e8ef; display:flex; justify-content:center; align-items:center; min-height:100vh; margin:0; }
+    .card { background:#17181f; border:1px solid #2a2c38; border-radius:14px; padding:32px; max-width:560px; width:100%; box-sizing:border-box; }
+    h1 { font-size:19px; margin:0 0 16px; }
+    pre { background:#000; border:1px solid #2a2c38; border-radius:8px; padding:14px; overflow:auto; font-size:12px; white-space:pre-wrap; word-break:break-all; }
+    .btn { display:inline-block; background:#fe2c55; color:#fff; border:0; border-radius:8px; padding:10px 16px; font-size:14px; cursor:pointer; margin-top:12px; }
+    form input, form button { display:block; width:100%; box-sizing:border-box; margin-top:8px; padding:10px; border-radius:8px; border:1px solid #2a2c38; background:#000; color:#e8e8ef; font-size:14px; }
+    form button { background:#25f4ee; color:#000; font-weight:600; border:0; cursor:pointer; }
+    .err { color:#fe2c55; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>TikTok Authorization</h1>
+    <div id="result">กำลังอ่านค่า <code>code</code> จาก URL…</div>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const state = params.get('state');
+    const error = params.get('error');
+    const errDesc = params.get('error_description');
+    const result = document.getElementById('result');
+
+    if (error) {
+      result.innerHTML = '<p class="err">Error: ' + error + '</p><p>' + (errDesc || '') + '</p>';
+    } else if (code) {
+      result.innerHTML =
+        '<p>สำเร็จ! คัดลอก authorization code ด้านล่างไปให้ผู้ช่วย แล้วรัน <code>exchange &lt;code&gt;</code> ได้เลย:</p>' +
+        '<pre id="codeval">' + code + '</pre>' +
+        '<button class="btn" onclick="navigator.clipboard.writeText(document.getElementById(\'codeval\').textContent)">Copy code</button>' +
+        '<p>State: ' + (state || '(none)') + '</p>';
+    } else {
+      result.innerHTML = '<p>ไม่มี <code>code</code> ใน URL — กลับไปกด authorize ใหม่</p>';
+    }
+  </script>
+</body>
+</html>
