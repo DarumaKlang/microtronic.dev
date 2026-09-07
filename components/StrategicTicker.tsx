@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
 
 const insights = [
     "🚀 [ARCH] NEXT.JS 16 READY: EDGE RUNTIME IS THE NEW STANDARD",

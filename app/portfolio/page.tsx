@@ -74,12 +74,12 @@ export default function PortfolioPage() {
                                 ไม่ใช่แค่ผลงาน แต่คือ <strong>โปรดักซ์ใหม่ล่าสุดของเรา!</strong> ระบบจัดการงานบัญชีที่ออกแบบมาเพื่อธุรกิจยุคใหม่ ยกระดับการจัดการงบการเงินด้วย Cloud Native Performance
                             </p>
                             <div className="flex flex-wrap gap-4">
-                                <a
+                                <Link
                                     href="/products/micro-account"
                                     className="px-8 py-3 bg-white text-blue-900 font-bold rounded-full hover:bg-blue-50 transition transform hover:scale-105 active:scale-95 shadow-xl"
                                 >
                                     ดูรายละเอียด Micro-Account
-                                </a>
+                                </Link>
                                 <Link
                                     href="/portfolio/high-performance"
                                     className="px-8 py-3 bg-blue-600/50 backdrop-blur-md text-white font-bold rounded-full hover:bg-blue-600/70 transition border border-white/20"
