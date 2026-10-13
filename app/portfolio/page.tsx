@@ -69,7 +69,7 @@ export default function PortfolioPage() {
                     <div className={`group relative grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden rounded-3xl ${GLASS_PANEL_CLASS} border-white/20 shadow-2xl`}>
                         <div className="p-8 lg:p-12 flex flex-col justify-center">
                             <span className="text-pink-400 font-bold tracking-tighter mb-2">SaaS SOLUTION</span>
-                            <h3 className="text-4xl font-black mb-4">Micro Formula V1.0</h3>
+                            <h3 className="text-4xl font-black mb-4">MBSuite</h3>
                             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
                                 ไม่ใช่แค่ผลงาน แต่คือ <strong>โปรดักซ์ใหม่ล่าสุดของเรา!</strong> ระบบจัดการงานบัญชีที่ออกแบบมาเพื่อธุรกิจยุคใหม่ ยกระดับการจัดการงบการเงินด้วย Cloud Native Performance
                             </p>
@@ -78,7 +78,7 @@ export default function PortfolioPage() {
                                     href="/products/micro-account"
                                     className="px-8 py-3 bg-white text-blue-900 font-bold rounded-full hover:bg-blue-50 transition transform hover:scale-105 active:scale-95 shadow-xl"
                                 >
-                                    ดูรายละเอียด Micro-Account
+                                    ดูรายละเอียด MBSuite
                                 </Link>
                                 <Link
                                     href="/portfolio/high-performance"
@@ -132,14 +132,14 @@ export default function PortfolioPage() {
                                 accentColor: 'hover:border-emerald-500/50',
                             },
                             {
-                                slug: 'kafra-platform-ecommerce',
-                                label: 'E-commerce',
-                                labelColor: 'text-orange-400 border-orange-500/30 bg-orange-500/10',
-                                title: 'Kafra Platform — E-commerce สำเร็จรูป',
-                                description: 'แพลตฟอร์ม E-commerce สำเร็จรูปสำหรับธุรกิจไทย พร้อมระบบแคตาล็อกและการชำระเงิน',
-                                image: '/images/kafra-ecommerce-preview.svg',
-                                href: '/products/kafra-platform-ecommerce',
-                                accentColor: 'hover:border-orange-500/50',
+                                slug: 'vessuyan-app',
+                                label: 'SaaS',
+                                labelColor: 'text-purple-400 border-purple-500/30 bg-purple-500/10',
+                                title: 'Vessuyan App — แพลตฟอร์มดูดวงอัตโนมัติ',
+                                description: 'บริการเนื้อหาสายมูรายวันสำหรับ LINE OA — ไพ่ทาโรต์ รูน และราศี ออกรายวันอัตโนมัติ',
+                                image: '/images/vessuyan-preview.svg',
+                                href: '/products/vessuyan-app',
+                                accentColor: 'hover:border-purple-500/50',
                             },
                         ].map((item) => (
                             <Link

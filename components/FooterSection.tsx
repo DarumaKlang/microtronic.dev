@@ -56,6 +56,9 @@ const FooterSection: React.FC = () => (
                     <li>
                         <Link href="/terms" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">ข้อกำหนดและข้อตกลง</Link>
                     </li>
+                    <li>
+                        <Link href="/privacy" className="text-sm text-gray-400 hover:text-pink-400 transition duration-200">นโยบายความเป็นส่วนตัว</Link>
+                    </li>
                 </ul>
             </div>
 
@@ -98,7 +101,9 @@ const FooterSection: React.FC = () => (
         <div className="mt-12 text-center border-t border-white/5 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <p className="text-sm text-gray-500">
-                    © 2026 Microtronic Dev. สงวนลิขสิทธิ์ทั้งหมด | สร้างสรรค์ด้วย Next.js และ TypeScript
+                    <a href="https://microtronic.biz/" className="hover:text-cyan-300 transition duration-200">
+                        Powered by Microtronic © 2026 Microtronic Co., Ltd.
+                    </a>
                 </p>
                 <div className="flex items-center gap-2 text-[10px] font-mono font-bold text-gray-500 uppercase tracking-widest">
                     <span>CRAFTED WITH</span>

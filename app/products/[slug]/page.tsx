@@ -11,7 +11,7 @@ interface Props {
     params: Promise<{ slug: string }>;
 }
 
-const TEMPLATE_SLUGS = ['templates-shop', 'thoth-platform-cms', 'kafra-platform-ecommerce'];
+const TEMPLATE_SLUGS = ['templates-shop', 'thoth-platform-cms'];
 
 export async function generateStaticParams() {
     return (productsData as Product[])

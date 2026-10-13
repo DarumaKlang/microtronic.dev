@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { LayoutGrid, Cloud, Utensils, Cpu, Globe, Smartphone, Layers, Filter } from 'lucide-react';
+import { LayoutGrid, Cloud, Utensils, Cpu, Globe, Smartphone, Layers, Filter, KeyRound } from 'lucide-react';
 
 const categories = [
     { id: 'all', name: 'All Products', icon: LayoutGrid },
@@ -10,6 +10,7 @@ const categories = [
     { id: 'iot', name: 'IoT & Tech', icon: Cpu },
     { id: 'websites', name: 'Websites', icon: Globe },
     { id: 'templates', name: 'Templates', icon: Layers },
+    { id: 'licensing', name: 'Licensing', icon: KeyRound },
     { id: 'mobile-apps', name: 'Mobile Apps', icon: Smartphone },
 ];
 

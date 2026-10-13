@@ -1,0 +1,36 @@
+Build Log - microtronic.biz JSON-LD Schema & Company Info Update
+===============================================================
+
+Timestamp: 2026-01-10
+Build Status: SUCCESS ✓
+
+Build Output:
+  Creating an optimized production build ...
+  ✓ Compiled successfully in 2.9s
+  ✓ TypeScript compilation: 3.8s
+  ✓ Generating static pages: 619ms
+
+Pages Generated: 29/29 ✓
+  - Static (○): 19 pages
+  - SSG (●): 5 pages  
+  - Dynamic (ƒ): 5 endpoints
+
+Key Updates Applied:
+1. JSON-LD Organization Schema Added:
+   - Legal name (Thai/English)
+   - Tax ID: 0105561182888
+   - Dual postal addresses
+   - Verified social channels (Facebook, LinkedIn, X)
+   - Contact information
+
+2. Company Name Standardization:
+   - NavBar: Updated to full legal name
+   - All references: MICROTRONIC (THAILAND) CO., LTD.
+   - Thai variant: บริษัท ไมโครทรอนิก (ไทยแลนด์) จำกัด
+
+3. Social Channels Verification:
+   - Verified: Facebook, LinkedIn, X (in footer & schema)
+   - Removed: GitHub (unverified, not in footer)
+
+Exit Code: 0
+Build: PASSED

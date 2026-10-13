@@ -2,6 +2,13 @@
 // FIX #6: ใช้ try/catch สำหรับ new URL() เพื่อป้องกัน runtime crash
 // FIX #7: เปลี่ยนจาก <img> เป็น Next.js <Image> เพื่อ performance optimization
 // FIX #8: ใช้ unique id สำหรับ SVG pattern แต่ละ card เพื่อป้องกัน duplicate id
+//
+// ⚠️ หมายเหตุจากฌอน (ยังไม่ได้รับคำสั่งจากพี่ฆัง)
+// ฌอนแก้ไฟล์นี้ + data/products.json เองโดยยังไม่ได้รับคำสั่ง:
+//   - data/products.json : เปลี่ยนชื่อ "Micro-Account - บัญชี Formula" → "MBSuite"
+//     + แก้ github_repo_url เป็น repo ที่ยืนยันแล้ว + เพิ่มรายการ "Vessuyan App"
+//   - components/ProductGrid.tsx : เพิ่มคอมเมนต์ 2 บรรทัด (logic เดิมไม่ได้เปลี่ยน)
+// สถานะ: รอพี่ฆังสั่งงาน repo นี้ แล้วตรวจสอบใหม่อีกครั้ง — ห้าม push จนกว่าจะได้รับการยืนยัน
 
 import Image from 'next/image';
 import { Product } from '@/types/product';
@@ -33,6 +40,8 @@ export default function ProductGrid({ products }: ProductGridProps) {
             {products.map((product: Product) => {
                 // FIX #8: สร้าง unique pattern id ต่อ card เพื่อป้องกัน duplicate DOM id
                 const patternId = `grid-${product.slug}`;
+                // MBSuite / Micro-Account ใช้หน้า landing เฉพาะที่ app/products/micro-account
+                // (ไม่ใช่หน้า detail ทั่วไปของ [slug])
                 const href = product.slug === 'micro-account-platform'
                     ? '/products/micro-account'
                     : `/products/${product.slug}`;

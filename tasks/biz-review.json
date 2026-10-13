@@ -1,0 +1,18 @@
+{
+  "verdict": "CHANGES_REQUESTED",
+  "findings": [
+    {
+      "issue": "NavBar branding inconsistency",
+      "description": "The NavBar displays 'Microtronic Dev' as the primary site branding, contradicting the requirement to replace all company name references with the full legal name. This is the most prominent and persistent UI element seen on every page. Update to 'MICROTRONIC (THAILAND) CO., LTD.' or appropriate variant."
+    },
+    {
+      "issue": "Unverified social channel in schema",
+      "description": "sameAs includes 'https://github.com/DarumaKlang' but this account has no corresponding footer link and lacks verification that it represents the company. Per the requirement to include only real verified channels, either verify the GitHub account and add it to the footer, or remove it from the schema."
+    },
+    {
+      "issue": "Test coverage for schema validity",
+      "description": "No verification that the JSON-LD parses correctly and validates against schema.org. Build success doesn't guarantee JSON syntax correctness. Recommend running through schema.org/Organization validator before considering this complete."
+    }
+  ],
+  "reviewDoc": "/home/neon13/workspace/services/next/00-MAIN-WEB/microtronic.dev/.agents/tasks/biz-review-doc.md"
+}
